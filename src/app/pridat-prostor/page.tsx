@@ -254,8 +254,8 @@ export default function AddVenuePage() {
             Vytvořte si účet a přidejte svůj event prostor. Staňte se součástí největší platformy 
             pro event prostory v Praze a začněte přijímat rezervace ještě dnes.
           </p>
-          <div className="bg-blue-50 border border-blue-200 rounded-lg p-3 sm:p-4 mt-4">
-            <p className="text-sm sm:text-callout text-blue-800">
+                      <div className="bg-gray-50 border border-gray-200 rounded-lg p-3 sm:p-4 mt-4">
+            <p className="text-sm sm:text-callout text-black">
               💡 <strong>Tip:</strong> Vyplněním tohoto formuláře vytvoříte účet i přidáte prostor najednou. 
               Po odeslání se budete moci přihlásit a spravovat svůj prostor.
             </p>

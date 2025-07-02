@@ -170,7 +170,7 @@ async function EventRequestsList() {
                     <Mail className="h-4 w-4 text-gray-500" />
                     <a 
                       href={`mailto:${request.contactEmail}`}
-                      className="text-callout text-blue-600 hover:underline"
+                      className="text-callout text-black hover:underline hover:text-gray-700"
                     >
                       {request.contactEmail}
                     </a>
@@ -180,7 +180,7 @@ async function EventRequestsList() {
                       <Phone className="h-4 w-4 text-gray-500" />
                       <a 
                         href={`tel:${request.contactPhone}`}
-                        className="text-callout text-blue-600 hover:underline"
+                        className="text-callout text-black hover:underline hover:text-gray-700"
                       >
                         {request.contactPhone}
                       </a>

@@ -48,8 +48,8 @@ export function VenueCard({ venue }: VenueCardProps) {
           </div>
         </div>
         
-        <CardContent className="p-4 sm:p-6 bg-gradient-to-b from-white/95 to-white/90">
-          <h3 className="text-lg sm:text-title-3 text-gray-900 mb-2 group-hover:bg-gradient-to-r group-hover:from-blue-600 group-hover:to-purple-600 group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300 leading-tight font-bold">
+        <CardContent className="p-4 sm:p-6 bg-white">
+          <h3 className="text-lg sm:text-xl text-black mb-2 group-hover:text-gray-700 transition-all duration-300 leading-tight font-bold">
             {venue.name}
           </h3>
           
@@ -66,11 +66,11 @@ export function VenueCard({ venue }: VenueCardProps) {
           <div className="text-sm sm:text-callout">
             <div className="text-gray-600 leading-tight font-medium">
               {venue.capacitySeated && venue.capacityStanding ? (
-                <span className="px-2 py-1 bg-blue-50 rounded-lg">{venue.capacitySeated} sed. / {venue.capacityStanding} stoj.</span>
+                <span className="px-2 py-1 bg-gray-100 rounded-lg text-black">{venue.capacitySeated} sed. / {venue.capacityStanding} stoj.</span>
               ) : venue.capacitySeated ? (
-                <span className="px-2 py-1 bg-blue-50 rounded-lg">{venue.capacitySeated} sedících</span>
+                <span className="px-2 py-1 bg-gray-100 rounded-lg text-black">{venue.capacitySeated} sedících</span>
               ) : venue.capacityStanding ? (
-                <span className="px-2 py-1 bg-blue-50 rounded-lg">{venue.capacityStanding} stojících</span>
+                <span className="px-2 py-1 bg-gray-100 rounded-lg text-black">{venue.capacityStanding} stojících</span>
               ) : null}
             </div>
           </div>

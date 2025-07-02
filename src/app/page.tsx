@@ -51,7 +51,7 @@ async function FeaturedVenues() {
   if (venues.length === 0) {
     return (
       <div className="text-center py-12">
-        <p className="text-body text-gray-600">
+        <p className="text-base text-gray-600">
           Zatím nejsou k dispozici žádné prostory.
         </p>
         <Link href="/pridat-prostor" className="mt-4 inline-block">
@@ -77,19 +77,19 @@ export default function HomePage() {
       <AnimatedBackground />
       
       {/* Hero Section */}
-      <section className="relative py-32 px-6 bg-gradient-to-br from-gray-900 via-blue-900 to-indigo-900">
+      <section className="relative py-32 px-6 bg-black">
         <FloatingShapes />
         <div className="max-w-4xl mx-auto text-center relative z-20">
           <div className="animate-slide-up">
-            <h1 className="text-display text-white mb-6 font-black tracking-tight drop-shadow-lg">
+            <h1 className="text-6xl md:text-7xl text-white mb-6 font-bold tracking-tight drop-shadow-lg">
               Najděte perfektní prostor<br />
               pro vaši akci
-              <Sparkles className="inline-block ml-4 h-12 w-12 text-blue-400 animate-pulse" />
+              <Sparkles className="inline-block ml-4 h-12 w-12 text-white animate-pulse" />
             </h1>
           </div>
           
           <div className="animate-slide-up" style={{ animationDelay: '0.2s' }}>
-            <p className="text-title-3 text-gray-200 mb-12 max-w-2xl mx-auto font-medium">
+            <p className="text-xl text-gray-300 mb-12 max-w-2xl mx-auto font-medium">
               Největší katalog event prostorů v Praze. Bez provizí, přímý kontakt s provozovateli.
             </p>
           </div>
@@ -103,15 +103,15 @@ export default function HomePage() {
       </section>
       
       {/* Featured Venues */}
-      <section className="py-20 px-6 bg-gradient-to-br from-gray-100 to-gray-200 relative">
+      <section className="py-20 px-6 bg-gray-50 relative">
         <div className="max-w-7xl mx-auto">
           <ScrollReveal>
             <div className="text-center mb-16">
-              <h2 className="text-title-1 text-gray-900 mb-6 font-bold">
+              <h2 className="text-4xl text-black mb-6 font-bold">
                 Doporučené prostory
-                <Sparkles className="inline-block ml-2 h-8 w-8 text-blue-600" />
+                <Sparkles className="inline-block ml-2 h-8 w-8 text-black" />
               </h2>
-              <p className="text-body text-gray-700 max-w-2xl mx-auto text-lg font-medium">
+              <p className="text-lg text-gray-700 max-w-2xl mx-auto font-medium">
                 Objevte nejlepší event prostory v Praze vybrané naším týmem
               </p>
             </div>
@@ -137,7 +137,7 @@ export default function HomePage() {
                 <Button 
                   variant="secondary" 
                   size="lg" 
-                  className="magnetic-button hover-lift glass-card rounded-2xl px-8 py-3 text-lg font-semibold"
+                  className="magnetic-button hover-lift rounded-2xl px-8 py-4 text-base font-semibold shadow-lg hover:shadow-xl"
                 >
                   <Star className="mr-2 h-5 w-5" />
                   Zobrazit všechny prostory
@@ -149,19 +149,19 @@ export default function HomePage() {
       </section>
 
       {/* CTA for Venue Owners */}
-      <section className="relative py-20 px-6 bg-gradient-to-br from-gray-900 via-blue-900 to-indigo-900 overflow-hidden">
+      <section className="relative py-20 px-6 bg-black overflow-hidden">
         {/* Background decorative elements */}
-        <div className="absolute top-10 left-10 w-32 h-32 bg-gradient-to-br from-blue-400/20 to-indigo-500/20 rounded-full blur-2xl animate-float-slow" />
-        <div className="absolute bottom-10 right-10 w-40 h-40 bg-gradient-to-br from-indigo-400/20 to-blue-500/20 rounded-full blur-2xl animate-float-medium" />
+        <div className="absolute top-10 left-10 w-32 h-32 bg-white/10 rounded-full blur-2xl animate-float-slow" />
+        <div className="absolute bottom-10 right-10 w-40 h-40 bg-white/5 rounded-full blur-2xl animate-float-medium" />
         
         <div className="max-w-7xl mx-auto relative z-10">
           <ScrollReveal>
             <div className="text-center mb-16">
-              <h2 className="text-3xl sm:text-title-1 text-white mb-6 leading-tight font-bold">
+              <h2 className="text-4xl md:text-5xl text-white mb-6 leading-tight font-bold">
                 Vlastníte event prostor?
-                <Zap className="inline-block ml-2 h-8 w-8 text-blue-400" />
+                <Zap className="inline-block ml-2 h-8 w-8 text-white" />
               </h2>
-              <p className="text-lg sm:text-title-3 text-gray-200 max-w-3xl mx-auto leading-relaxed font-medium">
+              <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed font-medium">
                 Připojte se k tisícům spokojených provozovatelů a začněte vydělávat 
                 na svém prostoru už dnes
               </p>
@@ -171,8 +171,8 @@ export default function HomePage() {
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 mb-16">
             <ScrollReveal delay={100}>
               <div className="text-center group">
-                <div className="w-20 h-20 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-2xl flex items-center justify-center mx-auto mb-6 hover-lift animate-pulse-glow group-hover:scale-110 transition-all duration-300">
-                  <Upload className="w-10 h-10 text-white" />
+                <div className="w-20 h-20 bg-white rounded-2xl flex items-center justify-center mx-auto mb-6 hover-lift group-hover:scale-110 transition-all duration-300 shadow-lg hover:shadow-2xl">
+                  <Upload className="w-10 h-10 text-black" />
                 </div>
                 <h3 className="text-xl font-bold text-white mb-3">Přidejte prostor</h3>
                 <p className="text-gray-300 leading-relaxed">
@@ -183,8 +183,8 @@ export default function HomePage() {
             
             <ScrollReveal delay={200}>
               <div className="text-center group">
-                <div className="w-20 h-20 bg-gradient-to-br from-indigo-600 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-6 hover-lift animate-pulse-glow group-hover:scale-110 transition-all duration-300">
-                  <MessageSquare className="w-10 h-10 text-white" />
+                <div className="w-20 h-20 bg-white rounded-2xl flex items-center justify-center mx-auto mb-6 hover-lift group-hover:scale-110 transition-all duration-300 shadow-lg hover:shadow-2xl">
+                  <MessageSquare className="w-10 h-10 text-black" />
                 </div>
                 <h3 className="text-xl font-bold text-white mb-3">Přijímejte dotazy</h3>
                 <p className="text-gray-300 leading-relaxed">
@@ -195,8 +195,8 @@ export default function HomePage() {
             
             <ScrollReveal delay={300}>
               <div className="text-center group">
-                <div className="w-20 h-20 bg-gradient-to-br from-blue-600 to-cyan-600 rounded-2xl flex items-center justify-center mx-auto mb-6 hover-lift animate-pulse-glow group-hover:scale-110 transition-all duration-300">
-                  <Euro className="w-10 h-10 text-white" />
+                <div className="w-20 h-20 bg-white rounded-2xl flex items-center justify-center mx-auto mb-6 hover-lift group-hover:scale-110 transition-all duration-300 shadow-lg hover:shadow-2xl">
+                  <Euro className="w-10 h-10 text-black" />
                 </div>
                 <h3 className="text-xl font-bold text-white mb-3">Vydělávejte</h3>
                 <p className="text-gray-300 leading-relaxed">
@@ -212,7 +212,7 @@ export default function HomePage() {
                 <Link href="/pridat-prostor">
                   <Button 
                     size="lg" 
-                    className="magnetic-button hover-lift w-full sm:w-auto px-8 py-3 text-lg font-semibold rounded-2xl bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 shadow-xl"
+                    className="magnetic-button hover-lift w-full sm:w-auto px-8 py-4 text-base font-semibold rounded-2xl bg-white text-black hover:bg-gray-100 shadow-xl hover:shadow-2xl"
                   >
                     <Sparkles className="mr-2 h-5 w-5" />
                     Přidat prostor zdarma
@@ -222,7 +222,7 @@ export default function HomePage() {
                   <Button 
                     variant="secondary" 
                     size="lg" 
-                    className="glass-card hover-lift magnetic-button w-full sm:w-auto px-8 py-3 text-lg font-semibold rounded-2xl"
+                    className="hover-lift magnetic-button w-full sm:w-auto px-8 py-4 text-base font-semibold rounded-2xl bg-transparent border-2 border-white text-white hover:bg-white hover:text-black"
                   >
                     <Star className="mr-2 h-5 w-5" />
                     Prohlédnout prostory

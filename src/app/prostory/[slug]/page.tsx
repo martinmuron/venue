@@ -136,7 +136,7 @@ export default async function VenueDetailPage({
                       <Mail className="h-5 w-5 text-gray-500" />
                       <a 
                         href={`mailto:${venue.contactEmail}`}
-                        className="text-body text-blue-600 hover:underline"
+                        className="text-body text-black hover:underline hover:text-gray-700"
                       >
                         {venue.contactEmail}
                       </a>
@@ -147,7 +147,7 @@ export default async function VenueDetailPage({
                       <Phone className="h-5 w-5 text-gray-500" />
                       <a 
                         href={`tel:${venue.contactPhone}`}
-                        className="text-body text-blue-600 hover:underline"
+                        className="text-body text-black hover:underline hover:text-gray-700"
                       >
                         {venue.contactPhone}
                       </a>
@@ -160,7 +160,7 @@ export default async function VenueDetailPage({
                         href={venue.websiteUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-body text-blue-600 hover:underline"
+                        className="text-body text-black hover:underline hover:text-gray-700"
                       >
                         Webové stránky
                       </a>

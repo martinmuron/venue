@@ -205,7 +205,7 @@ export default async function BlogPage({
               </Badge>
               <Link 
                 href="/blog"
-                className="text-sm text-blue-600 hover:text-blue-800"
+                className="text-sm text-black hover:text-gray-700"
               >
                 Zrušit filtr
               </Link>

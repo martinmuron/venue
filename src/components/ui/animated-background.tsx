@@ -146,11 +146,11 @@ export function FloatingShapes() {
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none z-10">
       {/* Floating geometric shapes */}
-      <div className="absolute top-20 left-10 w-20 h-20 bg-gradient-to-br from-blue-400/30 to-indigo-500/30 rounded-full blur-xl animate-float-slow" />
-      <div className="absolute top-40 right-20 w-16 h-16 bg-gradient-to-br from-indigo-400/30 to-purple-500/30 rounded-lg rotate-45 blur-lg animate-float-medium" />
-      <div className="absolute bottom-40 left-20 w-24 h-24 bg-gradient-to-br from-cyan-400/30 to-blue-500/30 rounded-full blur-xl animate-float-fast" />
-      <div className="absolute bottom-20 right-10 w-18 h-18 bg-gradient-to-br from-blue-400/30 to-indigo-500/30 rounded-lg rotate-12 blur-lg animate-float-slow" />
-      <div className="absolute top-60 left-1/2 w-14 h-14 bg-gradient-to-br from-purple-400/30 to-blue-500/30 rounded-full blur-lg animate-float-medium" />
+      <div className="absolute top-20 left-10 w-20 h-20 bg-black/20 rounded-full blur-xl animate-float-slow" />
+      <div className="absolute top-40 right-20 w-16 h-16 bg-gray-900/30 rounded-lg rotate-45 blur-lg animate-float-medium" />
+      <div className="absolute bottom-40 left-20 w-24 h-24 bg-black/10 rounded-full blur-xl animate-float-fast" />
+      <div className="absolute bottom-20 right-10 w-18 h-18 bg-gray-800/20 rounded-lg rotate-12 blur-lg animate-float-slow" />
+      <div className="absolute top-60 left-1/2 w-14 h-14 bg-black/15 rounded-full blur-lg animate-float-medium" />
     </div>
   )
 }

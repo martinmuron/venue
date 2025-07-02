@@ -178,7 +178,7 @@ export function VenueManagerDashboard({ data }: VenueManagerDashboardProps) {
                         </p>
                         <a 
                           href={`mailto:${inquiry.email}`}
-                          className="text-caption text-blue-600 hover:underline"
+                          className="text-caption text-black hover:underline hover:text-gray-700"
                         >
                           Odpovědět
                         </a>

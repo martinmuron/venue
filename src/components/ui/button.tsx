@@ -4,19 +4,19 @@ import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "@/lib/utils"
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center whitespace-nowrap rounded-full text-body font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
+  "inline-flex items-center justify-center whitespace-nowrap rounded-xl text-sm font-semibold transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:scale-[1.02] active:scale-[0.98]",
   {
     variants: {
       variant: {
-        default: "bg-black !text-white hover:bg-gray-800 focus-visible:ring-gray-400",
-        secondary: "border border-gray-300 text-gray-900 hover:border-gray-400 hover:bg-gray-50 bg-white focus-visible:ring-gray-500",
-        ghost: "text-gray-900 hover:bg-gray-100 hover:text-black focus-visible:ring-gray-500",
-        link: "text-gray-900 underline-offset-4 hover:underline hover:text-black focus-visible:ring-gray-500",
+        default: "bg-black text-white hover:bg-gray-900 shadow-lg hover:shadow-xl",
+        secondary: "border border-gray-300 text-black hover:border-black hover:bg-gray-50 bg-white shadow-sm hover:shadow-md",
+        ghost: "text-black hover:bg-gray-100 hover:text-black",
+        link: "text-black underline-offset-4 hover:underline hover:text-gray-700",
       },
       size: {
-        default: "px-6 py-2.5",
-        sm: "px-4 py-1.5 text-callout",
-        lg: "px-8 py-3 text-headline",
+        default: "px-6 py-3 text-sm",
+        sm: "px-4 py-2 text-xs",
+        lg: "px-8 py-4 text-base",
         icon: "h-10 w-10",
       },
     },

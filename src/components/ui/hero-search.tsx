@@ -43,27 +43,27 @@ export function HeroSearch() {
     return (
       <div className="relative">
         <div 
-          className="glass-search-dark rounded-2xl p-6 hover-glow cursor-pointer transition-all duration-300 hover:scale-105"
+          className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 hover:bg-white/20 cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-2xl"
           onClick={() => setOpenDropdown(isOpen ? null : dropdownKey)}
         >
           <div className="flex items-center mb-4">
-            <Icon className="h-5 w-5 text-blue-400 mr-3" />
-            <label className="text-lg font-semibold text-gray-200">{label}</label>
+            <Icon className="h-5 w-5 text-white mr-3" />
+            <label className="text-lg font-semibold text-white">{label}</label>
           </div>
           <div className="flex items-center justify-between">
-            <span className="text-base text-white">
+            <span className="text-base text-white/90">
               {value || placeholder}
             </span>
-            <ChevronDown className={`h-5 w-5 text-gray-400 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`} />
+            <ChevronDown className={`h-5 w-5 text-white/70 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`} />
           </div>
         </div>
 
         {/* Dropdown Menu */}
         {isOpen && (
-          <div className="absolute top-full left-0 right-0 mt-2 glass-search-dark rounded-2xl p-4 max-h-60 overflow-y-auto" style={{ zIndex: 9999 }}>
+          <div className="absolute top-full left-0 right-0 mt-2 bg-white/95 backdrop-blur-md border border-gray-200 rounded-2xl p-4 max-h-60 overflow-y-auto shadow-2xl" style={{ zIndex: 9999 }}>
             <div className="space-y-2">
               <div
-                className="p-3 rounded-lg hover:bg-white/10 cursor-pointer transition-colors text-white"
+                className="p-3 rounded-lg hover:bg-gray-100 cursor-pointer transition-colors text-black"
                 onClick={() => {
                   onSelect("")
                   setOpenDropdown(null)
@@ -74,7 +74,7 @@ export function HeroSearch() {
               {options.map((option) => (
                 <div
                   key={option.key}
-                  className="p-3 rounded-lg hover:bg-white/10 cursor-pointer transition-colors text-white"
+                  className="p-3 rounded-lg hover:bg-gray-100 cursor-pointer transition-colors text-black"
                   onClick={() => {
                     onSelect(option.key)
                     setOpenDropdown(null)
@@ -134,9 +134,9 @@ export function HeroSearch() {
           <Button 
             type="submit" 
             size="lg"
-            className="magnetic-button hover-lift px-12 py-3.5 text-lg font-bold rounded-2xl bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 shadow-2xl"
+            className="magnetic-button hover-lift px-12 py-4 text-base font-semibold rounded-2xl bg-black hover:bg-gray-900 text-white shadow-2xl hover:shadow-3xl hover:scale-105 transition-all duration-300"
           >
-            <Search className="mr-3 h-6 w-6" />
+            <Search className="mr-3 h-5 w-5" />
             Najít prostory
           </Button>
         </div>
