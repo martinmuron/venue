@@ -212,7 +212,7 @@ export default function AdminPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
-              <Shield className="h-6 w-6 text-red-600" />
+                              <Shield className="h-6 w-6 text-black" />
               <h1 className="text-xl sm:text-2xl font-bold text-black">
                 Prostormat Admin
               </h1>
@@ -254,7 +254,7 @@ export default function AdminPage() {
                         <p className="text-sm text-gray-500 mb-1">Celkem prostorů</p>
                         <p className="text-2xl font-bold text-black">{stats.totalVenues}</p>
                       </div>
-                      <Building className="h-8 w-8 text-green-600" />
+                      <Building className="h-8 w-8 text-black" />
                     </div>
                   </CardContent>
                 </Card>
@@ -266,7 +266,7 @@ export default function AdminPage() {
                         <p className="text-sm text-gray-500 mb-1">Aktivní prostory</p>
                         <p className="text-2xl font-bold text-black">{stats.activeVenues}</p>
                       </div>
-                      <Eye className="h-8 w-8 text-purple-600" />
+                      <Eye className="h-8 w-8 text-black" />
                     </div>
                   </CardContent>
                 </Card>
@@ -389,7 +389,7 @@ export default function AdminPage() {
                                 size="sm"
                                 variant="secondary"
                                 onClick={() => deleteVenue(venue.id)}
-                                className="h-8 px-2 text-red-600 hover:text-red-700"
+                                className="h-8 px-2 text-gray-600 hover:text-black"
                               >
                                 <Trash2 className="h-3 w-3" />
                               </Button>
