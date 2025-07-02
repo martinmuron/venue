@@ -134,7 +134,7 @@ export function HeroSearch() {
           <Button 
             type="submit" 
             size="lg"
-            className="magnetic-button hover-lift px-16 py-5 text-xl font-bold rounded-2xl bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 shadow-2xl"
+            className="magnetic-button hover-lift px-12 py-3.5 text-lg font-bold rounded-2xl bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 shadow-2xl"
           >
             <Search className="mr-3 h-6 w-6" />
             Najít prostory

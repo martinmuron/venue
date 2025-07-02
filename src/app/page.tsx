@@ -137,7 +137,7 @@ export default function HomePage() {
                 <Button 
                   variant="secondary" 
                   size="lg" 
-                  className="magnetic-button hover-lift glass-card rounded-2xl px-10 py-4 text-lg font-semibold"
+                  className="magnetic-button hover-lift glass-card rounded-2xl px-8 py-3 text-lg font-semibold"
                 >
                   <Star className="mr-2 h-5 w-5" />
                   Zobrazit všechny prostory
@@ -212,7 +212,7 @@ export default function HomePage() {
                 <Link href="/pridat-prostor">
                   <Button 
                     size="lg" 
-                    className="magnetic-button hover-lift w-full sm:w-auto px-10 py-4 text-lg font-semibold rounded-2xl bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 shadow-xl"
+                    className="magnetic-button hover-lift w-full sm:w-auto px-8 py-3 text-lg font-semibold rounded-2xl bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 shadow-xl"
                   >
                     <Sparkles className="mr-2 h-5 w-5" />
                     Přidat prostor zdarma
@@ -222,7 +222,7 @@ export default function HomePage() {
                   <Button 
                     variant="secondary" 
                     size="lg" 
-                    className="glass-card hover-lift magnetic-button w-full sm:w-auto px-10 py-4 text-lg font-semibold rounded-2xl"
+                    className="glass-card hover-lift magnetic-button w-full sm:w-auto px-8 py-3 text-lg font-semibold rounded-2xl"
                   >
                     <Star className="mr-2 h-5 w-5" />
                     Prohlédnout prostory

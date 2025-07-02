@@ -14,9 +14,9 @@ const buttonVariants = cva(
         link: "text-gray-900 underline-offset-4 hover:underline hover:text-black focus-visible:ring-gray-500",
       },
       size: {
-        default: "px-8 py-3",
-        sm: "px-6 py-2 text-callout",
-        lg: "px-10 py-4 text-headline",
+        default: "px-6 py-2.5",
+        sm: "px-4 py-1.5 text-callout",
+        lg: "px-8 py-3 text-headline",
         icon: "h-10 w-10",
       },
     },
