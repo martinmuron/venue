@@ -89,46 +89,46 @@ export function Header() {
               </Button>
             </SheetTrigger>
             <SheetContent side="right" className="w-80">
-              <nav className="flex flex-col space-y-4 mt-6">
+              <nav className="flex flex-col space-y-3 mt-4">
                 <Link 
                   href="/prostory" 
-                  className="text-lg font-medium text-gray-700 hover:text-black transition-colors"
+                  className="text-lg font-medium text-gray-700 hover:text-black transition-colors py-2"
                 >
                   Prostory
                 </Link>
                 <Link 
                   href="/pozadavky" 
-                  className="text-lg font-medium text-gray-700 hover:text-black transition-colors"
+                  className="text-lg font-medium text-gray-700 hover:text-black transition-colors py-2"
                 >
                   Požadavky na akce
                 </Link>
                 <Link 
                   href="/blog" 
-                  className="text-lg font-medium text-gray-700 hover:text-black transition-colors"
+                  className="text-lg font-medium text-gray-700 hover:text-black transition-colors py-2"
                 >
                   Blog
                 </Link>
                 <Link 
                   href="/ceny" 
-                  className="text-lg font-medium text-gray-700 hover:text-black transition-colors"
+                  className="text-lg font-medium text-gray-700 hover:text-black transition-colors py-2"
                 >
                   Ceny
                 </Link>
                 <Link 
                   href="/kontakt" 
-                  className="text-lg font-medium text-gray-700 hover:text-black transition-colors"
+                  className="text-lg font-medium text-gray-700 hover:text-black transition-colors py-2"
                 >
                   Kontakt
                 </Link>
                 <Link 
                   href="/pridat-prostor" 
-                  className="text-lg font-medium text-gray-700 hover:text-black transition-colors"
+                  className="text-lg font-medium text-gray-700 hover:text-black transition-colors py-2"
                 >
                   Přidat prostor
                 </Link>
                 
                 {/* Mobile Auth */}
-                <div className="pt-6 border-t border-gray-200 space-y-3">
+                <div className="pt-4 border-t border-gray-200 space-y-2 mt-4">
                   {status === "loading" ? (
                     <div className="w-8 h-8 bg-gray-200 rounded-full animate-pulse" />
                   ) : session ? (
