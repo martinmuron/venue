@@ -19,7 +19,9 @@ async function getVenues() {
           select: { name: true, email: true, phone: true },
         },
         _count: {
-          select: { inquiries: true, broadcastLogs: true, favorites: true },
+          select: { inquiries: true, broadcastLogs: true }
+          // TODO: Add favorites count back when venueFavorite model is implemented
+          // favorites: true
         },
       },
       orderBy: { updatedAt: 'desc' },

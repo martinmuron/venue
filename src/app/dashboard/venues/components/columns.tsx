@@ -35,7 +35,8 @@ export type Venue = {
   _count: {
     inquiries: number
     broadcastLogs: number
-    favorites: number
+    // TODO: Add favorites back when venueFavorite model is implemented
+    // favorites: number
   }
   featured: boolean
   subscriptionStatus?: string | null
