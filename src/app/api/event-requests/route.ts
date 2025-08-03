@@ -35,12 +35,13 @@ export async function GET() {
           select: {
             name: true,
           }
-        },
-        favorites: {
-          select: {
-            userId: true,
-          }
         }
+        // TODO: Add favorites back when eventRequestFavorite model is implemented
+        // favorites: {
+        //   select: {
+        //     userId: true,
+        //   }
+        // }
       }
     })
     
