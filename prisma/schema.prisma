@@ -27,7 +27,6 @@ model Account {
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@unique([provider, providerAccountId])
-  @@map("venue_accounts")
 }
 
 model Session {
@@ -36,8 +35,6 @@ model Session {
   userId       String
   expires      DateTime
   user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
-  
-  @@map("venue_sessions")
 }
 
 model User {
@@ -57,11 +54,7 @@ model User {
   venueInquiries VenueInquiry[]
   blogPosts     BlogPost[]
   venueBroadcasts VenueBroadcast[]
-  favorites     VenueFavorite[]
-  eventRequestFavorites EventRequestFavorite[]
   createdAt     DateTime  @default(now())
-  
-  @@map("venue_users")
 }
 
 model VerificationToken {
@@ -70,7 +63,6 @@ model VerificationToken {
   expires    DateTime
 
   @@unique([identifier, token])
-  @@map("venue_verification_tokens")
 }
 
 model Venue {
@@ -88,9 +80,7 @@ model Venue {
   websiteUrl       String?
   images           String[]
   videoUrl         String?
-  youtubeUrl       String?
   status           String   @default("draft") // draft, active, expired
-  isRecommended    Boolean  @default(false) // whether this venue is recommended
   managerId        String
   subscriptionId   String?  // Stripe subscription ID
   expiresAt        DateTime?
@@ -101,9 +91,6 @@ model Venue {
   inquiries    VenueInquiry[]
   subscription Subscription?
   broadcastLogs VenueBroadcastLog[]
-  favorites    VenueFavorite[]
-  
-  @@map("venue_venues")
 }
 
 model EventRequest {
@@ -125,9 +112,6 @@ model EventRequest {
   createdAt           DateTime @default(now())
 
   user User @relation(fields: [userId], references: [id])
-  favorites EventRequestFavorite[]
-  
-  @@map("venue_event_requests")
 }
 
 model VenueInquiry {
@@ -144,8 +128,6 @@ model VenueInquiry {
 
   venue Venue @relation(fields: [venueId], references: [id])
   user  User? @relation(fields: [userId], references: [id])
-  
-  @@map("venue_venue_inquiries")
 }
 
 model Subscription {
@@ -158,8 +140,6 @@ model Subscription {
   createdAt            DateTime @default(now())
 
   venue Venue @relation(fields: [venueId], references: [id])
-  
-  @@map("venue_subscriptions")
 }
 
 model BlogPost {
@@ -179,8 +159,6 @@ model BlogPost {
   updatedAt       DateTime @updatedAt
 
   author User @relation(fields: [authorId], references: [id])
-  
-  @@map("venue_blog_posts")
 }
 
 model VenueBroadcast {
@@ -203,8 +181,6 @@ model VenueBroadcast {
 
   user User @relation(fields: [userId], references: [id])
   logs VenueBroadcastLog[]
-  
-  @@map("venue_venue_broadcasts")
 }
 
 model VenueBroadcastLog {
@@ -217,32 +193,4 @@ model VenueBroadcastLog {
 
   broadcast VenueBroadcast @relation(fields: [broadcastId], references: [id])
   venue Venue @relation(fields: [venueId], references: [id])
-  
-  @@map("venue_venue_broadcast_logs")
-}
-
-model VenueFavorite {
-  id        String   @id @default(cuid())
-  userId    String
-  venueId   String
-  createdAt DateTime @default(now())
-
-  user  User  @relation(fields: [userId], references: [id], onDelete: Cascade)
-  venue Venue @relation(fields: [venueId], references: [id], onDelete: Cascade)
-
-  @@unique([userId, venueId])
-  @@map("venue_venue_favorites")
-}
-
-model EventRequestFavorite {
-  id             String   @id @default(cuid())
-  userId         String
-  eventRequestId String
-  createdAt      DateTime @default(now())
-
-  user         User         @relation(fields: [userId], references: [id], onDelete: Cascade)
-  eventRequest EventRequest @relation(fields: [eventRequestId], references: [id], onDelete: Cascade)
-
-  @@unique([userId, eventRequestId])
-  @@map("venue_event_request_favorites")
 }

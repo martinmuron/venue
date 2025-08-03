@@ -3,20 +3,20 @@
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { VENUE_TYPES, PRAGUE_DISTRICTS, CAPACITY_RANGES } from "@/types"
+import { VENUE_TYPES, US_STATES, CAPACITY_RANGES } from "@/types"
 import { Search, Calendar, Users, MapPin } from "lucide-react"
 
 export function HeroSearch() {
   const [selectedType, setSelectedType] = useState<string>("all")
   const [selectedCapacity, setSelectedCapacity] = useState<string>("all")
-  const [selectedDistrict, setSelectedDistrict] = useState<string>("all")
+  const [selectedState, setSelectedState] = useState<string>("all")
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     const params = new URLSearchParams()
     if (selectedType && selectedType !== "all") params.set("type", selectedType)
     if (selectedCapacity && selectedCapacity !== "all") params.set("capacity", selectedCapacity)
-    if (selectedDistrict && selectedDistrict !== "all") params.set("district", selectedDistrict)
+    if (selectedState && selectedState !== "all") params.set("state", selectedState)
     
     window.location.href = `/prostory?${params.toString()}`
   }
@@ -81,14 +81,14 @@ export function HeroSearch() {
               <label className="text-base font-medium text-black">Lokalita</label>
             </div>
             <div className="flex justify-center">
-              <Select value={selectedDistrict} onValueChange={setSelectedDistrict}>
+              <Select value={selectedState} onValueChange={setSelectedState}>
                 <SelectTrigger className="bg-white border-2 border-amber-700 text-black focus:border-black w-full max-w-xs">
-                  <SelectValue placeholder="Celá Praha" />
+                  <SelectValue placeholder="All States" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="all">Celá Praha</SelectItem>
-                  {PRAGUE_DISTRICTS.map((district) => (
-                    <SelectItem key={district} value={district}>{district}</SelectItem>
+                  <SelectItem value="all">All States</SelectItem>
+                  {US_STATES.map((state) => (
+                    <SelectItem key={state} value={state}>{state}</SelectItem>
                   ))}
                 </SelectContent>
               </Select>

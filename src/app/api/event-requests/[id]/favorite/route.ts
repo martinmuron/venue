@@ -9,6 +9,10 @@ interface RouteContext {
 
 export async function POST(request: Request, { params }: RouteContext) {
   try {
+    // TODO: Implement eventRequestFavorite model in Prisma schema first
+    return NextResponse.json({ error: 'Favorites feature not yet implemented' }, { status: 501 })
+    
+    /* COMMENTED OUT UNTIL eventRequestFavorite MODEL IS ADDED TO SCHEMA
     const session = await getServerSession(authOptions)
     if (!session?.user?.id) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
@@ -49,6 +53,7 @@ export async function POST(request: Request, { params }: RouteContext) {
     })
 
     return NextResponse.json({ message: 'Added to favorites', isFavorited: true })
+    */
   } catch (error) {
     console.error('Error adding to favorites:', error)
     return NextResponse.json({ error: 'Internal server error' }, { status: 500 })
@@ -57,6 +62,10 @@ export async function POST(request: Request, { params }: RouteContext) {
 
 export async function DELETE(request: Request, { params }: RouteContext) {
   try {
+    // TODO: Implement eventRequestFavorite model in Prisma schema first
+    return NextResponse.json({ error: 'Favorites feature not yet implemented' }, { status: 501 })
+    
+    /* COMMENTED OUT UNTIL eventRequestFavorite MODEL IS ADDED TO SCHEMA
     const session = await getServerSession(authOptions)
     if (!session?.user?.id) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
@@ -74,6 +83,7 @@ export async function DELETE(request: Request, { params }: RouteContext) {
     })
 
     return NextResponse.json({ message: 'Removed from favorites', isFavorited: false })
+    */
   } catch (error) {
     console.error('Error removing from favorites:', error)
     return NextResponse.json({ error: 'Internal server error' }, { status: 500 })
@@ -82,6 +92,10 @@ export async function DELETE(request: Request, { params }: RouteContext) {
 
 export async function GET(request: Request, { params }: RouteContext) {
   try {
+    // TODO: Implement eventRequestFavorite model in Prisma schema first
+    return NextResponse.json({ isFavorited: false })
+    
+    /* COMMENTED OUT UNTIL eventRequestFavorite MODEL IS ADDED TO SCHEMA
     const session = await getServerSession(authOptions)
     if (!session?.user?.id) {
       return NextResponse.json({ isFavorited: false })
@@ -100,6 +114,7 @@ export async function GET(request: Request, { params }: RouteContext) {
     })
 
     return NextResponse.json({ isFavorited: !!favorite })
+    */
   } catch (error) {
     console.error('Error checking favorite status:', error)
     return NextResponse.json({ isFavorited: false })

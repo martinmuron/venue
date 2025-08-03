@@ -5,14 +5,14 @@ import { useRouter, useSearchParams } from "next/navigation"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
-import { VENUE_TYPES, PRAGUE_DISTRICTS, CAPACITY_RANGES } from "@/types"
+import { VENUE_TYPES, US_STATES, CAPACITY_RANGES } from "@/types"
 import { Search, MapPin, Users, Building } from "lucide-react"
 
 interface VenueFiltersProps {
   initialValues: {
     q?: string
     type?: string
-    district?: string
+    state?: string
     capacity?: string
   }
 }
@@ -24,7 +24,7 @@ export function VenueFilters({ initialValues }: VenueFiltersProps) {
   const [filters, setFilters] = useState({
     q: initialValues.q || '',
     type: initialValues.type || '',
-    district: initialValues.district || '',
+    state: initialValues.state || '',
     capacity: initialValues.capacity || '',
   })
 
@@ -84,24 +84,23 @@ export function VenueFilters({ initialValues }: VenueFiltersProps) {
             </div>
           </div>
 
-          {/* District Filter - Purple */}
           <div className="flex-1">
             <div className="relative">
               <div className="absolute left-3 top-1/2 -translate-y-1/2 w-8 h-8 bg-black rounded-lg flex items-center justify-center">
                 <MapPin className="h-4 w-4 text-white" />
               </div>
               <Select 
-                value={filters.district}
-                onValueChange={(value) => handleFilterChange('district', value)}
+                value={filters.state}
+                onValueChange={(value) => handleFilterChange('state', value)}
               >
                 <SelectTrigger className="h-12 pl-14 text-sm rounded-xl border-2 border-black bg-white focus:border-gray-600 transition-all duration-200">
-                  <SelectValue placeholder="Celá Praha" />
+                  <SelectValue placeholder="All States" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="all">Celá Praha</SelectItem>
-                  {PRAGUE_DISTRICTS.map((district) => (
-                    <SelectItem key={district} value={district}>
-                      {district}
+                  <SelectItem value="all">All States</SelectItem>
+                  {US_STATES.map((state) => (
+                    <SelectItem key={state} value={state}>
+                      {state}
                     </SelectItem>
                   ))}
                 </SelectContent>
