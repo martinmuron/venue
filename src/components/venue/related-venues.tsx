@@ -61,7 +61,8 @@ async function getRelatedVenues(currentVenueId: string, venueType: string | null
       },
       take: 8, // Show up to 8 related venues
       orderBy: [
-        { isRecommended: 'desc' }, // Recommended venues first
+        // TODO: Add featured/recommended field to schema if needed
+        // { isRecommended: 'desc' }, // Recommended venues first
         { createdAt: 'desc' }
       ]
     })
