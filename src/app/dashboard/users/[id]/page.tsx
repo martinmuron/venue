@@ -23,7 +23,8 @@ async function getUser(id: string) {
               select: {
                 inquiries: true,
                 broadcastLogs: true,
-                favorites: true,
+                // TODO: Add favorites count back when venueFavorite model is implemented
+                // favorites: true,
               },
             },
           },
@@ -170,7 +171,8 @@ export default async function UserProfilePage({
                         <div className="flex space-x-4 text-xs text-muted-foreground">
                           <span>{venue._count.inquiries} dotazů</span>
                           <span>{venue._count.broadcastLogs} rozesílek</span>
-                          <span>{venue._count.favorites} oblíbených</span>
+                          {/* TODO: Add favorites count back when venueFavorite model is implemented */}
+                          {/* <span>{venue._count.favorites} oblíbených</span> */}
                         </div>
                       </div>
                       <div className="flex space-x-2">
