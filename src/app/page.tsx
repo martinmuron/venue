@@ -68,10 +68,10 @@ async function FeaturedVenues() {
     return (
       <div className="text-center py-12">
         <p className="text-body text-gray-600">
-          Zatím nejsou k dispozici žádné prostory.
+          No venues are currently available.
         </p>
-        <Link href="/pridat-prostor" className="mt-4 inline-block">
-          <Button>Přidat první prostor</Button>
+        <Link href="/add-venue" className="mt-4 inline-block">
+          <Button>Add first venue</Button>
         </Link>
       </div>
     )
@@ -98,15 +98,15 @@ export default function HomePage() {
         <div className="max-w-5xl mx-auto text-center relative z-20">
           <div className="animate-slide-up">
             <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-semibold text-gray-900 mb-8 tracking-tight leading-tight">
-              Najděte perfektní prostor<br className="hidden sm:block" />
-              <span className="sm:hidden"> </span>pro vaši akci
+              Find the perfect venue<br className="hidden sm:block" />
+              <span className="sm:hidden"> </span>for your event
             </h1>
           </div>
           
           <div className="animate-slide-up" style={{ animationDelay: '0.2s' }}>
             <p className="text-xl sm:text-2xl text-gray-700 mb-12 max-w-3xl mx-auto leading-relaxed font-light">
-              Objevte tisíce jedinečných prostorů v Praze pro vaše akce, oslavy a události. 
-              Od intimních setkání po velké konference.
+              Discover thousands of unique venues in Prague for your events, celebrations and gatherings. 
+              From intimate meetings to large conferences.
             </p>
           </div>
           
@@ -115,23 +115,23 @@ export default function HomePage() {
           </div>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-3xl mx-auto animate-slide-up" style={{ animationDelay: '0.6s' }}>
-            <Link href="/prostory" className="flex-1">
+            <Link href="/venues" className="flex-1">
               <Button 
                 size="lg" 
                 className="magnetic-button hover-lift w-full px-6 py-3 text-base font-medium rounded-xl bg-blue-600 text-white hover:bg-blue-700 transition-all duration-200 shadow-lg"
               >
                 <Search className="w-5 h-5 mr-2" />
-                Najít prostory
+                Find venues
               </Button>
             </Link>
-            <Link href="/pridat-prostor" className="flex-1">
+            <Link href="/add-venue" className="flex-1">
               <Button 
                 variant="outline" 
                 size="lg" 
                 className="magnetic-button hover-lift w-full px-6 py-3 text-base font-medium rounded-xl border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white transition-all duration-200"
               >
                 <Upload className="w-5 h-5 mr-2" />
-                Přidat prostor
+                Add venue
               </Button>
             </Link>
           </div>
@@ -147,10 +147,10 @@ export default function HomePage() {
               <Zap className="w-8 h-8 text-white" />
             </div>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
-              Rychlá poptávka
+              Quick Request
             </h2>
             <p className="text-lg sm:text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
-              Nemáte čas hledat? Popište svou akci a nechte majitele prostorů, aby se ozvali vám!
+              Don't have time to search? Describe your event and let venue owners contact you!
             </p>
           </div>
           
@@ -162,10 +162,10 @@ export default function HomePage() {
                 </div>
                 <div>
                   <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                    Ušetřete čas
+                    Save time
                   </h3>
                   <p className="text-gray-600">
-                    Místo procházení stovek prostorů jednoduše popište svou akci a požadavky.
+                    Instead of browsing hundreds of venues, simply describe your event and requirements.
                   </p>
                 </div>
               </div>
@@ -176,10 +176,10 @@ export default function HomePage() {
                 </div>
                 <div>
                   <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                    Získejte nabídky
+                    Get offers
                   </h3>
                   <p className="text-gray-600">
-                    Majitelé prostorů vám sami napíšou s nabídkami přesně podle vašich potřeb.
+                    Venue owners will contact you with offers tailored exactly to your needs.
                   </p>
                 </div>
               </div>
@@ -190,10 +190,10 @@ export default function HomePage() {
                 </div>
                 <div>
                   <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                    Lepší ceny
+                    Better prices
                   </h3>
                   <p className="text-gray-600">
-                    Majitelé soutěží o vaši akci, což často znamená výhodnější podmínky.
+                    Owners compete for your event, which often means better terms.
                   </p>
                 </div>
               </div>
@@ -202,10 +202,10 @@ export default function HomePage() {
             <div className="bg-white rounded-3xl p-8 shadow-xl border border-gray-200">
               <div className="text-center mb-6">
                 <h3 className="text-2xl font-bold text-gray-900 mb-2">
-                  Jak to funguje?
+                  How does it work?
                 </h3>
                 <p className="text-gray-600">
-                  Tři jednoduché kroky k perfektnímu prostoru
+                  Three simple steps to the perfect venue
                 </p>
               </div>
               
@@ -215,7 +215,7 @@ export default function HomePage() {
                     1
                   </div>
                   <p className="text-gray-700 font-medium">
-                    Vyplňte formulář s detaily vaší akce
+                    Fill out the form with your event details
                   </p>
                 </div>
                 
@@ -224,7 +224,7 @@ export default function HomePage() {
                     2
                   </div>
                   <p className="text-gray-700 font-medium">
-                    Majitelé prostorů vám pošlou nabídky
+                    Venue owners will send you offers
                   </p>
                 </div>
                 
@@ -233,28 +233,28 @@ export default function HomePage() {
                     3
                   </div>
                   <p className="text-gray-700 font-medium">
-                    Vyberte si nejlepší nabídku a rezervujte
+                    Choose the best offer and book
                   </p>
                 </div>
               </div>
               
               <div className="mt-8 space-y-4">
-                <Link href="/pozadavky/novy" className="block">
+                <Link href="/requests/new" className="block">
                   <Button 
                     size="lg" 
                     className="w-full px-6 py-3 text-base font-medium rounded-xl bg-blue-600 text-white hover:bg-blue-700 transition-all duration-200"
                   >
                     <Zap className="w-5 h-5 mr-2" />
-                    Vytvořit poptávku
+                    Create request
                   </Button>
                 </Link>
-                <Link href="/pozadavky" className="block">
+                <Link href="/requests" className="block">
                   <Button 
                     variant="outline" 
                     size="lg" 
                     className="w-full px-6 py-3 text-base font-medium rounded-xl border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white transition-all duration-200"
                   >
-                    Prohlédnout poptávky
+                    Browse requests
                     <ArrowRight className="w-4 h-4 ml-2" />
                   </Button>
                 </Link>
@@ -270,10 +270,10 @@ export default function HomePage() {
           <ScrollReveal>
             <div className="text-center mb-12">
               <h2 className="text-3xl sm:text-4xl font-bold text-black mb-4">
-                Nejnovější prostory
+                Latest venues
               </h2>
               <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-                Objevte nejnovější prostory přidané do naší platformy
+                Discover the latest venues added to our platform
               </p>
             </div>
           </ScrollReveal>
@@ -292,12 +292,12 @@ export default function HomePage() {
           
           <ScrollReveal delay={400}>
             <div className="text-center mt-12">
-              <Link href="/prostory">
+              <Link href="/venues">
                 <Button 
                   size="lg" 
                   className="magnetic-button hover-lift px-8 py-3 text-base font-medium rounded-xl bg-black text-white hover:bg-gray-800 transition-all duration-200 shadow-lg"
                 >
-                  Zobrazit všechny prostory
+                  View all venues
                   <ArrowRight className="w-5 h-5 ml-2" />
                 </Button>
               </Link>
@@ -315,10 +315,10 @@ export default function HomePage() {
                 <Upload className="w-8 h-8 text-white" />
               </div>
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
-                Vlastníte prostor?
+                Own a venue?
               </h2>
               <p className="text-lg sm:text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
-                Prostormat je perfektní místo, aby vás našli potenciální zákazníci na firemní akce, teambuildingy, svatby a více!
+                VenuePlatform is the perfect place for potential customers to find you for corporate events, team building, weddings and more!
               </p>
             </div>
           </ScrollReveal>
@@ -332,10 +332,10 @@ export default function HomePage() {
                   </div>
                   <div>
                     <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                      Přidejte prostor
+                      Add your venue
                     </h3>
                     <p className="text-gray-600">
-                      Vytvořte profil vašeho prostoru s fotografiemi a všemi detaily.
+                      Create a profile for your venue with photos and all details.
                     </p>
                   </div>
                 </div>
@@ -346,10 +346,10 @@ export default function HomePage() {
                   </div>
                   <div>
                     <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                      Získejte klienty
+                      Get clients
                     </h3>
                     <p className="text-gray-600">
-                      Tisíce organizátorů hledá prostory každý měsíc - buďte vidět!
+                      Thousands of organizers search for venues every month - be visible!
                     </p>
                   </div>
                 </div>
@@ -360,10 +360,10 @@ export default function HomePage() {
                   </div>
                   <div>
                     <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                      Vydělávejte více
+                      Earn more
                     </h3>
                     <p className="text-gray-600">
-                      Zvyšte obsazenost a příjmy díky našim kvalifikovaným klientům.
+                      Increase occupancy and revenue thanks to our qualified clients.
                     </p>
                   </div>
                 </div>
@@ -374,10 +374,10 @@ export default function HomePage() {
               <div className="bg-white rounded-3xl p-8 shadow-xl border border-gray-200 hover-lift">
                 <div className="text-center mb-6">
                   <h3 className="text-2xl font-bold text-gray-900 mb-2">
-                    Jak začít?
+                    How to start?
                   </h3>
                   <p className="text-gray-600">
-                    Tři jednoduché kroky k novým klientům
+                    Three simple steps to new clients
                   </p>
                 </div>
               
@@ -387,7 +387,7 @@ export default function HomePage() {
                     1
                   </div>
                   <p className="text-gray-700 font-medium">
-                    Vytvořte profil s fotografiemi a detaily
+                    Create profile with photos and details
                   </p>
                 </div>
                 
@@ -396,7 +396,7 @@ export default function HomePage() {
                     2
                   </div>
                   <p className="text-gray-700 font-medium">
-                    Získávejte poptávky od organizátorů
+                    Receive requests from organizers
                   </p>
                 </div>
                 
@@ -405,28 +405,28 @@ export default function HomePage() {
                     3
                   </div>
                   <p className="text-gray-700 font-medium">
-                    Reagujte na nabídky a uzavírejte obchody
+                    Respond to offers and close deals
                   </p>
                 </div>
               </div>
               
               <div className="mt-8 space-y-4">
-                <Link href="/pridat-prostor" className="block">
+                <Link href="/add-venue" className="block">
                   <Button 
                     size="lg" 
                     className="magnetic-button hover-lift w-full px-6 py-3 text-base font-medium rounded-xl bg-purple-600 text-white hover:bg-purple-700 transition-all duration-200"
                   >
                     <Upload className="w-5 h-5 mr-2" />
-                    Přidat prostor
+                    Add venue
                   </Button>
                 </Link>
-                <Link href="/prostory" className="block">
+                <Link href="/venues" className="block">
                   <Button 
                     variant="outline" 
                     size="lg" 
                     className="w-full px-6 py-3 text-base font-medium rounded-xl border-2 border-purple-600 text-purple-600 hover:bg-purple-600 hover:text-white transition-all duration-200"
                   >
-                    Prohlédnout prostory
+                    Browse venues
                     <ArrowRight className="w-4 h-4 ml-2" />
                   </Button>
                 </Link>

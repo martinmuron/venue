@@ -44,7 +44,7 @@ async function main() {
       name: 'Mark Muron',
       password: hashedPassword,
       role: 'admin',
-      company: 'Prostormat',
+      company: 'VenuePlatform',
     },
   })
 
@@ -55,11 +55,11 @@ async function main() {
     create: {
       name: 'Modern Conference Center',
       slug: 'modern-conference-center',
-      description: 'Moderní konferenční centrum v srdci Prahy s nejnovějším technickým vybavením. Ideální pro firemní akce, konference a prezentace.',
+      description: 'Modern conference center in Prague heart with latest technical equipment. Ideal for corporate events, conferences and presentations.',
       address: 'Wenceslas Square 1, Praha 1',
       capacitySeated: 200,
       capacityStanding: 300,
-      venueType: 'konferencni-sal',
+      venueType: 'conference-hall',
       amenities: ['Wi-Fi', 'Projektor', 'Zvukový systém', 'Klimatizace', 'Catering možnosti'],
       contactEmail: 'info@modernconference.cz',
       contactPhone: '+420 123 456 789',
@@ -81,11 +81,11 @@ async function main() {
     create: {
       name: 'Elegant Ballroom',
       slug: 'elegant-ballroom',
-      description: 'Elegantní taneční sál s historickým nádechem. Perfektní pro svatby, plesy a slavnostní večery.',
+      description: 'Elegant ballroom with historic touch. Perfect for weddings, balls and formal evenings.',
       address: 'Old Town Square 5, Praha 1',
       capacitySeated: 150,
       capacityStanding: 250,
-      venueType: 'tancni-sal',
+      venueType: 'ballroom',
       amenities: ['Taneční parket', 'Osvětlení', 'Zvukový systém', 'Bar', 'Šatna'],
       contactEmail: 'bookings@elegantballroom.cz',
       contactPhone: '+420 987 654 321',
@@ -107,11 +107,11 @@ async function main() {
     create: {
       name: 'Rooftop Terrace',
       slug: 'rooftop-terrace',
-      description: 'Střešní terasa s úžasným výhledem na Prahu. Ideální pro letní akce, koktejlové večírky a networkingové události.',
+      description: 'Rooftop terrace with amazing Prague views. Ideal for summer events, cocktail parties and networking events.',
       address: 'Vinohrady District, Praha 2',
       capacitySeated: 80,
       capacityStanding: 120,
-      venueType: 'venkovni-prostor',
+      venueType: 'outdoor-space',
       amenities: ['Výhled na město', 'Bar', 'Gril', 'Vytápění', 'Zastřešení'],
       contactEmail: 'events@rooftopterrace.cz',
       contactPhone: '+420 555 123 456',
@@ -129,121 +129,121 @@ async function main() {
 
   // Create sample blog posts
   const blogPost1 = await prisma.blogPost.upsert({
-    where: { slug: 'jak-vybrat-idealni-prostor-pro-firemni-akci' },
+    where: { slug: 'how-to-choose-ideal-space-for-corporate-event' },
     update: {},
     create: {
-      title: 'Jak vybrat ideální prostor pro firemní akci',
-      slug: 'jak-vybrat-idealni-prostor-pro-firemni-akci',
-      excerpt: 'Praktický průvodce výběrem správného prostoru pro vaši firemní akci. Tipy a triky od profesionálů.',
-      content: `# Jak vybrat ideální prostor pro firemní akci
+      title: 'How to Choose Ideal Space for Corporate Event',
+      slug: 'how-to-choose-ideal-space-for-corporate-event',
+      excerpt: 'Practical guide for choosing the right space for your corporate event. Tips and tricks from professionals.',
+      content: `# How to Choose Ideal Space for Corporate Event
 
-Výběr správného prostoru je klíčový pro úspěch jakékoli firemní akce. Zde je několik důležitých faktorů, které byste měli zvážit:
+Choosing the right space is key to the success of any corporate event. Here are several important factors you should consider:
 
-## 1. Kapacita a rozložení
+## 1. Capacity and Layout
 
-Ujistěte se, že prostor pojme všechny vaše hosty pohodlně. Zvažte různé typy rozložení podle charakteru akce.
+Make sure the space accommodates all your guests comfortably. Consider different layout types based on the event character.
 
-## 2. Lokalita a dostupnost
+## 2. Location and Accessibility
 
-Vyberte prostor, který je snadno dostupný pro všechny účastníky. Myslete na parkování a MHD.
+Choose a space that is easily accessible for all participants. Think about parking and public transport.
 
-## 3. Technické vybavení
+## 3. Technical Equipment
 
-Zkontrolujte dostupnost AV techniky, Wi-Fi a dalšího potřebného vybavení.
+Check availability of AV technology, Wi-Fi and other necessary equipment.
 
-## 4. Catering možnosti
+## 4. Catering Options
 
-Zjistěte, zda prostor nabízí catering nebo umožňuje externí dodavatele.
+Find out if the space offers catering or allows external suppliers.
 
-## 5. Rozpočet
+## 5. Budget
 
-Nezapomeňte na skryté náklady jako je úklid, bezpečnost nebo dodatečné služby.`,
+Don't forget about hidden costs like cleaning, security or additional services.`,
       coverImage: 'https://images.unsplash.com/photo-1511578314322-379afb476865?w=800',
       status: 'published',
       authorId: mainAdmin.id,
-      tags: '["firemní akce", "event planning", "tipy"]',
-      metaTitle: 'Jak vybrat ideální prostor pro firemní akci - Prostormat',
-      metaDescription: 'Praktický průvodce výběrem správného prostoru pro vaši firemní akci. Tipy a triky od profesionálů.',
+      tags: '["corporate events", "event planning", "tips"]',
+      metaTitle: 'How to Choose Ideal Space for Corporate Event - VenuePlatform',
+      metaDescription: 'Practical guide for choosing the right space for your corporate event. Tips and tricks from professionals.',
       publishedAt: new Date(),
     },
   })
 
   const blogPost2 = await prisma.blogPost.upsert({
-    where: { slug: 'trendy-v-organizaci-firemních-akcí-2024' },
+    where: { slug: 'corporate-event-organization-trends-2024' },
     update: {},
     create: {
-      title: 'Trendy v organizaci firemních akcí 2024',
-      slug: 'trendy-v-organizaci-firemních-akcí-2024',
-      excerpt: 'Objevte nejnovější trendy v organizaci firemních akcí a inspirujte se pro vaši příští událost.',
-      content: `# Trendy v organizaci firemních akcí 2024
+      title: 'Corporate Event Organization Trends 2024',
+      slug: 'corporate-event-organization-trends-2024',
+      excerpt: 'Discover the latest trends in corporate event organization and get inspired for your next event.',
+      content: `# Corporate Event Organization Trends 2024
 
-Rok 2024 přináší nové trendy v organizaci firemních akcí. Zde jsou ty nejdůležitější:
+Year 2024 brings new trends in corporate event organization. Here are the most important ones:
 
-## 1. Hybridní akce
+## 1. Hybrid Events
 
-Kombinace prezenčních a online účastníků se stává standardem.
+Combination of in-person and online participants becomes standard.
 
-## 2. Udržitelnost
+## 2. Sustainability
 
-Ekologické akce s minimálním dopadem na životní prostředí.
+Eco-friendly events with minimal environmental impact.
 
-## 3. Personalizace
+## 3. Personalization
 
-Každý účastník má jedinečný zážitek přizpůsobený jeho potřebám.
+Each participant has unique experience tailored to their needs.
 
-## 4. Wellness aktivity
+## 4. Wellness Activities
 
-Integrace wellness prvků do firemních akcí pro lepší well-being zaměstnanců.
+Integration of wellness elements into corporate events for better employee well-being.
 
-## 5. Technologické inovace
+## 5. Technological Innovations
 
-Využití AR/VR, AI a dalších technologií pro interaktivní zážitky.`,
+Use of AR/VR, AI and other technologies for interactive experiences.`,
       coverImage: 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=800',
       status: 'published',
       authorId: mainAdmin.id,
-      tags: '["trendy", "2024", "firemní akce", "inovace"]',
-      metaTitle: 'Trendy v organizaci firemních akcí 2024 - Prostormat',
-      metaDescription: 'Objevte nejnovější trendy v organizaci firemních akcí a inspirujte se pro vaši příští událost.',
+      tags: '["trends", "2024", "corporate events", "innovation"]',
+      metaTitle: 'Corporate Event Organization Trends 2024 - VenuePlatform',
+      metaDescription: 'Discover the latest trends in corporate event organization and get inspired for your next event.',
       publishedAt: new Date(),
     },
   })
 
   const blogPost3 = await prisma.blogPost.upsert({
-    where: { slug: 'nejlepší-prostory-pro-svatby-v-praze' },
+    where: { slug: 'best-wedding-venues-in-prague' },
     update: {},
     create: {
-      title: 'Nejlepší prostory pro svatby v Praze',
-      slug: 'nejlepší-prostory-pro-svatby-v-praze',
-      excerpt: 'Průvodce nejkrásnějšími svatebními prostory v Praze. Od historických paláců po moderní venue.',
-      content: `# Nejlepší prostory pro svatby v Praze
+      title: 'Best Wedding Venues in Prague',
+      slug: 'best-wedding-venues-in-prague',
+      excerpt: 'Guide to the most beautiful wedding venues in Prague. From historic palaces to modern venues.',
+      content: `# Best Wedding Venues in Prague
 
-Praha nabízí nespočet krásných míst pro vaši vysněnou svatbu. Zde je výběr těch nejlepších:
+Prague offers countless beautiful places for your dream wedding. Here is a selection of the best:
 
-## 1. Historické paláce
+## 1. Historic Palaces
 
-Zažijte pohádkovou svatbu v některém z pražských paláců s bohatou historií.
+Experience a fairy-tale wedding in one of Prague's palaces with rich history.
 
-## 2. Moderní hotely
+## 2. Modern Hotels
 
-Luxusní hotely nabízejí kompletní svatební služby a profesionální přístup.
+Luxury hotels offer complete wedding services and professional approach.
 
-## 3. Zahrady a parky
+## 3. Gardens and Parks
 
-Pro ty, kteří preferují venkovní svatby v přírodním prostředí.
+For those who prefer outdoor weddings in natural environment.
 
-## 4. Restaurace s výhledem
+## 4. Restaurants with Views
 
-Romantické prostory s výhledem na Prahu pro nezapomenutelný večer.
+Romantic spaces with Prague views for unforgettable evening.
 
-## 5. Netradiční prostory
+## 5. Unconventional Spaces
 
-Galerie, lofty a další jedinečné prostory pro originální svatbu.`,
+Galleries, lofts and other unique spaces for original wedding.`,
       coverImage: 'https://images.unsplash.com/photo-1519167758481-83f550bb49b3?w=800',
       status: 'published',
       authorId: mainAdmin.id,
-      tags: '["svatby", "Praha", "venue", "wedding"]',
-      metaTitle: 'Nejlepší prostory pro svatby v Praze - Prostormat',
-      metaDescription: 'Průvodce nejkrásnějšími svatebními prostory v Praze. Od historických paláců po moderní venue.',
+      tags: '["weddings", "Prague", "venue", "wedding"]',
+      metaTitle: 'Best Wedding Venues in Prague - VenuePlatform',
+      metaDescription: 'Guide to the most beautiful wedding venues in Prague. From historic palaces to modern venues.',
       publishedAt: new Date(),
     },
   })

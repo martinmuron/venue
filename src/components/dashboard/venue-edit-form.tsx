@@ -44,15 +44,15 @@ export function VenueEditForm({ venue }: VenueEditFormProps) {
   })
 
   const venueTypes = [
-    { value: "conference-hall", label: "Konferenční sál" },
-    { value: "wedding-venue", label: "Svatební prostor" },
-    { value: "corporate-space", label: "Firemní prostor" },
-    { value: "gallery", label: "Galerie" },
-    { value: "restaurant", label: "Restaurace" },
+    { value: "conference-hall", label: "Conference Hall" },
+    { value: "wedding-venue", label: "Wedding Venue" },
+    { value: "corporate-space", label: "Corporate Space" },
+    { value: "gallery", label: "Gallery" },
+    { value: "restaurant", label: "Restaurant" },
     { value: "hotel", label: "Hotel" },
-    { value: "outdoor-space", label: "Venkovní prostor" },
-    { value: "theater", label: "Divadlo" },
-    { value: "other", label: "Jiné" }
+    { value: "outdoor-space", label: "Outdoor Space" },
+    { value: "theater", label: "Theater" },
+    { value: "other", label: "Other" }
   ]
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -101,7 +101,7 @@ export function VenueEditForm({ venue }: VenueEditFormProps) {
                   variant={venue.status === "active" ? "default" : "secondary"}
                   className={venue.status === "active" ? "bg-green-100 text-green-800" : "bg-gray-100 text-gray-800"}
                 >
-                  {venue.status === "active" ? "Aktivní" : "Neaktivní"}
+                  {venue.status === "active" ? "Active" : "Inactive"}
                 </Badge>
               </div>
               <Building className="h-8 w-8 text-blue-500" />
@@ -113,7 +113,7 @@ export function VenueEditForm({ venue }: VenueEditFormProps) {
           <CardContent className="p-6">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-caption text-gray-500 mb-1">Dotazy</p>
+                <p className="text-caption text-gray-500 mb-1">Inquiries</p>
                 <p className="text-title-2 text-gray-900">{venue._count.inquiries}</p>
               </div>
               <MessageSquare className="h-8 w-8 text-purple-500" />
@@ -125,7 +125,7 @@ export function VenueEditForm({ venue }: VenueEditFormProps) {
           <CardContent className="p-6">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-caption text-gray-500 mb-1">Kapacita</p>
+                <p className="text-caption text-gray-500 mb-1">Capacity</p>
                 <p className="text-title-2 text-gray-900">{venue.capacitySeated || 0}</p>
               </div>
               <Users className="h-8 w-8 text-green-500" />
@@ -137,7 +137,7 @@ export function VenueEditForm({ venue }: VenueEditFormProps) {
           <CardContent className="p-6">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-caption text-gray-500 mb-1">Vytvořen</p>
+                <p className="text-caption text-gray-500 mb-1">Created</p>
                 <p className="text-caption text-gray-900">{formatDate(new Date(venue.createdAt))}</p>
               </div>
               <Calendar className="h-8 w-8 text-orange-500" />
@@ -153,63 +153,63 @@ export function VenueEditForm({ venue }: VenueEditFormProps) {
             <CardHeader>
               <CardTitle className="text-gray-900 flex items-center">
                 <Settings className="h-5 w-5 mr-2" />
-                Upravit informace o prostoru
+                Edit Venue Information
               </CardTitle>
             </CardHeader>
             <CardContent>
               <form onSubmit={handleSubmit} className="space-y-6">
                 {/* Basic Info */}
                 <div className="space-y-4">
-                  <h3 className="text-lg font-medium text-gray-900">Základní informace</h3>
+                  <h3 className="text-lg font-medium text-gray-900">Basic Information</h3>
                   
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-2">
-                      Název prostoru *
+                      Venue Name *
                     </label>
                     <Input
                       type="text"
                       value={formData.name}
                       onChange={(e) => handleChange("name", e.target.value)}
-                      placeholder="Název vašeho prostoru"
+                      placeholder="Your venue name"
                       required
                     />
                   </div>
 
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-2">
-                      Popis
+                      Description
                     </label>
                     <Textarea
                       value={formData.description}
                       onChange={(e) => handleChange("description", e.target.value)}
-                      placeholder="Popište váš prostor, jeho výhody a možnosti..."
+                      placeholder="Describe your venue, its advantages and possibilities..."
                       rows={4}
                     />
                   </div>
 
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-2">
-                      Adresa *
+                      Address *
                     </label>
                     <Input
                       type="text"
                       value={formData.address}
                       onChange={(e) => handleChange("address", e.target.value)}
-                      placeholder="Ulice a číslo, město, PSČ"
+                      placeholder="Street and number, city, postal code"
                       required
                     />
                   </div>
 
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-2">
-                      Typ prostoru
+                      Venue Type
                     </label>
                     <Select
                       value={formData.venueType}
                       onValueChange={(value) => handleChange("venueType", value)}
                     >
                       <SelectTrigger>
-                        <SelectValue placeholder="Vyberte typ prostoru" />
+                        <SelectValue placeholder="Select venue type" />
                       </SelectTrigger>
                       <SelectContent>
                         {venueTypes.map((type) => (
@@ -224,12 +224,12 @@ export function VenueEditForm({ venue }: VenueEditFormProps) {
 
                 {/* Capacity */}
                 <div className="space-y-4">
-                  <h3 className="text-lg font-medium text-gray-900">Kapacita</h3>
+                  <h3 className="text-lg font-medium text-gray-900">Capacity</h3>
                   
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
                       <label className="block text-sm font-medium text-gray-700 mb-2">
-                        K sezení
+                        Seated
                       </label>
                       <Input
                         type="number"
@@ -241,7 +241,7 @@ export function VenueEditForm({ venue }: VenueEditFormProps) {
                     </div>
                     <div>
                       <label className="block text-sm font-medium text-gray-700 mb-2">
-                        Ke stání
+                        Standing
                       </label>
                       <Input
                         type="number"
@@ -256,7 +256,7 @@ export function VenueEditForm({ venue }: VenueEditFormProps) {
 
                 {/* Contact Info */}
                 <div className="space-y-4">
-                  <h3 className="text-lg font-medium text-gray-900">Kontaktní informace</h3>
+                  <h3 className="text-lg font-medium text-gray-900">Contact Information</h3>
                   
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -266,7 +266,7 @@ export function VenueEditForm({ venue }: VenueEditFormProps) {
                       type="email"
                       value={formData.contactEmail}
                       onChange={(e) => handleChange("contactEmail", e.target.value)}
-                      placeholder="kontakt@prostor.cz"
+                      placeholder="contact@venue.com"
                       required
                     />
                   </div>
@@ -285,20 +285,20 @@ export function VenueEditForm({ venue }: VenueEditFormProps) {
 
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-2">
-                      Webové stránky
+                      Website
                     </label>
                     <Input
                       type="url"
                       value={formData.websiteUrl}
                       onChange={(e) => handleChange("websiteUrl", e.target.value)}
-                      placeholder="https://www.prostor.cz"
+                      placeholder="https://www.venue.com"
                     />
                   </div>
                 </div>
 
                 {/* Status */}
                 <div className="space-y-4">
-                  <h3 className="text-lg font-medium text-gray-900">Stav prostoru</h3>
+                  <h3 className="text-lg font-medium text-gray-900">Venue Status</h3>
                   
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -309,12 +309,12 @@ export function VenueEditForm({ venue }: VenueEditFormProps) {
                       onValueChange={(value) => handleChange("status", value)}
                     >
                       <SelectTrigger>
-                        <SelectValue placeholder="Vyberte stav" />
+                        <SelectValue placeholder="Select status" />
                       </SelectTrigger>
                       <SelectContent>
-                        <SelectItem value="draft">Koncept</SelectItem>
-                        <SelectItem value="active">Aktivní</SelectItem>
-                        <SelectItem value="expired">Neaktivní</SelectItem>
+                        <SelectItem value="draft">Draft</SelectItem>
+                        <SelectItem value="active">Active</SelectItem>
+                        <SelectItem value="expired">Inactive</SelectItem>
                       </SelectContent>
                     </Select>
                   </div>
@@ -328,7 +328,7 @@ export function VenueEditForm({ venue }: VenueEditFormProps) {
                     className="bg-blue-600 hover:bg-blue-700 text-white"
                   >
                     <Save className="h-4 w-4 mr-2" />
-                    {isLoading ? "Ukládá se..." : "Uložit změny"}
+                    {isLoading ? "Saving..." : "Save Changes"}
                   </Button>
                   <Button 
                     type="button" 
@@ -336,7 +336,7 @@ export function VenueEditForm({ venue }: VenueEditFormProps) {
                     onClick={() => router.push("/dashboard")}
                     className="text-gray-700 border-gray-300 hover:bg-gray-50"
                   >
-                    Zrušit
+                    Cancel
                   </Button>
                 </div>
               </form>

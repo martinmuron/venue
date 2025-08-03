@@ -31,13 +31,13 @@ export default function RegisterPage() {
     setError("")
 
     if (formData.password !== formData.confirmPassword) {
-      setError("Hesla se neshodují")
+      setError("Passwords do not match")
       setIsLoading(false)
       return
     }
 
     if (formData.password.length < 6) {
-      setError("Heslo musí mít alespoň 6 znaků")
+      setError("Password must be at least 6 characters long")
       setIsLoading(false)
       return
     }
@@ -69,14 +69,14 @@ export default function RegisterPage() {
         if (result?.ok) {
           router.push("/dashboard")
         } else {
-          router.push("/prihlaseni?message=Účet byl vytvořen, přihlaste se prosím")
+          router.push("/login?message=Account created, please log in")
         }
       } else {
         const data = await response.json()
-        setError(data.error || "Došlo k chybě při registraci")
+        setError(data.error || "An error occurred during registration")
       }
     } catch (error) {
-      setError("Došlo k chybě při registraci")
+      setError("An error occurred during registration")
     } finally {
       setIsLoading(false)
     }
@@ -87,7 +87,7 @@ export default function RegisterPage() {
     try {
       await signIn("google", { callbackUrl: "/dashboard" })
     } catch (error) {
-      setError("Došlo k chybě při registraci")
+      setError("An error occurred during registration")
       setIsLoading(false)
     }
   }
@@ -99,9 +99,9 @@ export default function RegisterPage() {
           <div className="mb-6">
             <Logo variant="black" size="md" />
           </div>
-          <h1 className="text-title-3 text-black mb-2">Registrace</h1>
+          <h1 className="text-title-3 text-black mb-2">Register</h1>
           <p className="text-body text-gray-600">
-            Vytvořte si účet a začněte organizovat akce
+            Create an account and start organizing events
           </p>
         </div>
 
@@ -116,13 +116,13 @@ export default function RegisterPage() {
             <form onSubmit={handleSubmit} className="space-y-4">
               <div>
                 <label className="block text-callout font-medium text-black mb-2">
-                  Jméno *
+                  Name *
                 </label>
                 <Input
                   type="text"
                   value={formData.name}
                   onChange={(e) => setFormData(prev => ({ ...prev, name: e.target.value }))}
-                  placeholder="Vaše jméno"
+                  placeholder="Your name"
                   required
                 />
               </div>
@@ -135,25 +135,25 @@ export default function RegisterPage() {
                   type="email"
                   value={formData.email}
                   onChange={(e) => setFormData(prev => ({ ...prev, email: e.target.value }))}
-                  placeholder="vas@email.cz"
+                  placeholder="your@email.com"
                   required
                 />
               </div>
 
               <div>
                 <label className="block text-callout font-medium text-black mb-2">
-                  Typ účtu *
+                  Account type *
                 </label>
                 <Select
                   value={formData.role}
                   onValueChange={(value) => setFormData(prev => ({ ...prev, role: value }))}
                 >
                   <SelectTrigger>
-                    <SelectValue placeholder="Vyberte typ účtu" />
+                    <SelectValue placeholder="Select account type" />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="user">Organizátor akcí</SelectItem>
-                    <SelectItem value="venue_manager">Provozovatel prostoru</SelectItem>
+                    <SelectItem value="user">Event organizer</SelectItem>
+                    <SelectItem value="venue_manager">Venue operator</SelectItem>
                   </SelectContent>
                 </Select>
               </div>
@@ -161,32 +161,32 @@ export default function RegisterPage() {
               {formData.role === "user" && (
                 <div>
                   <label className="block text-callout font-medium text-black mb-2">
-                    Společnost
+                    Company
                   </label>
                   <Input
                     type="text"
                     value={formData.company}
                     onChange={(e) => setFormData(prev => ({ ...prev, company: e.target.value }))}
-                    placeholder="Název společnosti"
+                    placeholder="Company name"
                   />
                 </div>
               )}
 
               <div>
                 <label className="block text-callout font-medium text-black mb-2">
-                  Telefon
+                  Phone
                 </label>
                 <Input
                   type="tel"
                   value={formData.phone}
                   onChange={(e) => setFormData(prev => ({ ...prev, phone: e.target.value }))}
-                  placeholder="+420 123 456 789"
+                  placeholder="+1 234 567 890"
                 />
               </div>
 
               <div>
                 <label className="block text-callout font-medium text-black mb-2">
-                  Heslo *
+                  Password *
                 </label>
                 <Input
                   type="password"
@@ -196,13 +196,13 @@ export default function RegisterPage() {
                   required
                 />
                 <p className="text-caption text-gray-500 mt-1">
-                  Heslo musí mít alespoň 6 znaků
+                  Password must be at least 6 characters long
                 </p>
               </div>
 
               <div>
                 <label className="block text-callout font-medium text-black mb-2">
-                  Potvrzení hesla *
+                  Confirm password *
                 </label>
                 <Input
                   type="password"
@@ -218,7 +218,7 @@ export default function RegisterPage() {
                 className="w-full" 
                 disabled={isLoading}
               >
-                {isLoading ? "Vytvářím účet..." : "Vytvořit účet"}
+                {isLoading ? "Creating account..." : "Create account"}
               </Button>
             </form>
 
@@ -227,7 +227,7 @@ export default function RegisterPage() {
                 <div className="w-full border-t border-gray-200" />
               </div>
               <div className="relative flex justify-center text-caption">
-                <span className="bg-white px-2 text-gray-500">Nebo</span>
+                <span className="bg-white px-2 text-gray-500">Or</span>
               </div>
             </div>
 
@@ -238,17 +238,17 @@ export default function RegisterPage() {
               onClick={handleGoogleSignUp}
               disabled={isLoading}
             >
-              Registrovat se přes Google
+              Sign up with Google
             </Button>
 
             <div className="text-center mt-6">
               <p className="text-callout text-gray-600">
-                Už máte účet?{" "}
+                Already have an account?{" "}
                 <Link 
-                  href="/prihlaseni" 
+                  href="/login" 
                   className="text-black hover:underline font-medium"
                 >
-                  Přihlaste se
+                  Sign in
                 </Link>
               </p>
             </div>

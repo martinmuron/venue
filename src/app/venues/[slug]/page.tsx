@@ -66,11 +66,11 @@ export default async function VenueDetailPage({
             {/* YouTube Video */}
             {venue.youtubeUrl && (
               <div className="mt-8">
-                <h2 className="text-title-3 text-black mb-4">Video prezentace</h2>
+                <h2 className="text-title-3 text-black mb-4">Video presentation</h2>
                 <div className="aspect-video w-full rounded-lg overflow-hidden shadow-lg">
                   <iframe
                     src={venue.youtubeUrl.replace('watch?v=', 'embed/')}
-                    title={`${venue.name} - Video prezentace`}
+                    title={`${venue.name} - Video presentation`}
                     className="w-full h-full"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen
@@ -99,7 +99,7 @@ export default async function VenueDetailPage({
 
               {venue.description && (
                 <div className="mb-8">
-                  <h2 className="text-title-3 text-black mb-4">O prostoru</h2>
+                  <h2 className="text-title-3 text-black mb-4">About the space</h2>
                   <p className="text-body text-gray-700 leading-relaxed">
                     {venue.description}
                   </p>
@@ -113,19 +113,19 @@ export default async function VenueDetailPage({
                     <CardHeader>
                       <CardTitle className="flex items-center gap-2">
                         <Users className="h-5 w-5" />
-                        Kapacita
+                        Capacity
                       </CardTitle>
                     </CardHeader>
                     <CardContent>
                       <div className="flex items-center gap-2">
                         <span className="text-lg font-semibold">
-                          {Math.max(venue.capacitySeated || 0, venue.capacityStanding || 0)} osob
+                          {Math.max(venue.capacitySeated || 0, venue.capacityStanding || 0)} people
                         </span>
                       </div>
                       {venue.capacitySeated && venue.capacityStanding && (
                         <div className="mt-3 text-sm text-gray-600">
-                          <div>Sedící: {venue.capacitySeated} osob</div>
-                          <div>Stojící: {venue.capacityStanding} osob</div>
+                          <div>Seated: {venue.capacitySeated} people</div>
+                          <div>Standing: {venue.capacityStanding} people</div>
                         </div>
                       )}
                     </CardContent>
@@ -136,7 +136,7 @@ export default async function VenueDetailPage({
               {/* Amenities */}
               {venue.amenities.length > 0 && (
                 <div className="mb-8">
-                  <h2 className="text-title-3 text-black mb-4">Vybavení a služby</h2>
+                  <h2 className="text-title-3 text-black mb-4">Amenities and services</h2>
                   <div className="flex flex-wrap gap-2">
                     {venue.amenities.map((amenity: string, index: number) => (
                       <Badge key={index} variant="outline">
@@ -149,7 +149,7 @@ export default async function VenueDetailPage({
 
               {/* Contact Info */}
               <div className="mb-8">
-                <h2 className="text-title-3 text-black mb-4">Kontaktní informace</h2>
+                <h2 className="text-title-3 text-black mb-4">Contact information</h2>
                 <div className="space-y-3">
                   {venue.contactEmail && (
                     <div className="flex items-center gap-3">
@@ -182,7 +182,7 @@ export default async function VenueDetailPage({
                         rel="noopener noreferrer"
                         className="text-body text-blue-600 hover:underline"
                       >
-                        Webové stránky
+                        Website
                       </a>
                     </div>
                   )}
@@ -191,7 +191,7 @@ export default async function VenueDetailPage({
 
               {/* Location Map */}
               <div className="mb-8">
-                <h2 className="text-title-3 text-black mb-4">Poloha</h2>
+                <h2 className="text-title-3 text-black mb-4">Location</h2>
                 <GoogleVenueMap 
                   address={venue.address}
                   venueName={venue.name}
@@ -205,7 +205,7 @@ export default async function VenueDetailPage({
             <div className="sticky top-24">
               <Card>
                 <CardHeader>
-                  <CardTitle>Pošlete dotaz</CardTitle>
+                  <CardTitle>Send an inquiry</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <VenueContactForm venueId={venue.id} venueName={venue.name} />

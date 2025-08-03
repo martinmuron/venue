@@ -8,41 +8,41 @@ async function main() {
     
     // Check if EventRequestFavorite table already exists
     try {
-      await prisma.$queryRaw`SELECT 1 FROM "EventRequestFavorite" LIMIT 1`
-      console.log('✅ EventRequestFavorite table already exists')
+      await prisma.$queryRaw`SELECT 1 FROM "venue_event_request_favorites" LIMIT 1`
+      console.log('✅ venue_event_request_favorites table already exists')
     } catch (error) {
-      console.log('📦 Creating EventRequestFavorite table...')
+      console.log('📦 Creating venue_event_request_favorites table...')
       
       // Create the EventRequestFavorite table
       await prisma.$executeRaw`
-        CREATE TABLE "EventRequestFavorite" (
+        CREATE TABLE "venue_event_request_favorites" (
           "id" TEXT NOT NULL,
           "userId" TEXT NOT NULL,
           "eventRequestId" TEXT NOT NULL,
           "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
 
-          CONSTRAINT "EventRequestFavorite_pkey" PRIMARY KEY ("id")
+          CONSTRAINT "venue_event_request_favorites_pkey" PRIMARY KEY ("id")
         );
       `
       
       // Create unique constraint
       await prisma.$executeRaw`
-        CREATE UNIQUE INDEX "EventRequestFavorite_userId_eventRequestId_key" 
-        ON "EventRequestFavorite"("userId", "eventRequestId");
+        CREATE UNIQUE INDEX "venue_event_request_favorites_userId_eventRequestId_key" 
+        ON "venue_event_request_favorites"("userId", "eventRequestId");
       `
       
       // Add foreign key constraints
       await prisma.$executeRaw`
-        ALTER TABLE "EventRequestFavorite" ADD CONSTRAINT "EventRequestFavorite_userId_fkey" 
-        FOREIGN KEY ("userId") REFERENCES "User"("id") ON DELETE CASCADE ON UPDATE CASCADE;
+        ALTER TABLE "venue_event_request_favorites" ADD CONSTRAINT "venue_event_request_favorites_userId_fkey" 
+        FOREIGN KEY ("userId") REFERENCES "venue_users"("id") ON DELETE CASCADE ON UPDATE CASCADE;
       `
       
       await prisma.$executeRaw`
-        ALTER TABLE "EventRequestFavorite" ADD CONSTRAINT "EventRequestFavorite_eventRequestId_fkey" 
-        FOREIGN KEY ("eventRequestId") REFERENCES "EventRequest"("id") ON DELETE CASCADE ON UPDATE CASCADE;
+        ALTER TABLE "venue_event_request_favorites" ADD CONSTRAINT "venue_event_request_favorites_eventRequestId_fkey" 
+        FOREIGN KEY ("eventRequestId") REFERENCES "venue_event_requests"("id") ON DELETE CASCADE ON UPDATE CASCADE;
       `
       
-      console.log('✅ EventRequestFavorite table created successfully')
+      console.log('✅ venue_event_request_favorites table created successfully')
     }
     
     console.log('🎉 Database migration completed!')

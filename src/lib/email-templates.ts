@@ -23,11 +23,11 @@ export function generateVenueBroadcastEmail(data: VenueBroadcastEmailData) {
   const { venueName, broadcast } = data
   const eventTypeLabel = EVENT_TYPES[broadcast.eventType as EventType] || broadcast.eventType
   
-  const subject = `Nová poptávka akce: ${broadcast.title}`
+  const subject = `New Event Request: ${broadcast.title}`
   
   const html = `
 <!DOCTYPE html>
-<html lang="cs">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -48,14 +48,14 @@ export function generateVenueBroadcastEmail(data: VenueBroadcastEmailData) {
 <body>
     <div class="container">
         <div class="header">
-            <h1 style="margin: 0; font-size: 24px;">Prostormat</h1>
-            <p style="margin: 10px 0 0 0; opacity: 0.9;">Nová poptávka akce</p>
+            <h1 style="margin: 0; font-size: 24px;">VenuePlatform</h1>
+            <p style="margin: 10px 0 0 0; opacity: 0.9;">New Event Request</p>
         </div>
         
         <div class="content">
-            <h2 style="color: #212529; margin-bottom: 10px;">Dobrý den,</h2>
+            <h2 style="color: #212529; margin-bottom: 10px;">Hello,</h2>
             
-            <p>máme pro vás novou poptávku akce, která by mohla odpovídat vašemu prostoru <strong>${venueName}</strong>.</p>
+            <p>We have a new event request that might be suitable for your venue <strong>${venueName}</strong>.</p>
             
             <div class="highlight">
                 <h3 style="margin: 0 0 10px 0; color: #1976d2;">${broadcast.title}</h3>
@@ -63,71 +63,71 @@ export function generateVenueBroadcastEmail(data: VenueBroadcastEmailData) {
             </div>
             
             <div class="event-details">
-                <h4 style="margin: 0 0 15px 0; color: #212529;">Detaily akce:</h4>
+                <h4 style="margin: 0 0 15px 0; color: #212529;">Event Details:</h4>
                 
                 <div class="detail-row">
-                    <span class="label">Typ akce:</span> ${eventTypeLabel}
+                    <span class="label">Event Type:</span> ${eventTypeLabel}
                 </div>
                 
                 ${broadcast.eventDate ? `
                 <div class="detail-row">
-                    <span class="label">Datum akce:</span> ${new Date(broadcast.eventDate).toLocaleDateString('cs-CZ')}
+                    <span class="label">Event Date:</span> ${new Date(broadcast.eventDate).toLocaleDateString('en-US')}
                 </div>
                 ` : ''}
                 
                 ${broadcast.guestCount ? `
                 <div class="detail-row">
-                    <span class="label">Počet hostů:</span> ${broadcast.guestCount}
+                    <span class="label">Guest Count:</span> ${broadcast.guestCount}
                 </div>
                 ` : ''}
                 
                 ${broadcast.budgetRange ? `
                 <div class="detail-row">
-                    <span class="label">Rozpočet:</span> ${broadcast.budgetRange}
+                    <span class="label">Budget:</span> ${broadcast.budgetRange}
                 </div>
                 ` : ''}
                 
                 ${broadcast.locationPreference ? `
                 <div class="detail-row">
-                    <span class="label">Lokalita:</span> ${broadcast.locationPreference}
+                    <span class="label">Location:</span> ${broadcast.locationPreference}
                 </div>
                 ` : ''}
                 
                 ${broadcast.requirements ? `
                 <div class="detail-row">
-                    <span class="label">Veřejné zakázky:</span> ${broadcast.requirements}
+                    <span class="label">Requirements:</span> ${broadcast.requirements}
                 </div>
                 ` : ''}
             </div>
             
-            <h4 style="color: #212529; margin: 25px 0 10px 0;">Kontaktní údaje organizátora:</h4>
+            <h4 style="color: #212529; margin: 25px 0 10px 0;">Organizer Contact Information:</h4>
             <div class="detail-row">
-                <span class="label">Jméno:</span> ${broadcast.contactName}
+                <span class="label">Name:</span> ${broadcast.contactName}
             </div>
             <div class="detail-row">
                 <span class="label">Email:</span> <a href="mailto:${broadcast.contactEmail}">${broadcast.contactEmail}</a>
             </div>
             ${broadcast.contactPhone ? `
             <div class="detail-row">
-                <span class="label">Telefon:</span> <a href="tel:${broadcast.contactPhone}">${broadcast.contactPhone}</a>
+                <span class="label">Phone:</span> <a href="tel:${broadcast.contactPhone}">${broadcast.contactPhone}</a>
             </div>
             ` : ''}
             
             <p style="margin: 30px 0 20px 0;">
-                <strong>Máte zájem o tuto akci?</strong> Kontaktujte organizátora přímo na uvedených kontaktech nebo se přihlaste do systému Prostormat pro správu vašich poptávek.
+                <strong>Interested in this event?</strong> Contact the organizer directly using the provided contact information or log into VenuePlatform to manage your requests.
             </p>
             
-            <a href="https://prostormat-production.up.railway.app/dashboard" class="cta-button">
-                Přihlásit se do Prostormatu
+            <a href="https://venue-platform.vercel.app/dashboard" class="cta-button">
+                Log into VenuePlatform
             </a>
         </div>
         
         <div class="footer">
-            <p><strong>Prostormat</strong> - Platforma pro hledání event prostorů</p>
-            <p>Tento email jste obdrželi, protože váš prostor byl automaticky vybrán na základě kritérií poptávky.</p>
+            <p><strong>VenuePlatform</strong> - Platform for finding event venues</p>
+            <p>You received this email because your venue was automatically selected based on the request criteria.</p>
             <p>
-                <a href="mailto:info@prostormat.cz" style="color: #007bff;">info@prostormat.cz</a> | 
-                <a href="https://prostormat-production.up.railway.app" style="color: #007bff;">prostormat.cz</a>
+                <a href="mailto:info@venueplatform.com" style="color: #007bff;">info@venueplatform.com</a> | 
+                <a href="https://venue-platform.vercel.app" style="color: #007bff;">venueplatform.com</a>
             </p>
         </div>
     </div>
@@ -135,33 +135,33 @@ export function generateVenueBroadcastEmail(data: VenueBroadcastEmailData) {
 </html>`
 
   const plainText = `
-Nová poptávka akce přes Prostormat
+New Event Request via VenuePlatform
 
-Dobrý den,
+Hello,
 
-máme pro vás novou poptávku akce pro váš prostor ${venueName}.
+We have a new event request for your venue ${venueName}.
 
 ${broadcast.title}
 ${broadcast.description}
 
-Detaily akce:
-- Typ akce: ${eventTypeLabel}
-${broadcast.eventDate ? `- Datum akce: ${new Date(broadcast.eventDate).toLocaleDateString('cs-CZ')}` : ''}
-${broadcast.guestCount ? `- Počet hostů: ${broadcast.guestCount}` : ''}
-${broadcast.budgetRange ? `- Rozpočet: ${broadcast.budgetRange}` : ''}
-${broadcast.locationPreference ? `- Lokalita: ${broadcast.locationPreference}` : ''}
-${broadcast.requirements ? `- Veřejné zakázky: ${broadcast.requirements}` : ''}
+Event Details:
+- Event Type: ${eventTypeLabel}
+${broadcast.eventDate ? `- Event Date: ${new Date(broadcast.eventDate).toLocaleDateString('en-US')}` : ''}
+${broadcast.guestCount ? `- Guest Count: ${broadcast.guestCount}` : ''}
+${broadcast.budgetRange ? `- Budget: ${broadcast.budgetRange}` : ''}
+${broadcast.locationPreference ? `- Location: ${broadcast.locationPreference}` : ''}
+${broadcast.requirements ? `- Requirements: ${broadcast.requirements}` : ''}
 
-Kontaktní údaje organizátora:
-- Jméno: ${broadcast.contactName}
+Organizer Contact Information:
+- Name: ${broadcast.contactName}
 - Email: ${broadcast.contactEmail}
-${broadcast.contactPhone ? `- Telefon: ${broadcast.contactPhone}` : ''}
+${broadcast.contactPhone ? `- Phone: ${broadcast.contactPhone}` : ''}
 
-Máte zájem o tuto akci? Kontaktujte organizátora přímo na uvedených kontaktech.
+Interested in this event? Contact the organizer directly using the provided contact information.
 
 --
-Prostormat - Platforma pro hledání event prostorů
-prostormat.cz | info@prostormat.cz
+VenuePlatform - Platform for finding event venues
+venueplatform.com | info@venueplatform.com
 `
 
   return {

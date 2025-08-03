@@ -7,10 +7,10 @@ async function main() {
   // Create a sample admin user
   const adminPassword = await bcrypt.hash('admin123', 12)
   const admin = await prisma.user.upsert({
-    where: { email: 'admin@prostormat.cz' },
+    where: { email: 'admin@venueplatform.com' },
     update: {},
     create: {
-      email: 'admin@prostormat.cz',
+      email: 'admin@venueplatform.com',
       name: 'Admin',
       password: adminPassword,
       role: 'admin',
@@ -36,7 +36,7 @@ async function main() {
     {
       name: 'Restaurant Terasa',
       slug: 'restaurant-terasa',
-      description: 'Elegantní restaurace s výhledem na Pražský hrad, ideální pro firemní akce a slavnostní večery.',
+      description: 'Elegant restaurant with Prague Castle view, ideal for corporate events and formal evenings.',
       address: 'Kampa Island 1, Praha 1',
       capacitySeated: 80,
       capacityStanding: 120,
@@ -93,7 +93,7 @@ async function main() {
     {
       name: 'Conference Center Prague',
       slug: 'conference-center-prague',
-      description: 'Moderní konferenční centrum s nejnovější technologií pro firemní akce a semináře.',
+      description: 'Modern conference center with latest technology for corporate events and seminars.',
       address: 'Karlovo náměstí 5, Praha 2',
       capacitySeated: 200,
       capacityStanding: 300,
@@ -112,7 +112,7 @@ async function main() {
     {
       name: 'Garden Villa Petřín',
       slug: 'garden-villa-petrin',
-      description: 'Romantická zahradní vila pod Petřínem s krásnou zahradou pro svatby a soukromé akce.',
+      description: 'Romantic garden villa under Petřín Hill with beautiful garden for weddings and private events.',
       address: 'Petřínské sady 15, Praha 1',
       capacitySeated: 50,
       capacityStanding: 80,
@@ -161,7 +161,7 @@ async function main() {
 
   console.log('Database seeded successfully!')
   console.log('Sample users created:')
-  console.log('- Admin: admin@prostormat.cz / admin123')
+  console.log('- Admin: admin@venueplatform.com / admin123')
   console.log('- Manager: manager@example.com / manager123')
   console.log(`${venues.length} venues created`)
 }

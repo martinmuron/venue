@@ -2,7 +2,7 @@ import { createClient } from '@/utils/supabase/server';
 
 export default async function Notes() {
   const supabase = await createClient();
-  const { data: notes } = await supabase.from("prostormat_notes").select();
+  const { data: notes } = await supabase.from("venue_notes").select();
 
   return (
     <div className="container mx-auto p-4">

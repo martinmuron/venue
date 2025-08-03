@@ -32,13 +32,13 @@ export default function ContactPage() {
         <div className="max-w-4xl mx-auto text-center">
           <div className="animate-slide-up">
             <h1 className="text-4xl sm:text-5xl font-bold text-black mb-6 tracking-tight">
-              Kontakt
+              Contact
             </h1>
           </div>
           
           <div className="animate-slide-up" style={{ animationDelay: '0.2s' }}>
             <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
-              Máte dotaz nebo potřebujete pomoc? Rádi vám pomůžeme!
+              Have a question or need help? We'd love to help!
             </p>
           </div>
         </div>
@@ -53,11 +53,11 @@ export default function ContactPage() {
               <div className="space-y-8">
                 <div>
                   <h2 className="text-title-1 text-black mb-6 font-bold">
-                    Spojte se s námi
+                    Get in touch with us
                   </h2>
                   <p className="text-body text-gray-600 max-w-2xl mx-auto text-lg font-medium">
-                    Jsme zde pro vás každý pracovní den. Neváhejte nás kontaktovat 
-                    s jakýmkoli dotazem ohledně našich služeb.
+                    We are here for you every business day. Do not hesitate to contact us
+                    with any question about our services.
                   </p>
                 </div>
 
@@ -69,12 +69,12 @@ export default function ContactPage() {
                     </div>
                     <div>
                       <h3 className="text-xl font-bold text-gray-900">Email</h3>
-                      <p className="text-gray-600 mb-2">Napište nám na</p>
+                      <p className="text-gray-600 mb-2">Write to us at</p>
                       <a 
-                        href="mailto:info@prostormat.cz"
+                        href="mailto:info@venue.com"
                         className="text-blue-600 hover:text-blue-700 font-medium text-lg"
                       >
-                        info@prostormat.cz
+                        info@venue.com
                       </a>
                     </div>
                   </div>
@@ -85,13 +85,13 @@ export default function ContactPage() {
                       <Phone className="h-8 w-8 text-green-600" />
                     </div>
                     <div>
-                      <h3 className="text-xl font-bold text-gray-900">Telefon</h3>
-                      <p className="text-gray-600 mb-2">Zavolejte nám na</p>
+                      <h3 className="text-xl font-bold text-gray-900">Phone</h3>
+                      <p className="text-gray-600 mb-2">Call us at</p>
                       <a 
-                        href="tel:+420775654639"
+                        href="tel:+1234567890"
                         className="text-blue-600 hover:text-blue-700 font-medium text-lg"
                       >
-                        +420 775 654 639
+                        +1 234 567 890
                       </a>
                     </div>
                   </div>
@@ -102,12 +102,12 @@ export default function ContactPage() {
                       <MapPin className="h-8 w-8 text-purple-600" />
                     </div>
                     <div>
-                      <h3 className="text-xl font-bold text-gray-900">Adresa</h3>
-                      <p className="text-gray-600 mb-2">Navštivte nás na adrese</p>
+                      <h3 className="text-xl font-bold text-gray-900">Address</h3>
+                      <p className="text-gray-600 mb-2">Visit us at</p>
                       <p className="text-gray-900 text-lg leading-relaxed">
                         Placeholder Address 123<br />
-                        110 00 Praha 1<br />
-                        Česká republika
+                        110 00 City, State<br />
+                        Country
                       </p>
                     </div>
                   </div>
@@ -118,11 +118,11 @@ export default function ContactPage() {
                       <Clock className="h-8 w-8 text-amber-600" />
                     </div>
                     <div>
-                      <h3 className="text-xl font-bold text-gray-900">Otevírací doba</h3>
-                      <p className="text-gray-600 mb-2">Jsme dostupní</p>
+                      <h3 className="text-xl font-bold text-gray-900">Opening hours</h3>
+                      <p className="text-gray-600 mb-2">We are available</p>
                       <p className="text-gray-900 text-lg leading-relaxed">
-                        Pondělí - Pátek: 9:00 - 18:00<br />
-                        Víkendy: Pouze e-mailem
+                        Monday - Friday: 9:00 - 18:00<br />
+                        Weekends: Only by e-mail
                       </p>
                     </div>
                   </div>
@@ -134,12 +134,12 @@ export default function ContactPage() {
             <ScrollReveal delay={200}>
               <div className="bg-white rounded-2xl shadow-2xl border border-gray-200 p-8 hover-lift">
                 <h2 className="text-2xl font-bold text-gray-900 mb-6">
-                  Napište nám zprávu
+                  Write us a message
                 </h2>
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div>
                     <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
-                      Jméno a příjmení
+                      Full name
                     </label>
                     <input
                       type="text"
@@ -149,13 +149,13 @@ export default function ContactPage() {
                       onChange={handleChange}
                       required
                       className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
-                      placeholder="Vaše jméno"
+                      placeholder="Your name"
                     />
                   </div>
 
                   <div>
                     <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
-                      E-mailová adresa
+                      E-mail address
                     </label>
                     <input
                       type="email"
@@ -165,13 +165,13 @@ export default function ContactPage() {
                       onChange={handleChange}
                       required
                       className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
-                      placeholder="vas@email.cz"
+                      placeholder="your@email.com"
                     />
                   </div>
 
                   <div>
                     <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-2">
-                      Předmět
+                      Subject
                     </label>
                     <input
                       type="text"
@@ -181,13 +181,13 @@ export default function ContactPage() {
                       onChange={handleChange}
                       required
                       className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
-                      placeholder="Předmět zprávy"
+                      placeholder="Message subject"
                     />
                   </div>
 
                   <div>
                     <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
-                      Zpráva
+                      Message
                     </label>
                     <textarea
                       id="message"
@@ -197,7 +197,7 @@ export default function ContactPage() {
                       required
                       rows={6}
                       className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 resize-none"
-                      placeholder="Napište nám vaši zprávu..."
+                      placeholder="Write us your message..."
                     />
                   </div>
 
@@ -205,7 +205,7 @@ export default function ContactPage() {
                     type="submit"
                     className="w-full magnetic-button hover-lift px-10 py-4 text-lg font-semibold rounded-2xl bg-black text-white hover:bg-gray-800 transition-all duration-300 shadow-xl"
                   >
-                    Odeslat zprávu
+                    Send message
                   </button>
                 </form>
               </div>
@@ -224,16 +224,16 @@ export default function ContactPage() {
           <ScrollReveal>
             <div className="text-center">
               <h2 className="text-3xl sm:text-title-1 text-white mb-6 leading-tight font-bold">
-                Často kladené otázky
+                Frequently Asked Questions
               </h2>
               <p className="text-lg sm:text-title-3 text-gray-200 max-w-3xl mx-auto leading-relaxed font-medium mb-12">
-                Možná najdete odpověď na vaši otázku v našich FAQ
+                You may find the answer to your question in our FAQ
               </p>
               <a
                 href="/faq"
                 className="magnetic-button hover-lift px-10 py-4 text-lg font-semibold rounded-2xl bg-white text-black hover:bg-gray-100 transition-all duration-300 shadow-xl inline-block"
               >
-                Zobrazit FAQ
+                View FAQ
               </a>
             </div>
           </ScrollReveal>

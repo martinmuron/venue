@@ -3,12 +3,12 @@
 echo "🗄️ Resetting local PostgreSQL database..."
 
 # Set environment to use local PostgreSQL
-export DATABASE_URL="postgresql://martinmuron@localhost:5432/prostormat_dev"
+export DATABASE_URL="postgresql://martinmuron@localhost:5432/venue_dev"
 
 # Drop and recreate database
 echo "🔄 Recreating database..."
-dropdb prostormat_dev 2>/dev/null || true
-createdb prostormat_dev
+dropdb venue_dev 2>/dev/null || true
+createdb venue_dev
 
 # Push schema and seed
 echo "📦 Pushing schema..."

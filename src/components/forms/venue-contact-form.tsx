@@ -11,12 +11,12 @@ import { useSession } from "next-auth/react"
 import Link from "next/link"
 
 const contactFormSchema = z.object({
-  name: z.string().min(2, "Jméno je povinné"),
-  email: z.string().email("Neplatná e-mailová adresa"),
+  name: z.string().min(2, "Name is required"),
+  email: z.string().email("Invalid email address"),
   phone: z.string().optional(),
   eventDate: z.string().optional(),
   guestCount: z.coerce.number().optional(),
-  message: z.string().min(10, "Zpráva musí mít alespoň 10 znaků"),
+  message: z.string().min(10, "Message must be at least 10 characters"),
 })
 
 type ContactFormData = z.infer<typeof contactFormSchema>
@@ -67,7 +67,7 @@ export function VenueContactForm({ venueId, venueName }: VenueContactFormProps) 
       }
     } catch (error) {
       console.error("Error sending inquiry:", error)
-      alert("Došlo k chybě při odesílání dotazu. Zkuste to prosím znovu.")
+      alert("An error occurred while sending the inquiry. Please try again.")
     } finally {
       setIsSubmitting(false)
     }
@@ -82,15 +82,15 @@ export function VenueContactForm({ venueId, venueName }: VenueContactFormProps) 
               <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
             </svg>
           </div>
-          <h3 className="text-title-3 text-black mb-2">Dotaz odeslán!</h3>
+          <h3 className="text-title-3 text-black mb-2">Inquiry sent!</h3>
           <p className="text-body text-gray-600 mb-4">
-            Váš dotaz byl úspěšně odeslán. Provozovatel prostoru {venueName} vás bude kontaktovat v nejbližší době.
+            Your inquiry has been successfully sent. The operator of {venueName} will contact you shortly.
           </p>
           <Button 
             variant="secondary" 
             onClick={() => setIsSubmitted(false)}
           >
-            Odeslat další dotaz
+            Send another inquiry
           </Button>
         </div>
       </div>
@@ -102,11 +102,11 @@ export function VenueContactForm({ venueId, venueName }: VenueContactFormProps) 
       <form onSubmit={handleSubmit(onSubmit)} className={`space-y-4 ${!session ? 'blur-sm pointer-events-none' : ''}`}>
         <div>
           <label className="block text-callout font-medium text-black mb-2">
-            Jméno *
+            Name *
           </label>
           <Input
             {...register("name")}
-            placeholder="Vaše jméno"
+            placeholder="Your name"
           />
           {errors.name && (
             <p className="text-caption text-red-600 mt-1">{errors.name.message}</p>
@@ -115,12 +115,12 @@ export function VenueContactForm({ venueId, venueName }: VenueContactFormProps) 
 
         <div>
           <label className="block text-callout font-medium text-black mb-2">
-            E-mail *
+            Email *
           </label>
           <Input
             type="email"
             {...register("email")}
-            placeholder="vas@email.cz"
+            placeholder="your@email.com"
           />
           {errors.email && (
             <p className="text-caption text-red-600 mt-1">{errors.email.message}</p>
@@ -129,7 +129,7 @@ export function VenueContactForm({ venueId, venueName }: VenueContactFormProps) 
 
         <div>
           <label className="block text-callout font-medium text-black mb-2">
-            Telefon
+            Phone
           </label>
           <Input
             type="tel"
@@ -141,7 +141,7 @@ export function VenueContactForm({ venueId, venueName }: VenueContactFormProps) 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
             <label className="block text-callout font-medium text-black mb-2">
-              Datum akce
+              Event Date
             </label>
             <Input
               type="date"
@@ -151,7 +151,7 @@ export function VenueContactForm({ venueId, venueName }: VenueContactFormProps) 
 
           <div>
             <label className="block text-callout font-medium text-black mb-2">
-              Počet hostů
+              Number of Guests
             </label>
             <Input
               type="number"
@@ -164,11 +164,11 @@ export function VenueContactForm({ venueId, venueName }: VenueContactFormProps) 
 
         <div>
           <label className="block text-callout font-medium text-black mb-2">
-            Zpráva *
+            Message *
           </label>
           <Textarea
             {...register("message")}
-            placeholder="Popište svou akci a požadavky..."
+            placeholder="Describe your event and requirements..."
             rows={4}
           />
           {errors.message && (
@@ -181,11 +181,11 @@ export function VenueContactForm({ venueId, venueName }: VenueContactFormProps) 
           className="w-full" 
           disabled={isSubmitting}
         >
-          {isSubmitting ? "Odesílám..." : "Odeslat dotaz"}
+          {isSubmitting ? "Sending..." : "Send Inquiry"}
         </Button>
 
         <p className="text-caption text-gray-500">
-          Odesláním souhlasíte s předáním vašich kontaktních údajů provozovateli prostoru.
+          By sending, you agree to share your contact information with the venue operator.
         </p>
       </form>
 
@@ -193,20 +193,20 @@ export function VenueContactForm({ venueId, venueName }: VenueContactFormProps) 
         <div className="absolute inset-0 flex items-center justify-center bg-white/80 backdrop-blur-sm rounded-lg">
           <div className="text-center p-6 bg-white rounded-lg shadow-lg border-2 border-black max-w-sm">
             <h3 className="text-lg font-bold text-black mb-4">
-              Přihlaste se pro odeslání dotazu
+              Sign in to send inquiry
             </h3>
             <p className="text-sm text-gray-600 mb-6">
-              Pro kontaktování majitele prostoru se musíte nejprve přihlásit nebo zaregistrovat.
+              To contact the venue owner, you must first sign in or register.
             </p>
             <div className="flex flex-col gap-3">
               <Link href="/prihlaseni">
                 <Button className="w-full bg-black text-white hover:bg-gray-800 transition-all duration-200 font-medium rounded-xl">
-                  Přihlásit se
+                  Sign In
                 </Button>
               </Link>
               <Link href="/registrace">
                 <Button variant="outline" className="w-full border-2 border-black text-black hover:bg-black hover:text-white transition-all duration-200 font-medium rounded-xl">
-                  Zaregistrovat se
+                  Register
                 </Button>
               </Link>
             </div>

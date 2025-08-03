@@ -43,20 +43,20 @@ async function getVenues(searchParams: SearchParams) {
     // Capacity filter
     if (searchParams.capacity && searchParams.capacity !== 'all') {
       const capacityRanges: { [key: string]: any } = {
-        'Do 25 lidí': { OR: [{ capacitySeated: { lte: 25 } }, { capacityStanding: { lte: 25 } }] },
-        '25 - 50 lidí': { OR: [
+        'Up to 25 people': { OR: [{ capacitySeated: { lte: 25 } }, { capacityStanding: { lte: 25 } }] },
+        '25 - 50 people': { OR: [
           { capacitySeated: { gte: 25, lte: 50 } },
           { capacityStanding: { gte: 25, lte: 50 } }
         ]},
-        '50 - 100 lidí': { OR: [
+        '50 - 100 people': { OR: [
           { capacitySeated: { gte: 50, lte: 100 } },
           { capacityStanding: { gte: 50, lte: 100 } }
         ]},
-        '100 - 200 lidí': { OR: [
+        '100 - 200 people': { OR: [
           { capacitySeated: { gte: 100, lte: 200 } },
           { capacityStanding: { gte: 100, lte: 200 } }
         ]},
-        'Nad 200 lidí': { OR: [
+        'Over 200 people': { OR: [
           { capacitySeated: { gte: 200 } },
           { capacityStanding: { gte: 200 } }
         ]},
@@ -125,13 +125,13 @@ async function VenueGrid({ searchParams }: { searchParams: SearchParams }) {
     return (
       <div className="text-center py-8 sm:py-12">
         <h3 className="text-lg sm:text-title-3 text-black mb-3 sm:mb-4">
-          Žádné prostory nebyly nalezeny
+          No venues found
         </h3>
         <p className="text-sm sm:text-body text-gray-600 mb-4 sm:mb-6">
-          Zkuste upravit filtry nebo vyhledat jiné prostory.
+          Try adjusting the filters or searching for other venues.
         </p>
         <Button asChild size="sm" className="sm:size-default rounded-xl bg-black text-white hover:bg-gray-800 transition-all duration-200 shadow-lg hover:shadow-xl">
-          <a href="/prostory">Zobrazit všechny prostory</a>
+          <a href="/venues">Show all venues</a>
         </Button>
       </div>
     )
@@ -159,7 +159,7 @@ export default async function VenuesPage({
         <div className="max-w-7xl mx-auto px-4 sm:px-6 py-8 sm:py-12">
           <div className="text-center mb-8">
             <h1 className="text-xl sm:text-2xl lg:text-title-1 text-black mb-6 sm:mb-8 font-bold tracking-tight">
-              Event prostory v Praze
+              Event spaces in the city
             </h1>
           </div>
           

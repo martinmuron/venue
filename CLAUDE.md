@@ -1,7 +1,7 @@
-# Prostormat Development Guide
+# VenuePlatform Development Guide
 
 ## Project Overview
-Prostormat is a platform for finding and managing event spaces in Czech Republic. It connects venue owners with event organizers through a marketplace-style platform.
+VenuePlatform is a platform for finding and managing event venues in Czech Republic. It connects venue owners with event organizers through a marketplace-style platform.
 
 ## Email Flow Admin Section
 

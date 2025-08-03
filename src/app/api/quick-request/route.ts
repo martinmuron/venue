@@ -109,7 +109,7 @@ export async function POST(request: Request) {
 
     if (matchingVenues.length === 0) {
       return NextResponse.json(
-        { error: "Nenašli jsme žádné prostory odpovídající vašim kritériím" },
+        { error: "No venues found matching your criteria" },
         { status: 404 }
       )
     }
@@ -118,8 +118,8 @@ export async function POST(request: Request) {
     const broadcast = await db.venueBroadcast.create({
       data: {
         userId: session?.user?.id || "anonymous", // Allow anonymous requests
-        title: `Rychlá poptávka - ${validatedData.eventType}`,
-        description: validatedData.message || "Rychlá poptávka prostoru",
+        title: `Quick request - ${validatedData.eventType}`,
+        description: validatedData.message || "Quick venue request",
         eventType: validatedData.eventType,
         eventDate: new Date(validatedData.eventDate),
         guestCount: parseInt(validatedData.guestCount.split('-')[0]) || 1, // Take the lower bound
@@ -173,7 +173,7 @@ export async function POST(request: Request) {
       broadcastId: broadcast.id,
       sentToCount: successCount,
       totalMatching: matchingVenues.length,
-      message: `Vaše poptávka byla odeslána ${successCount} prostorům`
+      message: `Your request was sent to ${successCount} venues`
     })
 
   } catch (error) {
@@ -181,13 +181,13 @@ export async function POST(request: Request) {
     
     if (error instanceof z.ZodError) {
       return NextResponse.json(
-        { error: "Neplatná data", details: error.errors },
+        { error: "Invalid data", details: error.errors },
         { status: 400 }
       )
     }
 
     return NextResponse.json(
-      { error: "Došlo k chybě při zpracování poptávky" },
+      { error: "Error occurred while processing request" },
       { status: 500 }
     )
   }

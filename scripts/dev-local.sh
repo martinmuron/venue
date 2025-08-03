@@ -9,7 +9,7 @@ if ! brew services list | grep -q "postgresql@15.*started"; then
 fi
 
 # Set environment to use local PostgreSQL
-export DATABASE_URL="postgresql://martinmuron@localhost:5432/prostormat_dev"
+export DATABASE_URL="postgresql://martinmuron@localhost:5432/venue_dev"
 
 # Generate Prisma client
 echo "🔄 Generating Prisma client..."

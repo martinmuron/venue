@@ -8,8 +8,8 @@ import { Footer } from "@/components/layout/footer"
 import GlobalClickSpark from "@/components/ui/click-spark"
 
 export const metadata: Metadata = {
-  title: "Prostormat - Event prostory v Praze",
-  description: "Největší katalog event prostorů v Praze. Najděte perfektní prostor pro vaši akci.",
+  title: "VenuePlatform - Event Venues in Prague",
+  description: "The largest catalog of event venues in Prague. Find the perfect venue for your event.",
 }
 
 export default function RootLayout({
@@ -18,7 +18,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="cs" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning>
       <head>
         {/* Google Tag Manager */}
         <Script

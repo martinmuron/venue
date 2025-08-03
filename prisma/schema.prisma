@@ -27,7 +27,7 @@ model Account {
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@unique([provider, providerAccountId])
-  @@map("prostormat_accounts")
+  @@map("venue_accounts")
 }
 
 model Session {
@@ -37,7 +37,7 @@ model Session {
   expires      DateTime
   user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
   
-  @@map("prostormat_sessions")
+  @@map("venue_sessions")
 }
 
 model User {
@@ -61,7 +61,7 @@ model User {
   eventRequestFavorites EventRequestFavorite[]
   createdAt     DateTime  @default(now())
   
-  @@map("prostormat_users")
+  @@map("venue_users")
 }
 
 model VerificationToken {
@@ -70,7 +70,7 @@ model VerificationToken {
   expires    DateTime
 
   @@unique([identifier, token])
-  @@map("prostormat_verification_tokens")
+  @@map("venue_verification_tokens")
 }
 
 model Venue {
@@ -103,7 +103,7 @@ model Venue {
   broadcastLogs VenueBroadcastLog[]
   favorites    VenueFavorite[]
   
-  @@map("prostormat_venues")
+  @@map("venue_venues")
 }
 
 model EventRequest {
@@ -111,7 +111,7 @@ model EventRequest {
   userId              String
   title               String
   description         String?
-  eventType           String   // firemni-akce, teambuilding, svatba, soukroma-akce
+  eventType           String   // corporate-event, team-building, wedding, private-event
   eventDate           DateTime?
   guestCount          Int?
   budgetRange         String?
@@ -127,7 +127,7 @@ model EventRequest {
   user User @relation(fields: [userId], references: [id])
   favorites EventRequestFavorite[]
   
-  @@map("prostormat_event_requests")
+  @@map("venue_event_requests")
 }
 
 model VenueInquiry {
@@ -145,7 +145,7 @@ model VenueInquiry {
   venue Venue @relation(fields: [venueId], references: [id])
   user  User? @relation(fields: [userId], references: [id])
   
-  @@map("prostormat_venue_inquiries")
+  @@map("venue_venue_inquiries")
 }
 
 model Subscription {
@@ -159,7 +159,7 @@ model Subscription {
 
   venue Venue @relation(fields: [venueId], references: [id])
   
-  @@map("prostormat_subscriptions")
+  @@map("venue_subscriptions")
 }
 
 model BlogPost {
@@ -180,7 +180,7 @@ model BlogPost {
 
   author User @relation(fields: [authorId], references: [id])
   
-  @@map("prostormat_blog_posts")
+  @@map("venue_blog_posts")
 }
 
 model VenueBroadcast {
@@ -188,7 +188,7 @@ model VenueBroadcast {
   userId           String
   title            String
   description      String
-  eventType        String   // firemni-akce, teambuilding, svatba, soukroma-akce
+  eventType        String   // corporate-event, team-building, wedding, private-event
   eventDate        DateTime?
   guestCount       Int?
   budgetRange      String?
@@ -204,7 +204,7 @@ model VenueBroadcast {
   user User @relation(fields: [userId], references: [id])
   logs VenueBroadcastLog[]
   
-  @@map("prostormat_venue_broadcasts")
+  @@map("venue_venue_broadcasts")
 }
 
 model VenueBroadcastLog {
@@ -218,7 +218,7 @@ model VenueBroadcastLog {
   broadcast VenueBroadcast @relation(fields: [broadcastId], references: [id])
   venue Venue @relation(fields: [venueId], references: [id])
   
-  @@map("prostormat_venue_broadcast_logs")
+  @@map("venue_venue_broadcast_logs")
 }
 
 model VenueFavorite {
@@ -231,7 +231,7 @@ model VenueFavorite {
   venue Venue @relation(fields: [venueId], references: [id], onDelete: Cascade)
 
   @@unique([userId, venueId])
-  @@map("prostormat_venue_favorites")
+  @@map("venue_venue_favorites")
 }
 
 model EventRequestFavorite {
@@ -244,5 +244,5 @@ model EventRequestFavorite {
   eventRequest EventRequest @relation(fields: [eventRequestId], references: [id], onDelete: Cascade)
 
   @@unique([userId, eventRequestId])
-  @@map("prostormat_event_request_favorites")
+  @@map("venue_event_request_favorites")
 }

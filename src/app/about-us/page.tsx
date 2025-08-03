@@ -5,31 +5,31 @@ export default function AboutUsPage() {
   const values = [
     {
       icon: CheckCircle,
-      title: "Kvalita",
-      description: "Pečlivě prověřujeme všechny prostory a zajišťujeme vysokou kvalitu služeb."
+      title: "Quality",
+      description: "We carefully check all spaces and ensure high quality services."
     },
     {
       icon: Users,
-      title: "Komunita",
-      description: "Budujeme komunitu lidí, kteří sdílejí lásku k pěkným prostorům a akcím."
+      title: "Community",
+      description: "We are building a community of people who share a love for nice spaces and events."
     },
     {
       icon: Building,
-      title: "Různorodost",
-      description: "Nabízíme široký výběr prostor pro každý typ akce a rozpočet."
+      title: "Variety",
+      description: "We offer a wide selection of spaces for every type of event and budget."
     },
     {
       icon: Sparkles,
-      title: "Inovace",
-      description: "Neustále vylepšujeme naše služby a technologie pro lepší uživatelský zážitek."
+      title: "Innovation",
+      description: "We are constantly improving our services and technologies for a better user experience."
     }
   ]
 
   const stats = [
-    { number: "500+", label: "Prostor v databázi" },
-    { number: "1000+", label: "Spokojených klientů" },
-    { number: "50+", label: "Měst po celé ČR" },
-    { number: "24/7", label: "Podpora" }
+    { number: "500+", label: "Spaces in the database" },
+    { number: "1000+", label: "Satisfied clients" },
+    { number: "50+", label: "Cities across the country" },
+    { number: "24/7", label: "Support" }
   ]
 
   return (
@@ -38,10 +38,10 @@ export default function AboutUsPage() {
       <div className="bg-gradient-to-r from-gray-900 via-black to-gray-800 text-white py-16">
         <div className="container mx-auto px-4">
           <h1 className="text-4xl md:text-5xl font-bold text-center mb-4">
-            O nás
+            About Us
           </h1>
           <p className="text-xl text-center text-gray-300 max-w-2xl mx-auto">
-            Spojujeme organizátory akcí s majiteli prostor už od roku 2023
+            Connecting event organizers with venue owners since 2023
           </p>
         </div>
       </div>
@@ -51,26 +51,26 @@ export default function AboutUsPage() {
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              Naše mise
+              Our Mission
             </h2>
             <p className="text-xl text-gray-600">
-              Zjednodušujeme hledání a rezervaci prostor pro vaše akce
+              We simplify the search and booking of spaces for your events
             </p>
           </div>
 
           <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-8 mb-16">
             <p className="text-lg text-gray-700 leading-relaxed mb-6">
-              ProstorMat vznikl z potřeby zjednodušit proces hledání a rezervace prostor pro různé typy akcí. 
-              Uvědomili jsme si, jak náročné může být najít ten správný prostor pro firemní akci, svatbu, 
-              teambuilding nebo soukromou oslavu.
+              Venue was created out of the need to simplify the process of finding and booking spaces for various types of events.
+              We realized how challenging it can be to find the right space for a corporate event, wedding,
+              teambuilding or a private celebration.
             </p>
             <p className="text-lg text-gray-700 leading-relaxed mb-6">
-              Naší vizí je vytvořit největší a nejkvalitnější databázi prostor v České republice, 
-              kde se organizátoři akcí setkají s majiteli prostor v přátelském a profesionálním prostředí.
+              Our vision is to create the largest and highest quality database of spaces in the country,
+              where event organizers meet with venue owners in a friendly and professional environment.
             </p>
             <p className="text-lg text-gray-700 leading-relaxed">
-              Věříme, že každá akce si zaslouží perfektní prostor, a my jsme zde, 
-              abychom vám pomohli ho najít.
+              We believe that every event deserves the perfect space, and we are here
+              to help you find it.
             </p>
           </div>
         </div>
@@ -81,7 +81,7 @@ export default function AboutUsPage() {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl font-bold text-gray-900 text-center mb-12">
-              ProstorMat v číslech
+              Venue in numbers
             </h2>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
               {stats.map((stat, index) => (
@@ -104,10 +104,10 @@ export default function AboutUsPage() {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              Naše hodnoty
+              Our values
             </h2>
             <p className="text-xl text-gray-600">
-              Principy, kterými se řídíme při budování ProstorMat
+              The principles that guide us in building Venue
             </p>
           </div>
 
@@ -135,10 +135,10 @@ export default function AboutUsPage() {
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">
               <h2 className="text-3xl font-bold text-gray-900 mb-4">
-                Náš tým
+                Our Team
               </h2>
               <p className="text-xl text-gray-600">
-                Lidé, kteří stojí za ProstorMat
+                The people behind Venue
               </p>
             </div>
 
@@ -152,12 +152,12 @@ export default function AboutUsPage() {
                   Jan Novák
                 </h3>
                 <p className="text-blue-600 font-semibold mb-4">
-                  Zakladatel & CEO
+                  Founder & CEO
                 </p>
                 <p className="text-gray-600 leading-relaxed">
-                  Jan má více než 10 let zkušeností v oblasti event managementu 
-                  a technologických startupů. Rozhodl se vytvořit ProstorMat poté, 
-                  co sám zažil frustraci z hledání vhodných prostor pro firemní akce.
+                  Jan has more than 10 years of experience in event management
+                  and technology startups. He decided to create Venue after
+                  experiencing the frustration of finding suitable spaces for corporate events.
                 </p>
               </div>
 
@@ -170,12 +170,12 @@ export default function AboutUsPage() {
                   Marie Krásná
                 </h3>
                 <p className="text-blue-600 font-semibold mb-4">
-                  Spoluzakladatelka & CTO
+                  Co-founder & CTO
                 </p>
                 <p className="text-gray-600 leading-relaxed">
-                  Marie je zkušená vývojářka s láskou k čistému kódu a uživatelskému 
-                  zážitku. Zodpovídá za technickou stránku ProstorMat a neustále 
-                  vylepšuje platformu pro naše uživatele.
+                  Marie is an experienced developer with a love for clean code and user
+                  experience. She is responsible for the technical side of Venue and is constantly
+                  improving the platform for our users.
                 </p>
               </div>
             </div>
@@ -187,23 +187,23 @@ export default function AboutUsPage() {
       <div className="container mx-auto px-4 py-16">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl font-bold text-gray-900 mb-4">
-            Chcete se dozvědět více?
+            Want to know more?
           </h2>
           <p className="text-xl text-gray-600 mb-8">
-            Neváhejte nás kontaktovat s jakýmkoli dotazem nebo návrhem
+            Do not hesitate to contact us with any question or suggestion
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href="/kontakt"
+              href="/contact"
               className="bg-blue-600 text-white px-8 py-3 rounded-full font-semibold hover:bg-blue-700 transition-colors duration-200"
             >
-              Kontaktovat nás
+              Contact us
             </a>
             <a
-              href="mailto:info@prostormat.cz"
+              href="mailto:info@venue.com"
               className="bg-white text-blue-600 px-8 py-3 rounded-full font-semibold border-2 border-blue-600 hover:bg-blue-50 transition-colors duration-200"
             >
-              Napsat e-mail
+              Write an e-mail
             </a>
           </div>
         </div>

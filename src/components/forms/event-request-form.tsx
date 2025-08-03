@@ -13,16 +13,16 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { EVENT_TYPES, PRAGUE_DISTRICTS, BUDGET_RANGES } from "@/types"
 
 const eventRequestSchema = z.object({
-  title: z.string().min(5, "Název akce musí mít alespoň 5 znaků"),
+  title: z.string().min(5, "Event title must be at least 5 characters"),
   description: z.string().optional(),
-  eventType: z.string().min(1, "Vyberte typ akce"),
+  eventType: z.string().min(1, "Please select event type"),
   eventDate: z.string().optional(),
-  guestCount: z.coerce.number().min(1, "Počet hostů musí být alespoň 1").optional(),
+  guestCount: z.coerce.number().min(1, "Guest count must be at least 1").optional(),
   budgetRange: z.string().optional(),
   locationPreference: z.string().optional(),
   requirements: z.string().optional(),
-  contactName: z.string().min(2, "Jméno je povinné"),
-  contactEmail: z.string().email("Neplatná e-mailová adresa"),
+  contactName: z.string().min(2, "Name is required"),
+  contactEmail: z.string().email("Invalid email address"),
   contactPhone: z.string().optional(),
 })
 
@@ -67,7 +67,7 @@ export function EventRequestForm() {
       }
     } catch (error) {
       console.error("Error creating event request:", error)
-      alert("Došlo k chybě při vytváření požadavku. Zkuste to prosím znovu.")
+      alert("An error occurred while creating the request. Please try again.")
     } finally {
       setIsSubmitting(false)
     }
@@ -77,11 +77,11 @@ export function EventRequestForm() {
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-8">
       <div>
         <label className="block text-headline font-semibold text-black mb-3">
-          Název akce *
+          Event Title *
         </label>
         <Input
           {...register("title")}
-          placeholder="např. Firemní vánoční večírek"
+          placeholder="e.g. Corporate Christmas Party"
           className="text-body"
         />
         {errors.title && (
@@ -91,11 +91,11 @@ export function EventRequestForm() {
 
       <div>
         <label className="block text-headline font-semibold text-black mb-3">
-          Popis akce
+          Event Description
         </label>
         <Textarea
           {...register("description")}
-          placeholder="Popište svou akci, atmosféru, požadavky..."
+          placeholder="Describe your event, atmosphere, requirements..."
           rows={4}
           className="text-body rounded-2xl border-2 min-h-[120px]"
         />
@@ -104,11 +104,11 @@ export function EventRequestForm() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div>
           <label className="block text-headline font-semibold text-black mb-3">
-            Typ akce *
+            Event Type *
           </label>
           <Select onValueChange={(value) => setValue("eventType", value)} defaultValue="">
             <SelectTrigger className="text-body">
-              <SelectValue placeholder="Vyberte typ akce" />
+              <SelectValue placeholder="Select event type" />
             </SelectTrigger>
             <SelectContent>
               {Object.entries(EVENT_TYPES).map(([key, label]) => (
@@ -125,7 +125,7 @@ export function EventRequestForm() {
 
         <div>
           <label className="block text-headline font-semibold text-black mb-3">
-            Datum akce
+            Event Date
           </label>
           <Input
             type="date"
@@ -138,7 +138,7 @@ export function EventRequestForm() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div>
           <label className="block text-headline font-semibold text-black mb-3">
-            Počet hostů
+            Number of Guests
           </label>
           <Input
             type="number"
@@ -154,11 +154,11 @@ export function EventRequestForm() {
 
         <div>
           <label className="block text-headline font-semibold text-black mb-3">
-            Rozpočet
+            Budget
           </label>
           <Select onValueChange={(value) => setValue("budgetRange", value)} defaultValue="">
             <SelectTrigger className="text-body">
-              <SelectValue placeholder="Vyberte rozpočet" />
+              <SelectValue placeholder="Select budget" />
             </SelectTrigger>
             <SelectContent>
               {BUDGET_RANGES.map((range) => (
@@ -173,11 +173,11 @@ export function EventRequestForm() {
 
       <div>
         <label className="block text-headline font-semibold text-black mb-3">
-          Preferovaná lokalita
+          Preferred Location
         </label>
         <Select onValueChange={(value) => setValue("locationPreference", value)} defaultValue="">
           <SelectTrigger className="text-body">
-            <SelectValue placeholder="Všechny lokality" />
+            <SelectValue placeholder="All locations" />
           </SelectTrigger>
           <SelectContent>
             {PRAGUE_DISTRICTS.map((district) => (
@@ -191,11 +191,11 @@ export function EventRequestForm() {
 
       <div>
         <label className="block text-headline font-semibold text-black mb-3">
-          Speciální požadavky
+          Special Requirements
         </label>
         <Textarea
           {...register("requirements")}
-          placeholder="Parkovací místa, catering, technika, přístupnost..."
+          placeholder="Parking spaces, catering, equipment, accessibility..."
           rows={3}
           className="text-body rounded-2xl border-2 min-h-[100px]"
         />
@@ -203,20 +203,20 @@ export function EventRequestForm() {
 
       <div className="border-t-2 border-gray-100 pt-8">
         <h3 className="text-title-2 font-bold text-black mb-4">
-          Kontaktní údaje
+          Contact Information
         </h3>
         <p className="text-body text-gray-600 mb-6 leading-relaxed">
-          Tyto údaje budou veřejně zobrazeny, aby vás mohli provozovatelé kontaktovat.
+          This information will be publicly displayed so venue operators can contact you.
         </p>
 
         <div className="space-y-6">
           <div>
             <label className="block text-headline font-semibold text-black mb-3">
-              Jméno *
+              Name *
             </label>
             <Input
               {...register("contactName")}
-              placeholder="Vaše jméno"
+              placeholder="Your name"
               className="text-body"
             />
             {errors.contactName && (
@@ -227,12 +227,12 @@ export function EventRequestForm() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
               <label className="block text-headline font-semibold text-black mb-3">
-                E-mail *
+                Email *
               </label>
               <Input
                 type="email"
                 {...register("contactEmail")}
-                placeholder="vas@email.cz"
+                placeholder="your@email.com"
                 className="text-body"
               />
               {errors.contactEmail && (
@@ -242,7 +242,7 @@ export function EventRequestForm() {
 
             <div>
               <label className="block text-headline font-semibold text-black mb-3">
-                Telefon
+                Phone
               </label>
               <Input
                 type="tel"
@@ -262,19 +262,19 @@ export function EventRequestForm() {
           onClick={() => router.back()}
           className="flex-1 py-4 text-body font-semibold rounded-2xl"
         >
-          Zpět
+          Back
         </Button>
         <Button 
           type="submit" 
           disabled={isSubmitting}
           className="flex-1 py-4 text-body font-semibold rounded-2xl bg-black text-white hover:bg-gray-800 disabled:opacity-50"
         >
-          {isSubmitting ? "Vytvářím..." : "Vytvořit poptávku"}
+          {isSubmitting ? "Creating..." : "Create Request"}
         </Button>
       </div>
 
       <p className="text-callout text-gray-500 text-center mt-6 leading-relaxed">
-        Požadavek bude aktivní 30 dní a poté bude automaticky odstraněn.
+        The request will be active for 30 days and then automatically removed.
       </p>
     </form>
   )

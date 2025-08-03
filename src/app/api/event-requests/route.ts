@@ -57,7 +57,7 @@ export async function POST(request: Request) {
     
     if (!session?.user?.id) {
       return NextResponse.json(
-        { error: "Musíte být přihlášeni" },
+        { error: "You must be logged in" },
         { status: 401 }
       )
     }
@@ -94,13 +94,13 @@ export async function POST(request: Request) {
     
     if (error instanceof z.ZodError) {
       return NextResponse.json(
-        { error: "Neplatná data", details: error.errors },
+        { error: "Invalid data", details: error.errors },
         { status: 400 }
       )
     }
 
     return NextResponse.json(
-      { error: "Došlo k chybě při vytváření požadavku" },
+      { error: "Error occurred while creating request" },
       { status: 500 }
     )
   }

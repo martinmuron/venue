@@ -30,19 +30,19 @@ import {
 
 const venueFormSchema = z.object({
   // Account fields
-  userName: z.string().min(2, "Jméno musí mít alespoň 2 znaky"),
-  userEmail: z.string().email("Neplatný email"),
-  userPassword: z.string().min(6, "Heslo musí mít alespoň 6 znaků"),
+  userName: z.string().min(2, "Name must have at least 2 characters"),
+  userEmail: z.string().email("Invalid email"),
+  userPassword: z.string().min(6, "Password must have at least 6 characters"),
   userPhone: z.string().optional(),
   
   // Venue fields
-  name: z.string().min(2, "Název musí mít alespoň 2 znaky"),
+  name: z.string().min(2, "Name must have at least 2 characters"),
   description: z.string().optional(),
-  address: z.string().min(5, "Adresa musí mít alespoň 5 znaků"),
+  address: z.string().min(5, "Address must have at least 5 characters"),
   capacitySeated: z.string().optional(),
   capacityStanding: z.string().optional(),
   venueType: z.string().optional(),
-  contactEmail: z.string().email("Neplatný email").optional().or(z.literal("")),
+  contactEmail: z.string().email("Invalid email").optional().or(z.literal("")),
   contactPhone: z.string().optional(),
   websiteUrl: z.string().optional(),
   videoUrl: z.string().optional(),
@@ -52,20 +52,20 @@ type VenueFormData = z.infer<typeof venueFormSchema>
 
 const AMENITIES_OPTIONS = [
   "WiFi",
-  "Parkování",
-  "Klimatizace",
-  "Multimediální vybavení",
-  "Catering možnosti",
+  "Parking",
+  "Air Conditioning",
+  "Multimedia Equipment",
+  "Catering Options",
   "Bar",
-  "Terasa",
-  "Výtah",
-  "Bezbariérový přístup",
-  "Zvuková technika",
-  "Scéna/pódium",
-  "Projektory",
-  "Bezpečnostní systém",
-  "Šatna",
-  "Kuchyně"
+  "Terrace",
+  "Elevator",
+  "Wheelchair Access",
+  "Sound System",
+  "Stage/Podium",
+  "Projectors",
+  "Security System",
+  "Cloakroom",
+  "Kitchen"
 ]
 
 function isValidYouTubeUrl(url: string): boolean {
@@ -102,21 +102,21 @@ export default function AddVenuePage() {
     const files = Array.from(event.target.files || [])
     
     if (images.length + files.length > 10) {
-      alert("Můžete nahrát maximálně 10 obrázků")
+      alert("You can upload a maximum of 10 images")
       return
     }
 
     // Check file sizes (max 5MB per image)
     const oversizedFiles = files.filter(file => file.size > 5 * 1024 * 1024)
     if (oversizedFiles.length > 0) {
-      alert("Některé obrázky jsou větší než 5MB. Zmenšete je prosím.")
+      alert("Some images are larger than 5MB. Please resize them.")
       return
     }
 
     // Check file types
     const invalidFiles = files.filter(file => !file.type.startsWith('image/'))
     if (invalidFiles.length > 0) {
-      alert("Můžete nahrávat pouze obrázky")
+      alert("You can only upload images")
       return
     }
 
@@ -183,7 +183,7 @@ export default function AddVenuePage() {
 
   const onSubmit = async (data: VenueFormData) => {
     if (data.videoUrl && !isYouTubeUrlValid) {
-      alert("Zadejte prosím platnou YouTube URL")
+      alert("Please enter a valid YouTube URL")
       return
     }
 
@@ -228,16 +228,16 @@ export default function AddVenuePage() {
 
       if (response.ok) {
         // Show success message
-        alert(`Gratulujeme! Váš účet i prostor "${data.name}" byly úspěšně vytvořeny. Nyní se můžete přihlásit a spravovat svůj prostor.`)
+        alert(`Congratulations! Your account and venue "${data.name}" have been successfully created. You can now log in and manage your venue.`)
         
         // Redirect to login page with success message
-        router.push(`/prihlaseni?message=account-created&venue=${encodeURIComponent(data.name)}`)
+        router.push(`/login?message=account-created&venue=${encodeURIComponent(data.name)}`)
       } else {
-        throw new Error(result.error || "Chyba při vytváření účtu a prostoru")
+        throw new Error(result.error || "Error creating account and venue")
       }
     } catch (error) {
       console.error("Error creating account and venue:", error)
-      alert("Došlo k chybě při vytváření účtu a prostoru. Zkuste to prosím znovu.")
+      alert("An error occurred while creating the account and venue. Please try again.")
     } finally {
       setIsSubmitting(false)
     }
@@ -248,16 +248,16 @@ export default function AddVenuePage() {
       <div className="max-w-4xl mx-auto px-4 sm:px-6 py-8 sm:py-12">
         <div className="mb-6 sm:mb-8">
           <h1 className="text-2xl sm:text-title-1 text-black mb-3 sm:mb-2 leading-tight">
-            Přidat prostor na Prostormat
+            Add a venue on Venue
           </h1>
           <p className="text-base sm:text-body text-gray-600 leading-relaxed">
-            Vytvořte si účet a přidejte svůj event prostor. Staňte se součástí největší platformy 
-            pro event prostory v Praze a začněte přijímat rezervace ještě dnes.
+            Create an account and add your event space. Become part of the largest platform 
+            for event spaces in the city and start accepting bookings today.
           </p>
           <div className="bg-blue-50 border border-blue-200 rounded-lg p-3 sm:p-4 mt-4">
             <p className="text-sm sm:text-callout text-blue-800">
-              💡 <strong>Tip:</strong> Vyplněním tohoto formuláře vytvoříte účet i přidáte prostor najednou. 
-              Po odeslání se budete moci přihlásit a spravovat svůj prostor.
+              💡 <strong>Tip:</strong> By filling out this form, you will create an account and add a space at the same time. 
+              After submitting, you will be able to log in and manage your space.
             </p>
           </div>
         </div>
@@ -268,18 +268,18 @@ export default function AddVenuePage() {
             <CardHeader className="pb-4 sm:pb-6">
               <CardTitle className="flex items-center gap-2 text-lg sm:text-xl">
                 <Users className="h-5 w-5 flex-shrink-0" />
-                Vytvořit účet
+                Create account
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-4 sm:space-y-4 pt-0">
               <div className="space-y-4 sm:grid sm:grid-cols-2 sm:gap-4 sm:space-y-0">
                 <div>
                   <label className="block text-sm sm:text-callout font-medium text-black mb-2">
-                    Vaše jméno *
+                    Your name *
                   </label>
                   <Input
                     {...register("userName")}
-                    placeholder="Jan Novák"
+                    placeholder="John Doe"
                     className="h-11 sm:h-12"
                   />
                   {errors.userName && (
@@ -289,7 +289,7 @@ export default function AddVenuePage() {
 
                 <div>
                   <label className="block text-sm sm:text-callout font-medium text-black mb-2">
-                    Váš telefon
+                    Your phone
                   </label>
                   <Input
                     type="tel"
@@ -302,12 +302,12 @@ export default function AddVenuePage() {
 
               <div>
                 <label className="block text-sm sm:text-callout font-medium text-black mb-2">
-                  Váš e-mail *
+                  Your e-mail *
                 </label>
                 <Input
                   type="email"
                   {...register("userEmail")}
-                  placeholder="jan@email.cz"
+                  placeholder="john@email.com"
                   className="h-11 sm:h-12"
                 />
                 {errors.userEmail && (
@@ -317,12 +317,12 @@ export default function AddVenuePage() {
 
               <div>
                 <label className="block text-sm sm:text-callout font-medium text-black mb-2">
-                  Heslo *
+                  Password *
                 </label>
                 <Input
                   type="password"
                   {...register("userPassword")}
-                  placeholder="Minimálně 6 znaků"
+                  placeholder="At least 6 characters"
                   className="h-11 sm:h-12"
                 />
                 {errors.userPassword && (
@@ -337,17 +337,17 @@ export default function AddVenuePage() {
             <CardHeader className="pb-4 sm:pb-6">
               <CardTitle className="flex items-center gap-2 text-lg sm:text-xl">
                 <MapPin className="h-5 w-5 flex-shrink-0" />
-                Základní informace
+                Basic information
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-4 pt-0">
               <div>
                 <label className="block text-sm sm:text-callout font-medium text-black mb-2">
-                  Název prostoru *
+                  Venue name *
                 </label>
                 <Input
                   {...register("name")}
-                  placeholder="Název vašeho prostoru"
+                  placeholder="Name of your venue"
                   className="h-11 sm:h-12"
                 />
                 {errors.name && (
@@ -357,26 +357,26 @@ export default function AddVenuePage() {
 
               <div>
                 <label className="block text-sm sm:text-callout font-medium text-black mb-2">
-                  Popis prostoru
+                  Venue description
                 </label>
                 <Textarea
                   {...register("description")}
-                  placeholder="Popište váš prostor, jeho atmosféru a možnosti využití..."
+                  placeholder="Describe your space, its atmosphere and possibilities of use..."
                   rows={4}
                   className="min-h-[88px] sm:min-h-[96px] resize-y"
                 />
                 <p className="text-xs sm:text-caption text-gray-500 mt-1">
-                  Dobrý popis pomůže klientům lépe pochopit, zda je váš prostor vhodný pro jejich akci.
+                  A good description will help clients better understand if your space is suitable for their event.
                 </p>
               </div>
 
               <div>
                 <label className="block text-sm sm:text-callout font-medium text-black mb-2">
-                  Adresa *
+                  Address *
                 </label>
                 <Input
                   {...register("address")}
-                  placeholder="Ulice číslo, Praha"
+                  placeholder="Street number, City"
                   className="h-11 sm:h-12"
                 />
                 {errors.address && (
@@ -386,11 +386,11 @@ export default function AddVenuePage() {
 
               <div>
                 <label className="block text-sm sm:text-callout font-medium text-black mb-2">
-                  Typ prostoru
+                  Venue type
                 </label>
                 <Select onValueChange={(value) => setValue("venueType", value)} defaultValue="">
                   <SelectTrigger className="h-11 sm:h-12">
-                    <SelectValue placeholder="Vyberte typ prostoru" />
+                    <SelectValue placeholder="Select venue type" />
                   </SelectTrigger>
                   <SelectContent>
                     {Object.entries(VENUE_TYPES).map(([key, label]) => (
@@ -409,14 +409,14 @@ export default function AddVenuePage() {
             <CardHeader className="pb-4 sm:pb-6">
               <CardTitle className="flex items-center gap-2 text-lg sm:text-xl">
                 <Users className="h-5 w-5 flex-shrink-0" />
-                Kapacita
+                Capacity
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-4 pt-0">
               <div className="space-y-4 sm:grid sm:grid-cols-2 sm:gap-4 sm:space-y-0">
                 <div>
                   <label className="block text-sm sm:text-callout font-medium text-black mb-2">
-                    Kapacita (sedící)
+                    Capacity (seated)
                   </label>
                   <Input
                     type="number"
@@ -429,7 +429,7 @@ export default function AddVenuePage() {
 
                 <div>
                   <label className="block text-sm sm:text-callout font-medium text-black mb-2">
-                    Kapacita (stojící)
+                    Capacity (standing)
                   </label>
                   <Input
                     type="number"
@@ -450,12 +450,12 @@ export default function AddVenuePage() {
             <CardHeader className="pb-4 sm:pb-6">
               <CardTitle className="flex items-center gap-2 text-lg sm:text-xl">
                 <Palette className="h-5 w-5 flex-shrink-0" />
-                Vybavení a služby
+                Amenities and services
               </CardTitle>
             </CardHeader>
             <CardContent className="pt-0">
               <p className="text-sm sm:text-body text-gray-600 mb-4">
-                Vyberte vybavení a služby, které váš prostor nabízí:
+                Select the amenities and services your space offers:
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2 sm:gap-3">
                 {AMENITIES_OPTIONS.map((amenity) => (
@@ -485,7 +485,7 @@ export default function AddVenuePage() {
             <CardHeader className="pb-4 sm:pb-6">
               <CardTitle className="flex items-center gap-2 text-lg sm:text-xl">
                 <Phone className="h-5 w-5 flex-shrink-0" />
-                Kontaktní informace
+                Contact information
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-4 pt-0">
@@ -497,7 +497,7 @@ export default function AddVenuePage() {
                   <Input
                     type="email"
                     {...register("contactEmail")}
-                    placeholder="info@prostor.cz"
+                    placeholder="info@venue.com"
                     className="h-11 sm:h-12"
                   />
                   {errors.contactEmail && (
@@ -507,7 +507,7 @@ export default function AddVenuePage() {
 
                 <div>
                   <label className="block text-sm sm:text-callout font-medium text-black mb-2">
-                    Telefon
+                    Phone
                   </label>
                   <Input
                     type="tel"
@@ -520,12 +520,12 @@ export default function AddVenuePage() {
 
               <div>
                 <label className="block text-sm sm:text-callout font-medium text-black mb-2">
-                  Webové stránky
+                  Website
                 </label>
                 <Input
                   type="url"
                   {...register("websiteUrl")}
-                  placeholder="https://www.prostor.cz"
+                  placeholder="https://www.venue.com"
                   className="h-11 sm:h-12"
                 />
               </div>
@@ -537,7 +537,7 @@ export default function AddVenuePage() {
             <CardHeader className="pb-4 sm:pb-6">
               <CardTitle className="flex items-center gap-2 text-lg sm:text-xl">
                 <Upload className="h-5 w-5 flex-shrink-0" />
-                Fotografie (max. 10)
+                Photos (max. 10)
               </CardTitle>
             </CardHeader>
             <CardContent className="pt-0">
@@ -559,12 +559,12 @@ export default function AddVenuePage() {
                     <Upload className="h-6 w-6 sm:h-8 sm:w-8 text-gray-400 mx-auto mb-2" />
                     <p className="text-sm sm:text-body text-gray-600 mb-1">
                       {images.length >= 10 
-                        ? "Dosáhli jste maximálního počtu obrázků (10)"
-                        : "Klikněte pro výběr obrázků"
+                        ? "You have reached the maximum number of images (10)"
+                        : "Click to select images"
                       }
                     </p>
                     <p className="text-xs sm:text-caption text-gray-500">
-                      Max. 5MB na obrázek • JPG, PNG, WEBP
+                      Max. 5MB per image • JPG, PNG, WEBP
                     </p>
                   </label>
                 </div>
@@ -572,7 +572,7 @@ export default function AddVenuePage() {
                 {imageUrls.length > 0 && (
                   <div className="space-y-3">
                     <p className="text-sm sm:text-callout font-medium text-black">
-                      Náhled obrázků ({imageUrls.length}/10):
+                      Image preview ({imageUrls.length}/10):
                     </p>
                     <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
                       {imageUrls.map((url, index) => (
@@ -586,7 +586,7 @@ export default function AddVenuePage() {
                             type="button"
                             onClick={() => removeImage(index)}
                             className="absolute -top-1 -right-1 sm:-top-2 sm:-right-2 bg-red-500 text-white rounded-full p-1 hover:bg-red-600 transition-colors min-h-[28px] min-w-[28px] sm:min-h-[32px] sm:min-w-[32px] flex items-center justify-center"
-                            aria-label={`Odstranit obrázek ${index + 1}`}
+                            aria-label={`Remove image ${index + 1}`}
                           >
                             <X className="h-3 w-3 sm:h-4 sm:w-4" />
                           </button>
@@ -629,12 +629,12 @@ export default function AddVenuePage() {
                   )}
                 </div>
                 <p className="text-xs sm:text-caption text-gray-500 mt-1 leading-relaxed">
-                  Přidejte YouTube video pro lepší prezentaci vašeho prostoru. 
-                  Podporované formáty: youtube.com/watch?v=..., youtu.be/..., youtube.com/embed/...
+                  Add a YouTube video to better present your space. 
+                  Supported formats: youtube.com/watch?v=..., youtu.be/..., youtube.com/embed/...
                 </p>
                 {videoUrl && !isYouTubeUrlValid && (
                   <p className="text-xs sm:text-caption text-red-600 mt-1">
-                    Neplatná YouTube URL. Zkontrolujte prosím formát.
+                    Invalid YouTube URL. Please check the format.
                   </p>
                 )}
               </div>
@@ -650,14 +650,14 @@ export default function AddVenuePage() {
               disabled={isSubmitting}
               className="w-full sm:w-auto order-2 sm:order-1 min-h-[44px] sm:min-h-[48px]"
             >
-              Zrušit
+              Cancel
             </Button>
             <Button
               type="submit"
               disabled={isSubmitting}
               className="w-full sm:flex-1 order-1 sm:order-2 min-h-[44px] sm:min-h-[48px]"
             >
-              {isSubmitting ? "Vytvářím účet a prostor..." : "Vytvořit účet a přidat prostor"}
+              {isSubmitting ? "Creating account and venue..." : "Create account and add venue"}
             </Button>
           </div>
         </form>

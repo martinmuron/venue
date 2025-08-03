@@ -31,22 +31,22 @@ export function Header() {
             <NavigationMenuList className="space-x-1">
               <NavigationMenuItem>
                 <NavigationMenuLink asChild>
-                  <Link href="/prostory" className="text-sm font-medium text-gray-600 hover:text-black transition-colors px-3 py-2 rounded-md">
-                    Prostory
+                  <Link href="/venues" className="text-sm font-medium text-gray-600 hover:text-black transition-colors px-3 py-2 rounded-md">
+                    Venues
                   </Link>
                 </NavigationMenuLink>
               </NavigationMenuItem>
               <NavigationMenuItem>
                 <NavigationMenuLink asChild>
-                  <Link href="/pozadavky" className="text-sm font-medium text-gray-600 hover:text-black transition-colors px-3 py-2 rounded-md">
-                    Veřejné zakázky
+                  <Link href="/requests" className="text-sm font-medium text-gray-600 hover:text-black transition-colors px-3 py-2 rounded-md">
+                    Public Requests
                   </Link>
                 </NavigationMenuLink>
               </NavigationMenuItem>
               <NavigationMenuItem>
                 <NavigationMenuLink asChild>
-                  <Link href="/rychla-poptavka" className="text-sm font-medium text-gray-600 hover:text-black transition-colors px-3 py-2 rounded-md">
-                    Rychlá poptávka
+                  <Link href="/quick-request" className="text-sm font-medium text-gray-600 hover:text-black transition-colors px-3 py-2 rounded-md">
+                    Quick Request
                   </Link>
                 </NavigationMenuLink>
               </NavigationMenuItem>
@@ -59,8 +59,8 @@ export function Header() {
               </NavigationMenuItem>
               <NavigationMenuItem>
                 <NavigationMenuLink asChild>
-                  <Link href="/kontakt" className="text-sm font-medium text-gray-600 hover:text-black transition-colors px-3 py-2 rounded-md">
-                    Kontakt
+                  <Link href="/contact" className="text-sm font-medium text-gray-600 hover:text-black transition-colors px-3 py-2 rounded-md">
+                    Contact
                   </Link>
                 </NavigationMenuLink>
               </NavigationMenuItem>
@@ -73,10 +73,10 @@ export function Header() {
               <Skeleton className="w-8 h-8 rounded-full" />
             ) : session ? (
               <div className="flex items-center space-x-2">
-                <Link href="/pridat-prostor">
+                <Link href="/add-venue">
                   <Button size="sm" className="bg-black text-white hover:bg-gray-800 rounded-full px-4">
                     <Plus className="h-4 w-4 mr-1" />
-                    Přidat prostor
+                    Add Venue
                   </Button>
                 </Link>
                 <DropdownMenu>
@@ -95,18 +95,18 @@ export function Header() {
                     <DropdownMenuSeparator />
                     <DropdownMenuItem onClick={() => signOut()} className="text-red-600 rounded-lg">
                       <LogOut className="mr-2 h-4 w-4" />
-                      Odhlásit se
+                      Sign Out
                     </DropdownMenuItem>
                   </DropdownMenuContent>
                 </DropdownMenu>
               </div>
             ) : (
               <div className="flex items-center space-x-2">
-                <Link href="/prihlaseni">
-                  <Button variant="ghost" size="sm" className="rounded-full">Přihlásit se</Button>
+                <Link href="/login">
+                  <Button variant="ghost" size="sm" className="rounded-full">Sign In</Button>
                 </Link>
-                <Link href="/registrace">
-                  <Button size="sm" className="bg-black text-white hover:bg-gray-800 rounded-full">Registrace</Button>
+                <Link href="/register">
+                  <Button size="sm" className="bg-black text-white hover:bg-gray-800 rounded-full">Register</Button>
                 </Link>
               </div>
             )}
@@ -115,7 +115,7 @@ export function Header() {
           {/* Mobile Menu */}
           <div className="flex items-center space-x-2 md:hidden">
             {session && (
-              <Link href="/pridat-prostor">
+              <Link href="/add-venue">
                 <Button size="sm" className="bg-black text-white hover:bg-gray-800 rounded-full p-2">
                   <Plus className="h-4 w-4" />
                 </Button>
@@ -131,25 +131,25 @@ export function Header() {
               <SheetContent side="right" className="w-80 rounded-l-2xl">
                 <nav className="flex flex-col space-y-1 mt-8">
                   <Link 
-                    href="/prostory" 
+                    href="/venues" 
                     className="text-base font-medium text-gray-700 hover:text-black hover:bg-gray-50 transition-colors px-4 py-3 rounded-xl"
                     onClick={closeMobileMenu}
                   >
-                    Prostory
+                    Venues
                   </Link>
                   <Link 
-                    href="/pozadavky" 
+                    href="/requests" 
                     className="text-base font-medium text-gray-700 hover:text-black hover:bg-gray-50 transition-colors px-4 py-3 rounded-xl"
                     onClick={closeMobileMenu}
                   >
-                    Veřejné zakázky
+                    Public Requests
                   </Link>
                   <Link 
-                    href="/rychla-poptavka" 
+                    href="/quick-request" 
                     className="text-base font-medium text-gray-700 hover:text-black hover:bg-gray-50 transition-colors px-4 py-3 rounded-xl"
                     onClick={closeMobileMenu}
                   >
-                    Rychlá poptávka
+                    Quick Request
                   </Link>
                   <Link 
                     href="/blog" 
@@ -159,18 +159,18 @@ export function Header() {
                     Blog
                   </Link>
                   <Link 
-                    href="/ceny" 
+                    href="/pricing" 
                     className="text-base font-medium text-gray-700 hover:text-black hover:bg-gray-50 transition-colors px-4 py-3 rounded-xl"
                     onClick={closeMobileMenu}
                   >
-                    Ceny
+                    Pricing
                   </Link>
                   <Link 
-                    href="/kontakt" 
+                    href="/contact" 
                     className="text-base font-medium text-gray-700 hover:text-black hover:bg-gray-50 transition-colors px-4 py-3 rounded-xl"
                     onClick={closeMobileMenu}
                   >
-                    Kontakt
+                    Contact
                   </Link>
                   
                   {/* Mobile Auth */}
@@ -185,10 +185,10 @@ export function Header() {
                             {session.user?.name || session.user?.email}
                           </Button>
                         </Link>
-                        <Link href="/pridat-prostor" onClick={closeMobileMenu}>
+                        <Link href="/add-venue" onClick={closeMobileMenu}>
                           <Button size="lg" className="w-full bg-black text-white hover:bg-gray-800 rounded-xl">
                             <Plus className="h-5 w-5 mr-2" />
-                            Přidat prostor
+                            Add Venue
                           </Button>
                         </Link>
                         <Button 
@@ -201,25 +201,25 @@ export function Header() {
                           }}
                         >
                           <LogOut className="h-5 w-5 mr-3" />
-                          Odhlásit se
+                          Sign Out
                         </Button>
                       </>
                     ) : (
                       <>
-                        <Link href="/prihlaseni" onClick={closeMobileMenu}>
+                        <Link href="/login" onClick={closeMobileMenu}>
                           <Button variant="outline" size="lg" className="w-full rounded-xl border-gray-200">
-                            Přihlásit se
+                            Sign In
                           </Button>
                         </Link>
-                        <Link href="/registrace" onClick={closeMobileMenu}>
+                        <Link href="/register" onClick={closeMobileMenu}>
                           <Button size="lg" className="w-full bg-black text-white hover:bg-gray-800 rounded-xl">
-                            Registrace
+                            Register
                           </Button>
                         </Link>
-                        <Link href="/pridat-prostor" onClick={closeMobileMenu}>
+                        <Link href="/add-venue" onClick={closeMobileMenu}>
                           <Button variant="outline" size="lg" className="w-full rounded-xl border-gray-200 mt-2">
                             <Plus className="h-5 w-5 mr-2" />
-                            Přidat prostor
+                            Add Venue
                           </Button>
                         </Link>
                       </>

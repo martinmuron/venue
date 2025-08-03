@@ -7,10 +7,10 @@ async function main() {
   // Create a sample admin user
   const adminPassword = await bcrypt.hash('admin123', 12)
   const admin = await prisma.user.upsert({
-    where: { email: 'admin@prostormat.cz' },
+    where: { email: 'admin@venueplatform.com' },
     update: {},
     create: {
-      email: 'admin@prostormat.cz',
+      email: 'admin@venueplatform.com',
       name: 'Admin',
       password: adminPassword,
       role: 'admin',
@@ -116,7 +116,7 @@ async function main() {
     create: {
       name: 'Restaurant Terasa',
       slug: 'restaurant-terasa',
-      description: 'Elegantní restaurace s výhledem na Pražský hrad, ideální pro firemní akce a slavnostní večery. Nabízíme exkluzivní prostředí s terasou a profesionální servis.',
+      description: 'Elegant restaurant with Prague Castle view, ideal for corporate events and formal evenings. We offer exclusive environment with terrace and professional service.',
       address: 'Kampa Island 1, Praha 1',
       capacitySeated: 80,
       capacityStanding: 120,
@@ -146,7 +146,7 @@ async function main() {
     create: {
       name: 'Galerie Moderna',
       slug: 'galerie-moderna',
-      description: 'Moderní galerie v centru Prahy s flexibilními prostory pro konference, výstavy a networking events. Vysoké stropy a minimalistický design.',
+      description: 'Modern gallery in Prague center with flexible spaces for conferences, exhibitions and networking events. High ceilings and minimalist design.',
       address: 'Národní 20, Praha 1',
       capacitySeated: 150,
       capacityStanding: 250,
@@ -172,7 +172,7 @@ async function main() {
     create: {
       name: 'SkyBar Prague',
       slug: 'skybar-prague',
-      description: 'Exkluzivní střešní terasa s panoramatickým výhledem na Prahu. Perfektní pro cocktail party a letní akce s nezapomenutelnou atmosférou.',
+      description: 'Exclusive rooftop terrace with panoramic Prague views. Perfect for cocktail parties and summer events with unforgettable atmosphere.',
       address: 'Wenceslas Square 14, Praha 1',
       capacitySeated: 60,
       capacityStanding: 100,
@@ -200,7 +200,7 @@ async function main() {
     create: {
       name: 'Ribs of Prague',
       slug: 'ribs-of-prague',
-      description: 'Autentický americký steakhouse v srdci Prahy. Rustic atmosféra s kvalitním jídlem a bohatou nabídkou whiskey. Ideální pro firemní večírky a oslavy.',
+      description: 'Authentic American steakhouse in Prague heart. Rustic atmosphere with quality food and rich whiskey selection. Ideal for corporate parties and celebrations.',
       address: 'Jindřišská 5, Praha 1',
       capacitySeated: 120,
       capacityStanding: 180,
@@ -228,7 +228,7 @@ async function main() {
     create: {
       name: 'U Malvaze',
       slug: 'u-malvaze',
-      description: 'Historická restaurace v pražském Novém Městě s tradičními českými pokrmy a výborným pivem. Stylové prostředí pro menší firemní akce a teambuildingy.',
+      description: 'Historic restaurant in Prague New Town with traditional Czech cuisine and excellent beer. Stylish environment for smaller corporate events and team-building activities.',
       address: 'Národní 7, Praha 1',
       capacitySeated: 65,
       capacityStanding: 90,
@@ -255,7 +255,7 @@ async function main() {
     create: {
       name: 'Medusa Prague',
       slug: 'medusa-prague',
-      description: 'Moderní event prostor v historické budově. Flexibilní layout s možností rozdělení na více sekcí. Perfektní pro konference, prezentace a networking events.',
+      description: 'Modern event space in historic building. Flexible layout with multi-section division options. Perfect for conferences, presentations and networking events.',
       address: 'Purkyňova 2121/7, Praha 2',
       capacitySeated: 200,
       capacityStanding: 350,
@@ -284,7 +284,7 @@ async function main() {
     create: {
       name: 'Pop Up Bar',
       slug: 'pop-up-bar',
-      description: 'Jedinečný pop-up prostor s proměnlivým designem. Každý měsíc nová koncepce a atmosféra. Ideální pro kreativní akce, product launche a neformální networking.',
+      description: 'Unique pop-up space with changing design. New concept and atmosphere every month. Ideal for creative events, product launches and informal networking.',
       address: 'Vinohrady, Praha 2',
       capacitySeated: 40,
       capacityStanding: 80,
@@ -338,16 +338,16 @@ async function main() {
   await prisma.eventRequest.create({
     data: {
       userId: sampleUser.id,
-      title: 'Firemní vánoční večírek',
-      description: 'Hledáme prostor pro vánoční večírek naší společnosti. Očekáváme cca 80 hostů, potřebujeme prostor s možností tance a catering.',
-      eventType: 'firemni-akce',
+      title: 'Corporate Christmas Party',
+      description: 'Looking for space for our company Christmas party. Expecting around 80 guests, need space with dancing area and catering options.',
+      eventType: 'corporate-event',
       eventDate: new Date('2025-12-15'),
       guestCount: 80,
-      budgetRange: '100 000 - 200 000 Kč',
-      locationPreference: 'Praha 1',
-      requirements: 'Parkovací místa, možnost tance, catering',
-      contactName: 'Jan Novák',
-      contactEmail: 'jan.novak@abc.cz',
+      budgetRange: '$4,000 - $8,000',
+      locationPreference: 'Prague 1',
+      requirements: 'Parking spaces, dance floor, catering',
+      contactName: 'John Smith',
+      contactEmail: 'john.smith@abc.com',
       contactPhone: '+420 123 456 789',
       status: 'active',
       expiresAt: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000), // 30 days from now
@@ -357,16 +357,16 @@ async function main() {
   await prisma.eventRequest.create({
     data: {
       userId: sampleUser.id,
-      title: 'Teambuilding pro 25 lidí',
-      description: 'Potřebujeme prostor pro celodenní teambuilding s workshopy a prezentacemi.',
-      eventType: 'teambuilding',
+      title: 'Team Building for 25 People',
+      description: 'We need space for full-day team building with workshops and presentations.',
+      eventType: 'team-building',
       eventDate: new Date('2025-11-20'),
       guestCount: 25,
-      budgetRange: '50 000 - 100 000 Kč',
-      locationPreference: 'Praha 2',
-      requirements: 'Projektor, flipchart, občerstvení',
-      contactName: 'Jan Novák',
-      contactEmail: 'jan.novak@abc.cz',
+      budgetRange: '$2,000 - $4,000',
+      locationPreference: 'Prague 2',
+      requirements: 'Projector, flipchart, refreshments',
+      contactName: 'John Smith',
+      contactEmail: 'john.smith@abc.com',
       contactPhone: '+420 123 456 789',
       status: 'active',
       expiresAt: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000), // 30 days from now
@@ -378,24 +378,24 @@ async function main() {
     data: {
       venueId: ribsOfPrague.id,
       userId: sampleUser.id,
-      name: 'Jana Krásná',
-      email: 'jana@company.cz',
+      name: 'Jane Beautiful',
+      email: 'jane@company.com',
       phone: '+420 777 123 456',
       eventDate: new Date('2024-12-10'),
       guestCount: 50,
-      message: 'Zajímá nás váš prostor pro firemní vánoční večírek. Můžete poslat nabídku?'
+      message: 'We are interested in your space for corporate Christmas party. Can you send us an offer?'
     }
   })
 
   await prisma.venueInquiry.create({
     data: {
       venueId: ribsOfPrague.id,
-      name: 'Petr Novotný',
-      email: 'petr.novotny@gmail.com',
+      name: 'Peter Newman',
+      email: 'peter.newman@gmail.com',
       phone: '+420 605 987 654',
       eventDate: new Date('2024-11-25'),
       guestCount: 80,
-      message: 'Hledáme prostor pro oslavu narozenin. Máte volno na konci listopadu?'
+      message: 'Looking for space for birthday celebration. Do you have availability at the end of November?'
     }
   })
 
@@ -403,24 +403,24 @@ async function main() {
     data: {
       venueId: medusaPrague.id,
       userId: sampleUser.id,
-      name: 'Martin Svoboda',
-      email: 'martin@tech-startup.cz',
+      name: 'Martin Freedom',
+      email: 'martin@tech-startup.com',
       phone: '+420 608 555 444',
       eventDate: new Date('2024-12-05'),
       guestCount: 150,
-      message: 'Potřebujeme prostor pro product launch. Máte k dispozici projektory a zvuk?'
+      message: 'We need space for product launch. Do you have projectors and sound system available?'
     }
   })
 
   await prisma.venueInquiry.create({
     data: {
       venueId: uMalvaze.id,
-      name: 'Eva Horáková',
-      email: 'eva.horakova@firma.cz',
+      name: 'Eva Mountain',
+      email: 'eva.mountain@company.com',
       phone: '+420 777 333 222',
       eventDate: new Date('2024-11-30'),
       guestCount: 30,
-      message: 'Zajímá nás váš prostor pro malý teambuilding. Jaké máte možnosti cateringu?'
+      message: 'We are interested in your space for small team building. What catering options do you have?'
     }
   })
 
@@ -429,7 +429,7 @@ async function main() {
     {
       name: 'Villa Lanna',
       slug: 'villa-lanna',
-      description: 'Historická vila s krásnou zahradou na Kampě. Exkluzivní prostor pro svatby a reprezentativní akce.',
+      description: 'Historic villa with beautiful garden on Kampa Island. Exclusive space for weddings and representative events.',
       address: 'Kampa Island 2, Praha 1',
       capacitySeated: 100,
       capacityStanding: 150,
@@ -445,7 +445,7 @@ async function main() {
     {
       name: 'Karlín Studios',
       slug: 'karlin-studios',
-      description: 'Kreativní hub v srdci Karlína s flexibilními prostory pro workshopy a networking.',
+      description: 'Creative hub in Karlín heart with flexible spaces for workshops and networking.',
       address: 'Křižíkova 34, Praha 8',
       capacitySeated: 80,
       capacityStanding: 120,
@@ -461,7 +461,7 @@ async function main() {
     {
       name: 'Boat Albatros',
       slug: 'boat-albatros',
-      description: 'Plovoucí restaurant na Vltavě s jedinečnou atmosférou pro letní akce.',
+      description: 'Floating restaurant on Vltava River with unique atmosphere for summer events.',
       address: 'Podolské nábřeží, Praha 4',
       capacitySeated: 60,
       capacityStanding: 100,
@@ -477,7 +477,7 @@ async function main() {
     {
       name: 'Forum Karlín',
       slug: 'forum-karlin-venue',
-      description: 'Prestižní koncertní sál a konferenční centrum pro velké akce a konference.',
+      description: 'Prestigious concert hall and conference center for large events and conferences.',
       address: 'Thámova 190, Praha 8',
       capacitySeated: 500,
       capacityStanding: 800,
@@ -493,7 +493,7 @@ async function main() {
     {
       name: 'Loft 39',
       slug: 'loft-39',
-      description: 'Industriální loft s vysokými stropy a industriálním designem pro kreativní akce.',
+      description: 'Industrial loft with high ceilings and industrial design for creative events.',
       address: 'Holečkova 39, Praha 5',
       capacitySeated: 70,
       capacityStanding: 110,
@@ -509,7 +509,7 @@ async function main() {
     {
       name: 'Café Slavia Terrace',
       slug: 'cafe-slavia-terrace',
-      description: 'Ikonická kavárna s terasou a výhledem na Národní divadlo. Historická atmosféra.',
+      description: 'Iconic café with terrace and National Theatre view. Historic atmosphere.',
       address: 'Národní třída 1, Praha 1',
       capacitySeated: 45,
       capacityStanding: 70,
@@ -525,7 +525,7 @@ async function main() {
     {
       name: 'Warehouse 7',
       slug: 'warehouse-7',
-      description: 'Prostorný sklad přestavěný na event prostor v Holešovicích. Ideální pro velké akce.',
+      description: 'Spacious warehouse converted to event space in Holešovice. Ideal for large events.',
       address: 'Bubenská 7, Praha 7',
       capacitySeated: 300,
       capacityStanding: 500,
@@ -541,7 +541,7 @@ async function main() {
     {
       name: 'Rooftop Lucerna',
       slug: 'rooftop-lucerna',
-      description: 'Střešní zahrada v pasáži Lucerna s unikátním výhledem na Prahu.',
+      description: 'Rooftop garden in Lucerna Passage with unique Prague views.',
       address: 'Štěpánská 61, Praha 1',
       capacitySeated: 80,
       capacityStanding: 120,
@@ -557,7 +557,7 @@ async function main() {
     {
       name: 'Industrial Hall Smíchov',
       slug: 'industrial-hall-smichov',
-      description: 'Bývalá průmyslová hala přeměněná na moderní event prostor na Smíchově.',
+      description: 'Former industrial hall transformed into modern event space in Smíchov.',
       address: 'Radlická 180, Praha 5',
       capacitySeated: 200,
       capacityStanding: 350,
@@ -573,7 +573,7 @@ async function main() {
     {
       name: 'Villa Winternitz',
       slug: 'villa-winternitz',
-      description: 'Funkcionalistická vila s architektonickou hodnotou a krásnou zahradou.',
+      description: 'Functionalist villa with architectural value and beautiful garden.',
       address: 'Na Ořechovce 28, Praha 6',
       capacitySeated: 60,
       capacityStanding: 90,
@@ -589,7 +589,7 @@ async function main() {
     {
       name: 'Brewery Lounge U Fleku',
       slug: 'brewery-lounge-u-fleku',
-      description: 'Historický pivovar s tradičními prostory pro autentické české akce.',
+      description: 'Historic brewery with traditional spaces for authentic Czech events.',
       address: 'Křemencova 11, Praha 1',
       capacitySeated: 120,
       capacityStanding: 180,
@@ -605,7 +605,7 @@ async function main() {
     {
       name: 'Coworking Space Node5',
       slug: 'coworking-space-node5',
-      description: 'Moderní coworking s konferenčními místnostmi pro business networking.',
+      description: 'Modern coworking with conference rooms for business networking.',
       address: 'Národní 961/25, Praha 1',
       capacitySeated: 50,
       capacityStanding: 80,
@@ -621,7 +621,7 @@ async function main() {
     {
       name: 'Garden Restaurant Hergetova Cihelna',
       slug: 'garden-restaurant-hergetova',
-      description: 'Romantická zahradní restaurace s výhledem na Karlův most.',
+      description: 'Romantic garden restaurant with Charles Bridge view.',
       address: 'Cihelná 2b, Praha 1',
       capacitySeated: 90,
       capacityStanding: 140,
@@ -637,7 +637,7 @@ async function main() {
     {
       name: 'Art Gallery Mánes',
       slug: 'art-gallery-manes',
-      description: 'Prestižní umělecká galerie s výstavními prostory pro kulturní akce.',
+      description: 'Prestigious art gallery with exhibition spaces for cultural events.',
       address: 'Masarykovo nábřeží 250, Praha 1',
       capacitySeated: 100,
       capacityStanding: 150,
@@ -653,7 +653,7 @@ async function main() {
     {
       name: 'Penthouse Wenceslas',
       slug: 'penthouse-wenceslas',
-      description: 'Luxusní penthouse na Václavském náměstí s panoramatickým výhledem.',
+      description: 'Luxury penthouse on Wenceslas Square with panoramic views.',
       address: 'Václavské náměstí 36, Praha 1',
       capacitySeated: 40,
       capacityStanding: 65,
@@ -687,7 +687,7 @@ async function main() {
 
   console.log('Database seeded successfully!')
   console.log('Sample users created:')
-  console.log('- Admin: admin@prostormat.cz / admin123')
+  console.log('- Admin: admin@venueplatform.com / admin123')
   console.log('- Manager 1: terasa@example.com / manager123')
   console.log('- Manager 2: galerie@example.com / manager123')
   console.log('- Manager 3: skybar@example.com / manager123')

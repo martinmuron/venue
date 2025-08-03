@@ -4,9 +4,9 @@ import { z } from "zod"
 import { db } from "@/lib/db"
 
 const registerSchema = z.object({
-  name: z.string().min(2, "Jméno musí mít alespoň 2 znaky"),
-  email: z.string().email("Neplatná e-mailová adresa"),
-  password: z.string().min(6, "Heslo musí mít alespoň 6 znaků"),
+  name: z.string().min(2, "Name must be at least 2 characters"),
+  email: z.string().email("Invalid email address"),
+  password: z.string().min(6, "Password must be at least 6 characters"),
   role: z.enum(["user", "venue_manager"]),
   company: z.string().optional(),
   phone: z.string().optional(),
@@ -24,7 +24,7 @@ export async function POST(request: Request) {
 
     if (existingUser) {
       return NextResponse.json(
-        { error: "Uživatel s tímto e-mailem již existuje" },
+        { error: "User with this email already exists" },
         { status: 400 }
       )
     }
@@ -59,13 +59,13 @@ export async function POST(request: Request) {
     
     if (error instanceof z.ZodError) {
       return NextResponse.json(
-        { error: "Neplatná data", details: error.errors },
+        { error: "Invalid data", details: error.errors },
         { status: 400 }
       )
     }
 
     return NextResponse.json(
-      { error: "Došlo k chybě při registraci" },
+      { error: "Registration error occurred" },
       { status: 500 }
     )
   }

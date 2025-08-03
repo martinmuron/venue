@@ -38,47 +38,32 @@ interface EventRequest {
 }
 
 const GUEST_COUNT_RANGES = [
-  { label: "Všechny", value: "all" },
-  { label: "1-25 osob", value: "1-25" },
-  { label: "26-50 osob", value: "26-50" },
-  { label: "51-100 osob", value: "51-100" },
-  { label: "101-200 osob", value: "101-200" },
-  { label: "200+ osob", value: "200+" },
+  { label: "All", value: "all" },
+  { label: "1-25 people", value: "1-25" },
+  { label: "26-50 people", value: "26-50" },
+  { label: "51-100 people", value: "51-100" },
+  { label: "101-200 people", value: "101-200" },
+  { label: "200+ people", value: "200+" },
 ]
 
 const DATE_RANGES = [
-  { label: "Všechny", value: "all" },
-  { label: "Posledních 7 dní", value: "7days" },
-  { label: "Posledních 30 dní", value: "30days" },
-  { label: "Nejnovější", value: "recent" },
+  { label: "All", value: "all" },
+  { label: "Last 7 days", value: "7days" },
+  { label: "Last 30 days", value: "30days" },
+  { label: "Most recent", value: "recent" },
 ]
 
 const FAVORITE_FILTERS = [
-  { label: "Všechny poptávky", value: "all" },
-  { label: "Pouze oblíbené", value: "favorites" },
+  { label: "All requests", value: "all" },
+  { label: "Only favorites", value: "favorites" },
 ]
 
 const LOCATIONS = [
-  "Všechny",
-  "Praha 1",
-  "Praha 2", 
-  "Praha 3",
-  "Praha 4",
-  "Praha 5",
-  "Praha 6",
-  "Praha 7",
-  "Praha 8",
-  "Praha 9",
-  "Praha 10",
-  "Brno",
-  "Ostrava",
-  "Plzeň",
-  "České Budějovice",
-  "Hradec Králové",
-  "Pardubice",
-  "Zlín",
-  "Karlovy Vary",
-  "Liberec",
+  "All",
+  "New York, NY", "Los Angeles, CA", "Chicago, IL", "Houston, TX", "Phoenix, AZ",
+  "Philadelphia, PA", "San Antonio, TX", "San Diego, CA", "Dallas, TX", "San Jose, CA",
+  "Austin, TX", "Jacksonville, FL", "Fort Worth, TX", "Columbus, OH",
+  "Charlotte, NC", "San Francisco, CA", "Indianapolis, IN", "Seattle, WA", "Denver, CO"
 ]
 
 function EventRequestSkeleton() {
@@ -116,7 +101,7 @@ export default function EventRequestsPage() {
   const [requests, setRequests] = useState<EventRequest[]>([])
   const [loading, setLoading] = useState(true)
   const [filters, setFilters] = useState({
-    location: "Všechny",
+    location: "All",
     guestCount: "all",
     dateRange: "all",
     search: "",
@@ -156,7 +141,7 @@ export default function EventRequestsPage() {
     }
 
     // Filter by location
-    if (filters.location !== "Všechny") {
+    if (filters.location !== "All") {
       filtered = filtered.filter(request => 
         request.locationPreference?.includes(filters.location)
       )
@@ -206,7 +191,7 @@ export default function EventRequestsPage() {
 
   const clearFilters = () => {
     setFilters({
-      location: "Všechny",
+      location: "All",
       guestCount: "all", 
       dateRange: "all",
       search: "",
@@ -214,7 +199,7 @@ export default function EventRequestsPage() {
     })
   }
 
-  const hasActiveFilters = filters.location !== "Všechny" || 
+  const hasActiveFilters = filters.location !== "All" || 
                           filters.guestCount !== "all" || 
                           filters.dateRange !== "all" || 
                           filters.search !== "" ||
@@ -225,10 +210,10 @@ export default function EventRequestsPage() {
       <div className="min-h-screen bg-white">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 py-8 sm:py-12">
           <div className="text-center mb-8 sm:mb-12">
-            <h1 className="text-2xl sm:text-title-1 text-black mb-4">Veřejné zakázky</h1>
+            <h1 className="text-2xl sm:text-title-1 text-black mb-4">Public Contracts</h1>
             <p className="text-sm sm:text-body text-gray-600 mb-6 sm:mb-8 max-w-2xl mx-auto px-2 sm:px-0">
-              Aktuální poptávky na event prostory. Kontaktujte organizátory přímo 
-              prostřednictvím uvedených kontaktních údajů.
+              Current requests for event spaces. Contact the organizers directly
+              through the provided contact details.
             </p>
           </div>
           
@@ -247,14 +232,14 @@ export default function EventRequestsPage() {
       <div className="max-w-5xl mx-auto px-4 sm:px-6 py-8 sm:py-12">
         {/* Header */}
         <div className="text-center mb-8 sm:mb-12">
-          <h1 className="text-2xl sm:text-title-1 text-black mb-4">Veřejné zakázky</h1>
+          <h1 className="text-2xl sm:text-title-1 text-black mb-4">Public Contracts</h1>
           <p className="text-sm sm:text-body text-gray-600 mb-6 sm:mb-8 max-w-2xl mx-auto px-2 sm:px-0">
-            Aktuální poptávky na event prostory. Kontaktujte organizátory přímo 
-            prostřednictvím uvedených kontaktních údajů.
+            Current requests for event spaces. Contact the organizers directly
+            through the provided contact details.
           </p>
-          <Link href="/pozadavky/novy">
+          <Link href="/requests/new">
             <Button size="lg" className="bg-black text-white hover:bg-gray-800 w-full sm:w-auto rounded-xl transition-all duration-200 shadow-lg hover:shadow-xl">
-              Přidat poptávku
+              Add request
             </Button>
           </Link>
         </div>
@@ -264,7 +249,7 @@ export default function EventRequestsPage() {
           <CardContent className="p-6">
             <div className="flex items-center gap-3 mb-6">
               <Filter className="h-5 w-5 text-gray-600" />
-              <h3 className="text-lg font-semibold text-gray-900">Filtry</h3>
+              <h3 className="text-lg font-semibold text-gray-900">Filters</h3>
               {hasActiveFilters && (
                 <Button
                   variant="outline"
@@ -273,7 +258,7 @@ export default function EventRequestsPage() {
                   className="ml-auto text-gray-600 hover:text-gray-900"
                 >
                   <X className="h-4 w-4 mr-2" />
-                  Vymazat filtry
+                  Clear filters
                 </Button>
               )}
             </div>
@@ -282,12 +267,12 @@ export default function EventRequestsPage() {
               {/* Search */}
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Hledat v požadavcích
+                  Search in requests
                 </label>
                 <div className="relative">
                   <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
                   <Input
-                    placeholder="Název, popis, kontakt..."
+                    placeholder="Name, description, contact..."
                     value={filters.search}
                     onChange={(e) => setFilters(prev => ({ ...prev, search: e.target.value }))}
                     className="pl-10"
@@ -298,11 +283,11 @@ export default function EventRequestsPage() {
               {/* Location Filter */}
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Lokalita
+                  Location
                 </label>
                 <Select value={filters.location} onValueChange={(value) => setFilters(prev => ({ ...prev, location: value }))}>
                   <SelectTrigger>
-                    <SelectValue placeholder="Vyberte lokalitu" />
+                    <SelectValue placeholder="Select location" />
                   </SelectTrigger>
                   <SelectContent>
                     {LOCATIONS.map(location => (
@@ -315,11 +300,11 @@ export default function EventRequestsPage() {
               {/* Guest Count Filter */}
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Počet hostů
+                  Number of guests
                 </label>
                 <Select value={filters.guestCount} onValueChange={(value) => setFilters(prev => ({ ...prev, guestCount: value }))}>
                   <SelectTrigger>
-                    <SelectValue placeholder="Vyberte počet" />
+                    <SelectValue placeholder="Select number" />
                   </SelectTrigger>
                   <SelectContent>
                     {GUEST_COUNT_RANGES.map(range => (
@@ -332,11 +317,11 @@ export default function EventRequestsPage() {
               {/* Date Range Filter */}
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Datum přidání
+                  Date added
                 </label>
                 <Select value={filters.dateRange} onValueChange={(value) => setFilters(prev => ({ ...prev, dateRange: value }))}>
                   <SelectTrigger>
-                    <SelectValue placeholder="Vyberte období" />
+                    <SelectValue placeholder="Select period" />
                   </SelectTrigger>
                   <SelectContent>
                     {DATE_RANGES.map(range => (
@@ -350,11 +335,11 @@ export default function EventRequestsPage() {
               {session && (
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Oblíbené
+                    Favorites
                   </label>
                   <Select value={filters.favorites} onValueChange={(value) => setFilters(prev => ({ ...prev, favorites: value }))}>
                     <SelectTrigger>
-                      <SelectValue placeholder="Filtrovat oblíbené" />
+                      <SelectValue placeholder="Filter favorites" />
                     </SelectTrigger>
                     <SelectContent>
                       {FAVORITE_FILTERS.map(filter => (
@@ -371,11 +356,11 @@ export default function EventRequestsPage() {
         {/* Results Count */}
         <div className="flex justify-between items-center mb-6">
           <p className="text-sm text-gray-600">
-            Zobrazeno {filteredRequests.length} z {requests.length} požadavků
+            Showing {filteredRequests.length} of {requests.length} requests
           </p>
           {hasActiveFilters && (
             <Badge variant="outline" className="bg-blue-50 text-blue-700 border-blue-200">
-              Aktivní filtry
+              Active filters
             </Badge>
           )}
         </div>
@@ -384,21 +369,21 @@ export default function EventRequestsPage() {
         {filteredRequests.length === 0 ? (
           <div className="text-center py-12">
             <h3 className="text-title-3 text-black mb-4">
-              {requests.length === 0 ? "Žádné aktivní poptávky" : "Žádné výsledky"}
+              {requests.length === 0 ? "No active requests" : "No results"}
             </h3>
             <p className="text-body text-gray-600 mb-6 px-4">
               {requests.length === 0 
-                ? "Momentálně nejsou k dispozici žádné poptávky na akce."
-                : "Zkuste upravit filtry pro zobrazení více výsledků."
+                ? "There are currently no event requests available."
+                : "Try adjusting the filters to see more results."
               }
             </p>
             {requests.length === 0 ? (
-              <Link href="/pozadavky/novy">
-                <Button className="bg-black text-white hover:bg-gray-800 rounded-xl transition-all duration-200 shadow-lg hover:shadow-xl">Přidat první poptávku</Button>
+              <Link href="/requests/new">
+                <Button className="bg-black text-white hover:bg-gray-800 rounded-xl transition-all duration-200 shadow-lg hover:shadow-xl">Add first request</Button>
               </Link>
             ) : (
               <Button onClick={clearFilters} variant="outline">
-                Vymazat filtry
+                Clear filters
               </Button>
             )}
           </div>
@@ -447,28 +432,28 @@ export default function EventRequestsPage() {
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
                       <div className="text-center p-3 bg-blue-50 rounded-xl border border-blue-100">
                         <Calendar className="h-5 w-5 text-blue-600 mx-auto mb-1" />
-                        <p className="text-xs text-blue-600 font-medium">Datum akce</p>
+                        <p className="text-xs text-blue-600 font-medium">Event date</p>
                         <p className="text-sm font-semibold text-blue-900">{formatDate(new Date(request.eventDate))}</p>
                       </div>
                       
                       <div className="text-center p-3 bg-green-50 rounded-xl border border-green-100">
                         <Users className="h-5 w-5 text-green-600 mx-auto mb-1" />
-                        <p className="text-xs text-green-600 font-medium">Počet hostů</p>
-                        <p className="text-sm font-semibold text-green-900">{request.guestCount} osob</p>
+                        <p className="text-xs text-green-600 font-medium">Number of guests</p>
+                        <p className="text-sm font-semibold text-green-900">{request.guestCount} people</p>
                       </div>
                       
                       {request.budget && (
                         <div className="text-center p-3 bg-amber-50 rounded-xl border border-amber-100">
                           <Euro className="h-5 w-5 text-amber-600 mx-auto mb-1" />
-                          <p className="text-xs text-amber-600 font-medium">Rozpočet</p>
-                          <p className="text-sm font-semibold text-amber-900">{request.budget.toLocaleString()} Kč</p>
+                          <p className="text-xs text-amber-600 font-medium">Budget</p>
+                          <p className="text-sm font-semibold text-amber-900">${request.budget.toLocaleString()}</p>
                         </div>
                       )}
                       
                       {request.locationPreference && (
                         <div className="text-center p-3 bg-purple-50 rounded-xl border border-purple-100">
                           <MapPin className="h-5 w-5 text-purple-600 mx-auto mb-1" />
-                          <p className="text-xs text-purple-600 font-medium">Lokalita</p>
+                          <p className="text-xs text-purple-600 font-medium">Location</p>
                           <p className="text-sm font-semibold text-purple-900">{request.locationPreference}</p>
                         </div>
                       )}
@@ -478,7 +463,7 @@ export default function EventRequestsPage() {
                     {request.requirements && (
                       <div className="mb-6">
                         <div className="bg-amber-50 border border-amber-200 rounded-xl p-4">
-                          <h4 className="text-sm font-semibold text-amber-800 mb-2">Speciální požadavky</h4>
+                          <h4 className="text-sm font-semibold text-amber-800 mb-2">Special requirements</h4>
                           <p className="text-sm text-amber-700 leading-relaxed line-clamp-2">{request.requirements}</p>
                         </div>
                       </div>
@@ -511,7 +496,7 @@ export default function EventRequestsPage() {
                               onClick={!session ? (e) => e.preventDefault() : undefined}
                             >
                               <Phone className="h-4 w-4" />
-                              Telefon
+                              Phone
                             </a>
                           )}
                         </div>
@@ -523,17 +508,17 @@ export default function EventRequestsPage() {
                           <div className="flex flex-col sm:flex-row items-center gap-3 p-4 text-center sm:text-left">
                             <LogIn className="h-6 w-6 text-gray-600 flex-shrink-0" />
                             <p className="text-sm font-medium text-gray-900">
-                              Přihlaste se pro zobrazení kontaktních údajů
+                              Log in to view contact details
                             </p>
                             <div className="flex flex-col sm:flex-row gap-2 flex-shrink-0 w-full sm:w-auto">
-                              <Link href="/prihlaseni" className="w-full sm:w-auto">
+                              <Link href="/login" className="w-full sm:w-auto">
                                 <Button size="sm" className="bg-black text-white hover:bg-gray-800 rounded-lg w-full">
-                                  Přihlásit se
+                                  Log in
                                 </Button>
                               </Link>
-                              <Link href="/registrace" className="w-full sm:w-auto">
+                              <Link href="/register" className="w-full sm:w-auto">
                                 <Button variant="outline" size="sm" className="rounded-lg border-gray-300 w-full">
-                                  Registrace
+                                  Register
                                 </Button>
                               </Link>
                             </div>

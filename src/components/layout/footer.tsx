@@ -12,24 +12,24 @@ export function Footer() {
               <Logo variant="black" size="md" href="/" />
             </div>
             <p className="text-body text-gray-600 max-w-md">
-              Největší katalog event prostorů v Praze. Spojujeme organizátory akcí s jedinečnými prostory.
+              The largest catalog of event venues in Prague. We connect event organizers with unique venues.
             </p>
           </div>
 
           {/* Quick Links */}
           <div>
             <h4 className="text-headline font-semibold text-black mb-4">
-              Odkazy
+              Links
             </h4>
             <ul className="space-y-2">
               <li>
-                <Link href="/prostory" className="text-body text-gray-600 hover:text-black transition-colors">
-                  Prostory
+                <Link href="/venues" className="text-body text-gray-600 hover:text-black transition-colors">
+                  Venues
                 </Link>
               </li>
               <li>
-                <Link href="/pozadavky" className="text-body text-gray-600 hover:text-black transition-colors">
-                  Veřejné zakázky
+                <Link href="/requests" className="text-body text-gray-600 hover:text-black transition-colors">
+                  Public Requests
                 </Link>
               </li>
               <li>
@@ -38,13 +38,13 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/ceny" className="text-body text-gray-600 hover:text-black transition-colors">
-                  Ceny
+                <Link href="/pricing" className="text-body text-gray-600 hover:text-black transition-colors">
+                  Pricing
                 </Link>
               </li>
               <li>
-                <Link href="/pridat-prostor" className="text-body text-gray-600 hover:text-black transition-colors">
-                  Přidat prostor
+                <Link href="/add-venue" className="text-body text-gray-600 hover:text-black transition-colors">
+                  Add Venue
                 </Link>
               </li>
             </ul>
@@ -53,27 +53,27 @@ export function Footer() {
           {/* Support */}
           <div>
             <h4 className="text-headline font-semibold text-black mb-4">
-              Podpora
+              Support
             </h4>
             <ul className="space-y-2">
               <li>
-                <Link href="/kontakt" className="text-body text-gray-600 hover:text-black transition-colors">
-                  Kontakt
+                <Link href="/contact" className="text-body text-gray-600 hover:text-black transition-colors">
+                  Contact
                 </Link>
               </li>
               <li>
                 <Link href="/faq" className="text-body text-gray-600 hover:text-black transition-colors">
-                  Časté otázky
+                  FAQ
                 </Link>
               </li>
               <li>
-                <Link href="/podminky-pouziti" className="text-body text-gray-600 hover:text-black transition-colors">
-                  Podmínky použití
+                <Link href="/terms-of-service" className="text-body text-gray-600 hover:text-black transition-colors">
+                  Terms of Service
                 </Link>
               </li>
               <li>
-                <Link href="/ochrana-soukromi" className="text-body text-gray-600 hover:text-black transition-colors">
-                  Ochrana soukromí
+                <Link href="/privacy-policy" className="text-body text-gray-600 hover:text-black transition-colors">
+                  Privacy Policy
                 </Link>
               </li>
             </ul>
@@ -84,17 +84,17 @@ export function Footer() {
         <div className="mt-12 pt-8 border-t border-gray-200">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-caption text-gray-500">
-              © 2024 Prostormat. Všechna práva vyhrazena.
+              © 2024 VenuePlatform. All rights reserved.
             </p>
             <div className="flex space-x-6 mt-4 md:mt-0">
-              <Link href="/podminky-pouziti" className="text-caption text-gray-500 hover:text-black transition-colors">
-                Podmínky
+              <Link href="/terms-of-service" className="text-caption text-gray-500 hover:text-black transition-colors">
+                Terms
               </Link>
-              <Link href="/ochrana-soukromi" className="text-caption text-gray-500 hover:text-black transition-colors">
-                Soukromí
+              <Link href="/privacy-policy" className="text-caption text-gray-500 hover:text-black transition-colors">
+                Privacy
               </Link>
-              <Link href="/kontakt" className="text-caption text-gray-500 hover:text-black transition-colors">
-                Kontakt
+              <Link href="/contact" className="text-caption text-gray-500 hover:text-black transition-colors">
+                Contact
               </Link>
             </div>
           </div>

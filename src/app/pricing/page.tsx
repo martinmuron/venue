@@ -16,15 +16,15 @@ export default function PricingPage() {
         <div className="max-w-4xl mx-auto text-center relative z-20">
           <div className="animate-slide-up">
             <h1 className="text-display text-white mb-6 font-black tracking-tight drop-shadow-lg">
-              Jednoduché ceny<br />
-              pro váš prostor
+              Simple pricing<br />
+              for your space
             </h1>
           </div>
           
           <div className="animate-slide-up" style={{ animationDelay: '0.2s' }}>
             <p className="text-title-3 text-gray-200 mb-12 max-w-3xl mx-auto font-medium leading-relaxed">
-              Bez skrytých poplatků. Bez provizí z rezervací. Pouze roční předplatné 
-              za maximální viditelnost vašeho prostoru.
+              No hidden fees. No commissions on bookings. Just an annual subscription
+              for maximum visibility of your space.
             </p>
           </div>
         </div>
@@ -41,26 +41,26 @@ export default function PricingPage() {
               <div className="relative z-10">
                 <div className="text-center mb-8">
                   <h2 className="text-title-2 text-black font-bold mb-4">
-                    Roční předplatné
+                    Annual subscription
                   </h2>
                   <div className="mb-4">
-                    <span className="text-5xl sm:text-6xl font-black text-black">12 000</span>
-                    <span className="text-title-3 text-gray-600 ml-2">Kč / rok</span>
+                    <span className="text-5xl sm:text-6xl font-black text-black">$500</span>
+                    <span className="text-title-3 text-gray-600 ml-2">/ year</span>
                   </div>
                   <p className="text-body text-gray-600 font-medium">
-                    Kompletní přístup k platformě na celý rok
+                    Full access to the platform for a whole year
                   </p>
                 </div>
 
                 {/* Features List */}
                 <div className="space-y-4 mb-10">
                   {[
-                    'Profil prostoru s fotogalerií',
-                    'Neomezené dotazy od klientů',
-                    'Přístup k požadavkům na akce',
-                    'Základní statistiky návštěvnosti',
-                    'Email podpora',
-                    'Roční platba (žádné měsíční poplatky)'
+                    'Venue profile with photo gallery',
+                    'Unlimited inquiries from clients',
+                    'Access to event requests',
+                    'Basic traffic statistics',
+                    'Email support',
+                    'Annual payment (no monthly fees)'
                   ].map((feature, index) => (
                     <div key={index} className="flex items-center gap-3">
                       <div className="w-6 h-6 bg-black rounded-full flex items-center justify-center flex-shrink-0">
@@ -73,22 +73,22 @@ export default function PricingPage() {
 
                 {/* CTA Buttons */}
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <Link href="/pridat-prostor">
+                  <Link href="/add-venue">
                     <Button 
                       variant="default"
                       size="lg" 
                       className="magnetic-button hover-lift w-full sm:w-auto px-12 py-4 text-lg font-semibold rounded-2xl shadow-lg bg-black text-white hover:bg-gray-800"
                     >
-                      Přidat prostor
+                      Add venue
                     </Button>
                   </Link>
-                  <Link href="mailto:info@prostormat.cz">
+                  <Link href="mailto:info@venue.com">
                     <Button 
                       variant="secondary"
                       size="lg" 
                       className="hover-lift w-full sm:w-auto px-12 py-4 text-lg font-semibold rounded-2xl border-2"
                     >
-                      Kontaktovat prodej
+                      Contact sales
                     </Button>
                   </Link>
                 </div>
@@ -104,10 +104,10 @@ export default function PricingPage() {
           <ScrollReveal>
             <div className="text-center mb-16">
               <h2 className="text-title-1 text-black mb-6 font-bold">
-                Dodatečné služby
+                Additional services
               </h2>
               <p className="text-body text-gray-600 max-w-3xl mx-auto text-lg font-medium leading-relaxed">
-                Zvyšte viditelnost vašeho prostoru s prémiové funkce spravované přes admin panel
+                Increase the visibility of your space with premium features managed through the admin panel
               </p>
             </div>
           </ScrollReveal>
@@ -119,10 +119,10 @@ export default function PricingPage() {
                   <Star className="w-8 h-8 text-white" />
                 </div>
                 <h3 className="text-title-3 font-bold text-black mb-3">
-                  Zvýraznění profilu
+                  Profile highlight
                 </h3>
                 <p className="text-callout text-gray-600 leading-relaxed flex-grow">
-                  Featured listing pro maximální viditelnost ve výsledcích vyhledávání
+                  Featured listing for maximum visibility in search results
                 </p>
               </div>
             </ScrollReveal>
@@ -133,10 +133,10 @@ export default function PricingPage() {
                   <TrendingUp className="w-8 h-8 text-white" />
                 </div>
                 <h3 className="text-title-3 font-bold text-black mb-3">
-                  Prémiové umístění
+                  Premium placement
                 </h3>
                 <p className="text-callout text-gray-600 leading-relaxed flex-grow">
-                  Prioritní zobrazení ve výsledcích vyhledávání a kategoriích
+                  Priority display in search results and categories
                 </p>
               </div>
             </ScrollReveal>
@@ -147,10 +147,10 @@ export default function PricingPage() {
                   <Zap className="w-8 h-8 text-white" />
                 </div>
                 <h3 className="text-title-3 font-bold text-black mb-3">
-                  Propagační možnosti
+                  Promotional options
                 </h3>
                 <p className="text-callout text-gray-600 leading-relaxed flex-grow">
-                  Dodatečné marketingové nástroje a promotional features
+                  Additional marketing tools and promotional features
                 </p>
               </div>
             </ScrollReveal>
@@ -161,10 +161,10 @@ export default function PricingPage() {
                   <Mail className="w-8 h-8 text-white" />
                 </div>
                 <h3 className="text-title-3 font-bold text-black mb-3">
-                  Marketingová podpora
+                  Marketing support
                 </h3>
                 <p className="text-callout text-gray-600 leading-relaxed flex-grow">
-                  Individuální konzultace a podpora pro rozvoj vašeho prostoru
+                  Individual consultations and support for the development of your space
                 </p>
               </div>
             </ScrollReveal>
@@ -173,15 +173,15 @@ export default function PricingPage() {
           <ScrollReveal delay={500}>
             <div className="text-center mt-16">
               <p className="text-body text-gray-600 mb-8 max-w-2xl mx-auto">
-                Zajímají vás prémiové funkce? Kontaktujte nás pro individuální nabídku.
+                Are you interested in premium features? Contact us for an individual offer.
               </p>
-              <Link href="mailto:info@prostormat.cz">
+              <Link href="mailto:info@venue.com">
                 <Button 
                   variant="secondary" 
                   size="lg" 
                   className="magnetic-button hover-lift rounded-2xl px-10 py-4 text-lg font-semibold border-2 border-black hover:bg-black hover:text-white transition-all duration-300"
                 >
-                  Kontaktovat prodej
+                  Contact sales
                 </Button>
               </Link>
             </div>
@@ -198,29 +198,29 @@ export default function PricingPage() {
         <div className="max-w-4xl mx-auto relative z-10 text-center">
           <ScrollReveal>
             <h2 className="text-3xl sm:text-title-1 text-white mb-6 leading-tight font-bold">
-              Připraveni začít?
+              Ready to start?
             </h2>
             <p className="text-lg sm:text-title-3 text-gray-200 max-w-3xl mx-auto leading-relaxed font-medium mb-12">
-              Přidejte svůj prostor na největší platformu event prostorů v Praze
-              a začněte získávat nové klienty už dnes.
+              Add your space to the largest platform of event spaces in the city
+              and start getting new clients today.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-6 justify-center max-w-lg mx-auto">
-              <Link href="/pridat-prostor">
+              <Link href="/add-venue">
                 <Button 
                   variant="secondary"
                   size="lg" 
                   className="magnetic-button hover-lift w-full sm:w-auto px-12 py-4 text-lg font-semibold rounded-2xl bg-white text-black hover:bg-gray-100 transition-all duration-300 shadow-xl"
                 >
-                  Přidat prostor
+                  Add venue
                 </Button>
               </Link>
-              <Link href="mailto:info@prostormat.cz">
+              <Link href="mailto:info@venue.com">
                 <Button 
                   size="lg" 
                   className="hover-lift magnetic-button w-full sm:w-auto px-12 py-4 text-lg font-semibold rounded-2xl border-2 border-white text-white bg-transparent hover:bg-white hover:text-black transition-all duration-300"
                 >
-                  Kontaktovat nás
+                  Contact us
                 </Button>
               </Link>
             </div>

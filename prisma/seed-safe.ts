@@ -42,7 +42,7 @@ async function main() {
     const adminPassword = await bcrypt.hash('admin123', 12)
     await prisma.user.create({
       data: {
-        email: 'admin@prostormat.cz',
+        email: 'admin@venueplatform.com',
         name: 'Admin',
         password: adminPassword,
         role: 'admin',
@@ -93,7 +93,7 @@ async function main() {
 
     console.log('✅ Production database seeded with essential users and venues')
     console.log('   - Test user: test@test.com / 123456')
-    console.log('   - Admin user: admin@prostormat.cz / admin123')
+    console.log('   - Admin user: admin@venueplatform.com / admin123')
     console.log('   - Location manager: location@location.com / 123456')
     console.log('   - Assigned venues: SkyBar Prague, Penthouse Wenceslas')
 

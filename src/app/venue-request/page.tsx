@@ -45,7 +45,7 @@ export default function VenueBroadcastPage() {
   }
 
   if (!session) {
-    router.push('/prihlaseni')
+    router.push('/login')
     return null
   }
 
@@ -65,10 +65,10 @@ export default function VenueBroadcastPage() {
       if (response.ok) {
         router.push('/dashboard?tab=broadcasts')
       } else {
-        alert('Chyba při odesílání poptávky. Zkuste to prosím znovu.')
+        alert('Error sending request. Please try again.')
       }
     } catch (error) {
-      alert('Chyba při odesílání poptávky. Zkuste to prosím znovu.')
+      alert('Error sending request. Please try again.')
     } finally {
       setIsSubmitting(false)
     }
@@ -88,10 +88,10 @@ export default function VenueBroadcastPage() {
       <div className="bg-blue-600 text-white py-16">
         <div className="container mx-auto px-4">
           <h1 className="text-4xl md:text-5xl font-bold text-center mb-4">
-            Poptávka prostor
+            Venue Request
           </h1>
           <p className="text-xl text-center text-blue-100 max-w-2xl mx-auto">
-            Popište svou akci a my ji pošleme vhodným prostorům
+            Describe your event and we will send it to suitable venues
           </p>
         </div>
       </div>
@@ -104,7 +104,7 @@ export default function VenueBroadcastPage() {
               {/* Title */}
               <div>
                 <label htmlFor="title" className="block text-sm font-medium text-gray-700 mb-2">
-                  Název akce *
+                  Event Title *
                 </label>
                 <input
                   type="text"
@@ -114,14 +114,14 @@ export default function VenueBroadcastPage() {
                   onChange={handleChange}
                   required
                   className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
-                  placeholder="Např. Firemní vánoční večírek"
+                  placeholder="e.g. Corporate Christmas Party"
                 />
               </div>
 
               {/* Description */}
               <div>
                 <label htmlFor="description" className="block text-sm font-medium text-gray-700 mb-2">
-                  Popis akce *
+                  Event Description *
                 </label>
                 <textarea
                   id="description"
@@ -131,14 +131,14 @@ export default function VenueBroadcastPage() {
                   required
                   rows={4}
                   className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 resize-none"
-                  placeholder="Popište detailně svou akci, atmosféru, kterou chcete vytvořit..."
+                  placeholder="Describe your event in detail, the atmosphere you want to create..."
                 />
               </div>
 
               {/* Event Type */}
               <div>
                 <label htmlFor="eventType" className="block text-sm font-medium text-gray-700 mb-2">
-                  Typ akce *
+                  Event Type *
                 </label>
                 <select
                   id="eventType"
@@ -148,15 +148,15 @@ export default function VenueBroadcastPage() {
                   required
                   className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
                 >
-                  <option value="">Vyberte typ akce</option>
-                  <option value="firemni-akce">Firemní akce</option>
+                  <option value="">Select event type</option>
+                  <option value="corporate-event">Corporate Event</option>
                   <option value="teambuilding">Teambuilding</option>
-                  <option value="svatba">Svatba</option>
-                  <option value="soukroma-akce">Soukromá akce</option>
-                  <option value="konference">Konference</option>
+                  <option value="wedding">Wedding</option>
+                  <option value="private-event">Private Event</option>
+                  <option value="conference">Conference</option>
                   <option value="workshop">Workshop</option>
-                  <option value="oslava">Oslava</option>
-                  <option value="jine">Jiné</option>
+                  <option value="celebration">Celebration</option>
+                  <option value="other">Other</option>
                 </select>
               </div>
 
@@ -164,7 +164,7 @@ export default function VenueBroadcastPage() {
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
                   <label htmlFor="eventDate" className="block text-sm font-medium text-gray-700 mb-2">
-                    Datum akce
+                    Event Date
                   </label>
                   <input
                     type="date"
@@ -178,7 +178,7 @@ export default function VenueBroadcastPage() {
 
                 <div>
                   <label htmlFor="guestCount" className="block text-sm font-medium text-gray-700 mb-2">
-                    Počet hostů
+                    Number of Guests
                   </label>
                   <input
                     type="number"
@@ -188,7 +188,7 @@ export default function VenueBroadcastPage() {
                     onChange={handleChange}
                     min="1"
                     className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
-                    placeholder="Přibližný počet hostů"
+                    placeholder="Approximate number of guests"
                   />
                 </div>
               </div>
@@ -196,7 +196,7 @@ export default function VenueBroadcastPage() {
               {/* Budget Range */}
               <div>
                 <label htmlFor="budgetRange" className="block text-sm font-medium text-gray-700 mb-2">
-                  Rozpočet
+                  Budget
                 </label>
                 <select
                   id="budgetRange"
@@ -205,19 +205,19 @@ export default function VenueBroadcastPage() {
                   onChange={handleChange}
                   className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
                 >
-                  <option value="">Vyberte rozpočet</option>
-                  <option value="do-10000">Do 10 000 Kč</option>
-                  <option value="10000-25000">10 000 - 25 000 Kč</option>
-                  <option value="25000-50000">25 000 - 50 000 Kč</option>
-                  <option value="50000-100000">50 000 - 100 000 Kč</option>
-                  <option value="nad-100000">Nad 100 000 Kč</option>
+                  <option value="">Select budget</option>
+                  <option value="under-1000">Under $1,000</option>
+                  <option value="1000-2500">$1,000 - $2,500</option>
+                  <option value="2500-5000">$2,500 - $5,000</option>
+                  <option value="5000-10000">$5,000 - $10,000</option>
+                  <option value="over-10000">Over $10,000</option>
                 </select>
               </div>
 
               {/* Location Preference */}
               <div>
                 <label htmlFor="locationPreference" className="block text-sm font-medium text-gray-700 mb-2">
-                  Preferovaná lokalita
+                  Preferred Location
                 </label>
                 <input
                   type="text"
@@ -226,14 +226,14 @@ export default function VenueBroadcastPage() {
                   value={formData.locationPreference}
                   onChange={handleChange}
                   className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
-                  placeholder="Např. Praha 1, Brno centrum, Ostrava..."
+                  placeholder="e.g. New York, NY, Downtown, etc."
                 />
               </div>
 
               {/* Requirements */}
               <div>
                 <label htmlFor="requirements" className="block text-sm font-medium text-gray-700 mb-2">
-                  Speciální požadavky
+                  Special Requirements
                 </label>
                 <textarea
                   id="requirements"
@@ -242,20 +242,20 @@ export default function VenueBroadcastPage() {
                   onChange={handleChange}
                   rows={3}
                   className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 resize-none"
-                  placeholder="Parking, klimatizace, projektor, catering možnosti..."
+                  placeholder="Parking, air conditioning, projector, catering options..."
                 />
               </div>
 
               {/* Contact Information */}
               <div className="border-t pt-6">
                 <h3 className="text-lg font-semibold text-gray-900 mb-4">
-                  Kontaktní informace
+                  Contact Information
                 </h3>
                 
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
                     <label htmlFor="contactName" className="block text-sm font-medium text-gray-700 mb-2">
-                      Jméno a příjmení *
+                      Full Name *
                     </label>
                     <input
                       type="text"
@@ -265,13 +265,13 @@ export default function VenueBroadcastPage() {
                       onChange={handleChange}
                       required
                       className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
-                      placeholder="Vaše jméno"
+                      placeholder="Your name"
                     />
                   </div>
 
                   <div>
                     <label htmlFor="contactPhone" className="block text-sm font-medium text-gray-700 mb-2">
-                      Telefon
+                      Phone
                     </label>
                     <input
                       type="tel"
@@ -280,7 +280,7 @@ export default function VenueBroadcastPage() {
                       value={formData.contactPhone}
                       onChange={handleChange}
                       className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
-                      placeholder="+420 775 654 639"
+                      placeholder="+1 234 567 890"
                     />
                   </div>
                 </div>
@@ -297,7 +297,7 @@ export default function VenueBroadcastPage() {
                     onChange={handleChange}
                     required
                     className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
-                    placeholder="vas@email.cz"
+                    placeholder="your@email.com"
                   />
                 </div>
               </div>
@@ -313,10 +313,10 @@ export default function VenueBroadcastPage() {
                       : 'bg-blue-600 hover:bg-blue-700 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2'
                   }`}
                 >
-                  {isSubmitting ? 'Odesílám...' : 'Odeslat poptávku prostorům'}
+                  {isSubmitting ? 'Sending...' : 'Send Request to Venues'}
                 </button>
                 <p className="text-sm text-gray-500 mt-3 text-center">
-                  Vaše poptávka bude odeslána pouze prostorům, které odpovídají vašim kritériím.
+                  Your request will only be sent to venues that match your criteria.
                 </p>
               </div>
             </form>

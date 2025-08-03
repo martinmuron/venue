@@ -37,12 +37,12 @@ function SignInForm() {
       })
 
       if (result?.error) {
-        setError("Neplatné přihlašovací údaje")
+        setError("Invalid login credentials")
       } else {
         router.push(callbackUrl)
       }
     } catch (error) {
-      setError("Došlo k chybě při přihlašování")
+      setError("An error occurred while signing in")
     } finally {
       setIsLoading(false)
     }
@@ -53,7 +53,7 @@ function SignInForm() {
     try {
       await signIn("google", { callbackUrl })
     } catch (error) {
-      setError("Došlo k chybě při přihlašování")
+      setError("An error occurred while signing in")
       setIsLoading(false)
     }
   }
@@ -65,9 +65,9 @@ function SignInForm() {
           <div className="mb-4 sm:mb-6">
             <Logo variant="black" size="md" />
           </div>
-          <h1 className="text-xl sm:text-title-3 text-black mb-2">Přihlášení</h1>
+          <h1 className="text-xl sm:text-title-3 text-black mb-2">Sign In</h1>
           <p className="text-sm sm:text-body text-gray-600">
-            Přihlaste se ke svému účtu
+            Sign in to your account
           </p>
         </div>
 
@@ -81,11 +81,11 @@ function SignInForm() {
                       <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                     </svg>
                   </div>
-                  <h3 className="text-sm sm:text-callout font-medium text-green-800">Účet úspěšně vytvořen!</h3>
+                  <h3 className="text-sm sm:text-callout font-medium text-green-800">Account created successfully!</h3>
                 </div>
                 <p className="text-xs sm:text-caption text-green-700 leading-relaxed">
-                  Váš účet a prostor "{decodeURIComponent(venue)}" byly úspěšně vytvořeny. 
-                  Nyní se přihlaste a začněte spravovat svůj prostor.
+                  Your account and venue "{decodeURIComponent(venue)}" have been successfully created. 
+                  Now log in and start managing your venue.
                 </p>
               </div>
             )}
@@ -105,7 +105,7 @@ function SignInForm() {
                   type="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  placeholder="vas@email.cz"
+                  placeholder="your@email.com"
                   required
                   className="h-11 sm:h-12"
                 />
@@ -113,7 +113,7 @@ function SignInForm() {
 
               <div>
                 <label className="block text-sm sm:text-callout font-medium text-black mb-2">
-                  Heslo
+                  Password
                 </label>
                 <Input
                   type="password"
@@ -130,7 +130,7 @@ function SignInForm() {
                 className="w-full min-h-[44px] sm:min-h-[48px]" 
                 disabled={isLoading}
               >
-                {isLoading ? "Přihlašuji..." : "Přihlásit se"}
+                {isLoading ? "Signing in..." : "Sign in"}
               </Button>
             </form>
 
@@ -139,7 +139,7 @@ function SignInForm() {
                 <div className="w-full border-t border-gray-200" />
               </div>
               <div className="relative flex justify-center text-xs sm:text-caption">
-                <span className="bg-white px-2 text-gray-500">Nebo</span>
+                <span className="bg-white px-2 text-gray-500">Or</span>
               </div>
             </div>
 
@@ -150,17 +150,17 @@ function SignInForm() {
               onClick={handleGoogleSignIn}
               disabled={isLoading}
             >
-              Přihlásit se přes Google
+              Sign in with Google
             </Button>
 
             <div className="text-center mt-4 sm:mt-6">
               <p className="text-sm sm:text-callout text-gray-600">
-                Nemáte účet?{" "}
+                Don't have an account?{" "}
                 <Link 
-                  href="/registrace" 
+                  href="/register" 
                   className="text-black hover:underline font-medium"
                 >
-                  Zaregistrujte se
+                  Sign up
                 </Link>
               </p>
             </div>
