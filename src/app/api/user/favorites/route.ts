@@ -5,6 +5,14 @@ import { db } from '@/lib/db'
 
 export async function GET() {
   try {
+    // TODO: Implement venueFavorite model in Prisma schema first
+    return NextResponse.json({ 
+      favorites: [], 
+      count: 0,
+      message: 'Favorites feature not yet implemented' 
+    })
+    
+    /* COMMENTED OUT UNTIL venueFavorite MODEL IS ADDED TO SCHEMA
     const session = await getServerSession(authOptions)
     if (!session?.user?.id) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
@@ -45,6 +53,7 @@ export async function GET() {
       favorites: venuesWithFavoriteInfo,
       count: favorites.length
     })
+    */
   } catch (error) {
     console.error('Error fetching favorites:', error)
     return NextResponse.json({ error: 'Internal server error' }, { status: 500 })
