@@ -4,6 +4,7 @@ import { VenueContactForm } from "@/components/forms/venue-contact-form"
 import { HeartButton } from "@/components/venue/heart-button"
 import { GoogleVenueMap } from "@/components/maps/google-venue-map"
 import { RelatedVenues } from "@/components/venue/related-venues"
+import { VenuePosts } from "@/components/venue/venue-posts"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
@@ -197,6 +198,9 @@ export default async function VenueDetailPage({
                   venueName={venue.name}
                 />
               </div>
+
+              {/* Venue Posts */}
+              <VenuePosts venueId={venue.id} venueName={venue.name} />
             </div>
           </div>
 
