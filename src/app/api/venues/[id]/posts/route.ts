@@ -76,7 +76,8 @@ export async function POST(
     const post = await db.venuePost.create({
       data: {
         venueId,
-        ...validatedData,
+        title: validatedData.title || "",
+        content: validatedData.content,
         images: validatedData.images || [],
       },
     })

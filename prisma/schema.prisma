@@ -51,11 +51,13 @@ model User {
   isVerified    Boolean  @default(false)
   hasVenue      Boolean  @default(false)
 
-  accounts  Account[]
-  sessions  Session[]
-  favorites Favorite[]
-  inquiries Inquiry[]
-  venues    Venue[]   @relation("ManagedVenues")
+  accounts        Account[]
+  sessions        Session[]
+  favorites       Favorite[]
+  inquiries       Inquiry[]
+  venues          Venue[]          @relation("ManagedVenues")
+  eventRequests   EventRequest[]   @relation("EventRequests")
+  venueBroadcasts VenueBroadcast[] @relation("VenueBroadcasts")
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -73,7 +75,7 @@ model Venue {
   id               String   @id @default(cuid())
   name             String
   slug             String   @unique
-  description      String
+  description      String?
   published        Boolean  @default(false)
   isVerified       Boolean  @default(false)
   images           String[] @default([])
@@ -88,13 +90,17 @@ model Venue {
   priceMax         Int?
   amenities        String[] @default([])
   status           String   @default("draft")
+  contactEmail     String?
+  contactPhone     String?
+  websiteUrl       String?
 
   managerId String?
   manager   User?    @relation("ManagedVenues", fields: [managerId], references: [id])
 
-  favorites Favorite[]
-  inquiries Inquiry[]
-  posts     VenuePost[]
+  favorites     Favorite[]
+  inquiries     Inquiry[]
+  posts         VenuePost[]
+  broadcastLogs VenueBroadcastLog[] @relation("BroadcastLogs")
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -121,9 +127,12 @@ model Inquiry {
   venueId String
   venue   Venue  @relation(fields: [venueId], references: [id], onDelete: Cascade)
 
-  name    String
-  email   String
-  message String
+  name        String
+  email       String
+  phone       String?
+  eventDate   DateTime?
+  guestCount  Int?
+  message     String
 
   createdAt DateTime @default(now())
 }
@@ -132,10 +141,68 @@ model VenuePost {
   id        String   @id @default(cuid())
   venueId   String
   venue     Venue    @relation(fields: [venueId], references: [id], onDelete: Cascade)
+  title     String?
+  content   String
   imageUrl  String?
   videoUrl  String?
+  images    String[] @default([])
   caption   String?
   tags      String[] @default([])
   isPinned  Boolean  @default(false)
+  status    String   @default("published")
   createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model EventRequest {
+  id                 String    @id @default(cuid())
+  userId             String?
+  user               User?     @relation("EventRequests", fields: [userId], references: [id])
+  title              String
+  description        String?
+  eventType          String
+  eventDate          DateTime?
+  guestCount         Int?
+  budgetRange        String?
+  locationPreference String?
+  requirements       String?
+  contactName        String
+  contactEmail       String
+  contactPhone       String?
+  status             String    @default("active")
+  expiresAt          DateTime
+  createdAt          DateTime  @default(now())
+  updatedAt          DateTime  @updatedAt
+}
+
+model VenueBroadcast {
+  id                 String                @id @default(cuid())
+  userId             String?
+  user               User?                 @relation("VenueBroadcasts", fields: [userId], references: [id])
+  title              String
+  description        String?
+  eventType          String
+  eventDate          DateTime?
+  guestCount         Int?
+  budgetRange        String?
+  locationPreference String?
+  requirements       String?
+  contactName        String
+  contactEmail       String
+  contactPhone       String?
+  sentVenues         String[]              @default([])
+  createdAt          DateTime              @default(now())
+  updatedAt          DateTime              @updatedAt
+  logs               VenueBroadcastLog[]
+}
+
+model VenueBroadcastLog {
+  id           String         @id @default(cuid())
+  broadcastId  String
+  broadcast    VenueBroadcast @relation(fields: [broadcastId], references: [id], onDelete: Cascade)
+  venueId      String
+  venue        Venue          @relation("BroadcastLogs", fields: [venueId], references: [id])
+  emailStatus  String         @default("pending")
+  emailError   String?
+  createdAt    DateTime       @default(now())
 }

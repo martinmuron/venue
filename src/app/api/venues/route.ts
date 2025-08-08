@@ -96,8 +96,7 @@ export async function POST(request: Request) {
           images: validatedData.images,
           videoUrl: validatedData.videoUrl || null,
           managerId: user.id,
-          status: "draft", // Start as draft
-          expiresAt: new Date(Date.now() + 365 * 24 * 60 * 60 * 1000), // 1 year from now
+          status: "draft" // Start as draft
         },
       })
 

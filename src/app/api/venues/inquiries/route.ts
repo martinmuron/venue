@@ -35,7 +35,7 @@ export async function POST(request: Request) {
     }
 
     // Create inquiry
-    const inquiry = await db.venueInquiry.create({
+    const inquiry = await db.inquiry.create({
       data: {
         venueId: validatedData.venueId,
         userId: session?.user?.id || null,

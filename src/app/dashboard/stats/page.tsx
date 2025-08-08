@@ -29,7 +29,7 @@ async function getStats() {
       db.user.count(),
       db.venue.count(),
       db.eventRequest.count(),
-      db.venueInquiry.count(),
+      db.inquiry.count(),
       db.venue.count({ where: { status: "active" } }),
       db.user.count({
         where: {

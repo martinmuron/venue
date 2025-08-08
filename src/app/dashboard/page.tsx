@@ -55,7 +55,7 @@ async function getDashboardData(userId: string, userRole: string) {
         db.user.count(),
         db.venue.count(),
         db.eventRequest.count(),
-        db.venueInquiry.count(),
+        db.inquiry.count(),
       ])
 
       return {
@@ -85,7 +85,7 @@ async function getDashboardData(userId: string, userRole: string) {
     }
     
     try {
-      inquiries = await db.venueInquiry.findMany({
+      inquiries = await db.inquiry.findMany({
         where: { userId },
         include: {
           venue: {

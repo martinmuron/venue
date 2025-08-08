@@ -33,7 +33,7 @@ async function getUser(id: string) {
           orderBy: { createdAt: 'desc' },
           take: 5,
         },
-        venueInquiries: {
+        inquiries: {
           orderBy: { createdAt: 'desc' },
           take: 5,
           include: {
@@ -144,7 +144,7 @@ export default async function UserProfilePage({
         <TabsList>
           <TabsTrigger value="venues">Prostory ({user.venues.length})</TabsTrigger>
           <TabsTrigger value="requests">Veřejné zakázky ({user.eventRequests.length})</TabsTrigger>
-          <TabsTrigger value="inquiries">Dotazy ({user.venueInquiries.length})</TabsTrigger>
+          <TabsTrigger value="inquiries">Dotazy ({user.inquiries.length})</TabsTrigger>
           <TabsTrigger value="billing">Fakturace</TabsTrigger>
         </TabsList>
 
@@ -238,9 +238,9 @@ export default async function UserProfilePage({
               <CardTitle>Dotazy na prostory</CardTitle>
             </CardHeader>
             <CardContent>
-              {user.venueInquiries.length > 0 ? (
+              {user.inquiries.length > 0 ? (
                 <div className="space-y-4">
-                  {user.venueInquiries.map((inquiry) => (
+                  {user.inquiries.map((inquiry) => (
                     <div key={inquiry.id} className="p-4 border rounded-lg">
                       <div className="flex items-center justify-between mb-2">
                         <h3 className="font-medium">{inquiry.venue.name}</h3>
