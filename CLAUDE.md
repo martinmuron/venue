@@ -99,8 +99,8 @@ The mailing system is integrated into the admin dashboard at `/admin/mailing` wi
 
 **Email Service Configuration**:
 - Uses Resend API (configured via `RESEND_API_KEY`)
-- From address: `Prostormat <noreply@prostormat.cz>`
-- Reply-to: `info@prostormat.cz`
+- From address: `Prostormat <noreply@venuefusion.cz>`
+- Reply-to: `info@venuefusion.cz`
 - Email templates include HTML and plain text versions
 
 ### Testing

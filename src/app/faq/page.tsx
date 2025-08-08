@@ -102,7 +102,7 @@ export default function FAQPage() {
             <div className="text-center mb-16">
               <h2 className="text-title-1 text-black mb-6 font-bold">Common questions</h2>
               <p className="text-body text-gray-600 max-w-2xl mx-auto text-lg font-medium">
-                Vše co potřebujete vědět o využívání ProstorMat
+                Vše co potřebujete vědět o využívání venuefusion
               </p>
             </div>
           </ScrollReveal>
