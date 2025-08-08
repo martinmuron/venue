@@ -177,7 +177,7 @@ export default async function UserProfilePage({
                       </div>
                       <div className="flex space-x-2">
                         <Button variant="outline" size="sm" asChild>
-                          <Link href={`/prostory/${venue.slug}`}>
+                          <Link href={`/venues/${venue.slug}`}>
                             Zobrazit
                           </Link>
                         </Button>

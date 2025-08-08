@@ -172,7 +172,7 @@ export const columns: ColumnDef<Venue>[] = [
               </DropdownMenuItem>
             </Link>
             <DropdownMenuSeparator />
-            <Link href={`/prostory/${venue.id}`}>
+            <Link href={`/venues/${venue.id}`}>
               <DropdownMenuItem className="cursor-pointer">
                 Zobrazit veřejně
               </DropdownMenuItem>

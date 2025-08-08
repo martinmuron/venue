@@ -18,7 +18,7 @@ export function HeroSearch() {
     if (selectedCapacity && selectedCapacity !== "all") params.set("capacity", selectedCapacity)
     if (selectedState && selectedState !== "all") params.set("state", selectedState)
     
-    window.location.href = `/prostory?${params.toString()}`
+    window.location.href = `/venues?${params.toString()}`
   }
 
   return (
@@ -32,15 +32,15 @@ export function HeroSearch() {
               <div className="w-8 h-8 bg-blue-700 rounded-lg flex items-center justify-center mr-3">
                 <Calendar className="h-4 w-4 text-white" />
               </div>
-              <label className="text-base font-medium text-black">Typ prostoru</label>
+              <label className="text-base font-medium text-black">Venue type</label>
             </div>
             <div className="flex justify-center">
               <Select value={selectedType} onValueChange={setSelectedType}>
                 <SelectTrigger className="bg-white border-2 border-blue-700 text-black focus:border-black w-full max-w-xs">
-                  <SelectValue placeholder="Všechny typy" />
+                  <SelectValue placeholder="All types" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="all">Všechny typy</SelectItem>
+                  <SelectItem value="all">All types</SelectItem>
                   {Object.entries(VENUE_TYPES).map(([key, label]) => (
                     <SelectItem key={key} value={key}>{label}</SelectItem>
                   ))}
@@ -55,15 +55,15 @@ export function HeroSearch() {
               <div className="w-8 h-8 bg-green-700 rounded-lg flex items-center justify-center mr-3">
                 <Users className="h-4 w-4 text-white" />
               </div>
-              <label className="text-base font-medium text-black">Kapacita</label>
+              <label className="text-base font-medium text-black">Capacity</label>
             </div>
             <div className="flex justify-center">
               <Select value={selectedCapacity} onValueChange={setSelectedCapacity}>
                 <SelectTrigger className="bg-white border-2 border-green-700 text-black focus:border-black w-full max-w-xs">
-                  <SelectValue placeholder="Libovolná kapacita" />
+                  <SelectValue placeholder="Any capacity" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="all">Libovolná kapacita</SelectItem>
+                  <SelectItem value="all">Any capacity</SelectItem>
                   {CAPACITY_RANGES.map((range) => (
                     <SelectItem key={range} value={range}>{range}</SelectItem>
                   ))}
@@ -78,7 +78,7 @@ export function HeroSearch() {
               <div className="w-8 h-8 bg-amber-700 rounded-lg flex items-center justify-center mr-3">
                 <MapPin className="h-4 w-4 text-white" />
               </div>
-              <label className="text-base font-medium text-black">Lokalita</label>
+              <label className="text-base font-medium text-black">Location</label>
             </div>
             <div className="flex justify-center">
               <Select value={selectedState} onValueChange={setSelectedState}>

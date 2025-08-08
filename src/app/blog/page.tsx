@@ -89,7 +89,7 @@ function BlogPostCard({ post }: { post: any }) {
             size="sm"
             className="w-full bg-black text-white border-2 border-black hover:bg-gray-800 transition-all duration-200 font-medium rounded-xl group"
           >
-            <span>Číst více</span>
+            <span>Read more</span>
             <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
           </Button>
         </Link>
@@ -130,7 +130,7 @@ const placeholderPosts = [
     slug: "jak-vybrat-idealni-prostor-pro-firemni-akci",
     excerpt: "Plánujete firemní akci a nevíte, na co se zaměřit při výběru prostoru? Zde najdete praktické tipy a checklisk, který vám pomůže vybrat to pravé místo.",
     coverImage: "https://images.unsplash.com/photo-1517457373958-b7bdd4587205?w=800&h=400&fit=crop",
-    author: { name: "Prostormat Team", email: "team@prostormat.cz" },
+    author: { name: "Venue Fusion Team", email: "team@venuefusion.com" },
     publishedAt: new Date("2024-01-15"),
     tags: '["Firemní akce", "Tipy", "Prostory"]'
   },
@@ -140,7 +140,7 @@ const placeholderPosts = [
     slug: "5-trendu-v-organizaci-svateb-pro-rok-2025",
     excerpt: "Objevte nejnovější trendy ve svatebním průmyslu. Od udržitelných svateb po netradiční prostory - inspirujte se pro vaši nezapomenutelnou oslavu.",
     coverImage: "https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=800&h=400&fit=crop",
-    author: { name: "Prostormat Team", email: "team@prostormat.cz" },
+    author: { name: "Venue Fusion Team", email: "team@venuefusion.com" },
     publishedAt: new Date("2024-01-10"),
     tags: '["Svatby", "Trendy", "2025"]'
   },
@@ -150,7 +150,7 @@ const placeholderPosts = [
     slug: "teambuilding-v-neobvyklych-prostorech",
     excerpt: "Tradiční konferenční sály už nebaví? Přečtěte si, jak netradičně prostory mohou oživit váš teambuilding a posílit týmovou soudržnost.",
     coverImage: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=400&fit=crop",
-    author: { name: "Prostormat Team", email: "team@prostormat.cz" },
+    author: { name: "Venue Fusion Team", email: "team@venuefusion.com" },
     publishedAt: new Date("2024-01-05"),
     tags: '["Teambuilding", "Netradičně", "Týmová práce"]'
   },
@@ -160,7 +160,7 @@ const placeholderPosts = [
     slug: "checklist-pro-organizaci-uspesne-konference",
     excerpt: "Kompletní průvodce plánováním konference od výběru prostoru až po day-of koordinaci. Nezapomeňte na žádný důležitý detail.",
     coverImage: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&h=400&fit=crop",
-    author: { name: "Prostormat Team", email: "team@prostormat.cz" },
+    author: { name: "Venue Fusion Team", email: "team@venuefusion.com" },
     publishedAt: new Date("2023-12-28"),
     tags: '["Konference", "Checklist", "Plánování"]'
   },
@@ -170,7 +170,7 @@ const placeholderPosts = [
     slug: "jak-usetrit-na-pronajmu-prostoru-bez-kompromisu",
     excerpt: "Praktické rady, jak získat kvalitní prostor za rozumnou cenu. Naučte se vyjednávat a najít skryté poklady mezi dostupnými prostory.",
     coverImage: "https://images.unsplash.com/photo-1556761175-b413da4baf72?w=800&h=400&fit=crop",
-    author: { name: "Prostormat Team", email: "team@prostormat.cz" },
+    author: { name: "Venue Fusion Team", email: "team@venuefusion.com" },
     publishedAt: new Date("2023-12-20"),
     tags: '["Rozpočet", "Úspory", "Tipy"]'
   },
@@ -180,7 +180,7 @@ const placeholderPosts = [
     slug: "udrzitelne-akce-jak-zorganizovat-eco-friendly-event",
     excerpt: "Ochrana životního prostředí se týká i eventů. Zjistěte, jak zorganizovat akci s minimálním dopadem na přírodu a inspirovat účastníky k udržitelnému myšlení.",
     coverImage: "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=800&h=400&fit=crop",
-    author: { name: "Prostormat Team", email: "team@prostormat.cz" },
+    author: { name: "Venue Fusion Team", email: "team@venuefusion.com" },
     publishedAt: new Date("2023-12-15"),
     tags: '["Udržitelnost", "Eco-friendly", "Trendy"]'
   }
@@ -221,11 +221,11 @@ export default function BlogPage() {
 }
 
 export const metadata = {
-  title: "Blog - Prostormat",
-  description: "Tipy, trendy a inspirace pro vaše akce. Objevte nejlepší prostory a získejte rady pro organizaci nezapomenutelných událostí.",
+  title: "Blog - Venue Fusion",
+  description: "Tips, trends, and inspiration for your events. Discover the best venues and get advice for organizing unforgettable experiences.",
   openGraph: {
-    title: "Blog - Prostormat",
-    description: "Tipy, trendy a inspirace pro vaše akce. Objevte nejlepší prostory a získejte rady pro organizaci nezapomenutelných událostí.",
+    title: "Blog - Venue Fusion",
+    description: "Tips, trends, and inspiration for your events. Discover the best venues and get advice for organizing unforgettable experiences.",
     type: "website"
   }
 } 

@@ -43,11 +43,11 @@ export function DashboardSidebar({ userRole }: DashboardSidebarProps) {
           href: "/dashboard/inquiries",
           icon: MessageSquare,
         },
-        {
-          name: "Veřejné zakázky",
-          href: "/pozadavky",
-          icon: Calendar,
-        },
+                  {
+            name: "Public Requests",
+            href: "/requests",
+            icon: Calendar,
+          },
         {
           name: "Předplatné",
           href: "/dashboard/subscription",
@@ -65,7 +65,7 @@ export function DashboardSidebar({ userRole }: DashboardSidebarProps) {
           icon: Users,
         },
         {
-          name: "Prostory",
+          name: "Venues",
           href: "/dashboard/venues",
           icon: Building,
         },
@@ -91,7 +91,7 @@ export function DashboardSidebar({ userRole }: DashboardSidebarProps) {
         icon: MessageSquare,
       },
       {
-        name: "Uložené prostory",
+        name: "Saved venues",
         href: "/dashboard/saved",
         icon: Building,
       },
@@ -111,7 +111,7 @@ export function DashboardSidebar({ userRole }: DashboardSidebarProps) {
     <div className="fixed inset-y-0 left-0 w-64 bg-white border-r border-gray-200">
       <div className="p-6 border-b border-gray-200">
         <Link href="/" className="text-title-3 font-bold text-black">
-          Prostormat
+          Venue Fusion
         </Link>
       </div>
       

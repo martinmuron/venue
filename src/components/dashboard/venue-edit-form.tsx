@@ -404,7 +404,7 @@ export function VenueEditForm({ venue }: VenueEditFormProps) {
                 <Button 
                   variant="secondary" 
                   className="w-full justify-start text-gray-700 border-gray-300 hover:bg-gray-50"
-                  onClick={() => window.open(`/prostory/${venue.slug}`, '_blank')}
+                  onClick={() => window.open(`/venues/${venue.slug}`, '_blank')}
                 >
                   <Eye className="h-4 w-4 mr-2" />
                   Zobrazit prostor

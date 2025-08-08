@@ -90,7 +90,7 @@ export async function RelatedVenues({ currentVenueId, venueType, address, amenit
 
   return (
     <div className="mt-12">
-      <h2 className="text-title-2 text-black mb-8">Podobné prostory</h2>
+      <h2 className="text-title-2 text-black mb-8">Similar venues</h2>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
         {relatedVenues.map((venue) => {
           const venueTypeLabel = venue.venueType ? VENUE_TYPES[venue.venueType as VenueType] || venue.venueType : null
@@ -125,7 +125,7 @@ export async function RelatedVenues({ currentVenueId, venueType, address, amenit
               
               <CardContent className="p-4">
                 <div className="mb-3">
-                  <Link href={`/prostory/${venue.slug}`}>
+                  <Link href={`/venues/${venue.slug}`}>
                     <h3 className="font-semibold text-gray-900 group-hover:text-blue-600 transition-colors line-clamp-1">
                       {venue.name}
                     </h3>
@@ -167,7 +167,7 @@ export async function RelatedVenues({ currentVenueId, venueType, address, amenit
                   </div>
                 )}
 
-                <Link href={`/prostory/${venue.slug}`} className="mt-auto">
+                <Link href={`/venues/${venue.slug}`} className="mt-auto">
                   <div className="mt-3">
                     <div className="w-full bg-black text-white border-2 border-black hover:bg-gray-800 hover:text-white transition-all duration-200 font-medium rounded-xl px-4 py-2 text-center text-sm group cursor-pointer">
                       <span>Zobrazit detaily</span>

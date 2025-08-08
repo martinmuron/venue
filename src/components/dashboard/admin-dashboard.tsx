@@ -25,7 +25,7 @@ export function AdminDashboard({ data }: AdminDashboardProps) {
           Admin Dashboard
         </h1>
         <p className="text-body text-gray-600">
-          Přehled celé platformy Prostormat
+          Overview of the Venue Fusion platform
         </p>
       </div>
 
@@ -164,10 +164,10 @@ export function AdminDashboard({ data }: AdminDashboardProps) {
                 Blog
               </Button>
             </Link>
-            <Link href="/pozadavky">
+            <Link href="/requests">
               <Button variant="secondary" className="w-full justify-start">
                 <Calendar className="h-4 w-4 mr-2" />
-                Veřejné zakázky
+                Public Requests
               </Button>
             </Link>
             <Link href="/dashboard/stats">

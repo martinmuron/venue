@@ -54,10 +54,8 @@ export default async function SettingsPage() {
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-3xl font-bold text-black">Nastavení</h1>
-        <p className="text-gray-600 mt-2">
-          Správa systému a konfigurace platformy
-        </p>
+        <h1 className="text-3xl font-bold text-black">Settings</h1>
+        <p className="text-gray-600 mt-2">System management and platform configuration</p>
       </div>
 
       {/* System Status */}
@@ -65,22 +63,22 @@ export default async function SettingsPage() {
         <CardHeader>
           <CardTitle className="flex items-center gap-2">
             <Info className="h-5 w-5" />
-            Stav systému
+            System status
           </CardTitle>
         </CardHeader>
         <CardContent>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
             <div className="text-center p-4 bg-green-50 rounded-lg border border-green-200">
               <div className="text-2xl font-bold text-green-600">{systemInfo.userCount}</div>
-              <div className="text-sm text-green-600">Uživatelů</div>
+              <div className="text-sm text-green-600">Users</div>
             </div>
             <div className="text-center p-4 bg-blue-50 rounded-lg border border-blue-200">
               <div className="text-2xl font-bold text-blue-600">{systemInfo.venueCount}</div>
-              <div className="text-sm text-blue-600">Prostorů</div>
+              <div className="text-sm text-blue-600">Venues</div>
             </div>
             <div className="text-center p-4 bg-purple-50 rounded-lg border border-purple-200">
               <div className="text-2xl font-bold text-purple-600">{systemInfo.requestCount}</div>
-              <div className="text-sm text-purple-600">Požadavků</div>
+              <div className="text-sm text-purple-600">Requests</div>
             </div>
             <div className="text-center p-4 bg-gray-50 rounded-lg border border-gray-200">
               <div className={`text-2xl font-bold ${
@@ -99,19 +97,17 @@ export default async function SettingsPage() {
         <CardHeader>
           <CardTitle className="flex items-center gap-2">
             <Database className="h-5 w-5" />
-            Správa databáze
+            Database management
           </CardTitle>
         </CardHeader>
         <CardContent>
           <div className="space-y-4">
             <div>
-              <h3 className="font-semibold mb-2">Seed databáze</h3>
-              <p className="text-sm text-gray-600 mb-3">
-                Vyplňte databázi testovacími daty (prostory, uživatele, blog posty)
-              </p>
+              <h3 className="font-semibold mb-2">Seed database</h3>
+              <p className="text-sm text-gray-600 mb-3">Fill the database with sample data (venues, users, blog posts)</p>
               <Link href="/api/admin/seed" target="_blank">
                 <Button variant="outline">
-                  Otevřít seed endpoint
+                  Open seed endpoint
                 </Button>
               </Link>
             </div>
@@ -119,17 +115,17 @@ export default async function SettingsPage() {
             <div className="border-t pt-4">
               <h3 className="font-semibold mb-2 text-red-600 flex items-center gap-2">
                 <AlertTriangle className="h-4 w-4" />
-                Nebezpečné operace
+                Dangerous operations
               </h3>
               <p className="text-sm text-gray-600 mb-3">
-                Tyto operace mohou způsobit ztrátu dat. Používejte s opatrností.
+                These operations can cause data loss. Use with caution.
               </p>
               <div className="space-y-2">
                 <Button variant="destructive" disabled>
-                  Vymazat všechny venues (TODO)
+                  Delete all venues (TODO)
                 </Button>
                 <Button variant="destructive" disabled>
-                  Reset databáze (TODO)
+                  Reset database (TODO)
                 </Button>
               </div>
             </div>
@@ -142,7 +138,7 @@ export default async function SettingsPage() {
         <CardHeader>
           <CardTitle className="flex items-center gap-2">
             <Mail className="h-5 w-5" />
-            Nastavení emailů
+            Email settings
           </CardTitle>
         </CardHeader>
         <CardContent>
@@ -159,13 +155,11 @@ export default async function SettingsPage() {
               <Label htmlFor="email-from">From Email</Label>
               <Input
                 id="email-from"
-                placeholder="noreply@prostormat.cz"
+                placeholder="noreply@venuefusion.com"
                 disabled
               />
             </div>
-            <Button disabled>
-              Uložit nastavení (TODO)
-            </Button>
+            <Button disabled>Save settings (TODO)</Button>
           </div>
         </CardContent>
       </Card>
@@ -175,13 +169,13 @@ export default async function SettingsPage() {
         <CardHeader>
           <CardTitle className="flex items-center gap-2">
             <Shield className="h-5 w-5" />
-            Bezpečnost
+            Security
           </CardTitle>
         </CardHeader>
         <CardContent>
           <div className="space-y-4">
             <div>
-              <Label htmlFor="session-timeout">Session Timeout (minuty)</Label>
+              <Label htmlFor="session-timeout">Session timeout (minutes)</Label>
               <Input
                 id="session-timeout"
                 type="number"
@@ -190,7 +184,7 @@ export default async function SettingsPage() {
               />
             </div>
             <div>
-              <Label htmlFor="max-login-attempts">Maximální počet pokusů o přihlášení</Label>
+              <Label htmlFor="max-login-attempts">Max login attempts</Label>
               <Input
                 id="max-login-attempts"
                 type="number"
@@ -198,9 +192,7 @@ export default async function SettingsPage() {
                 disabled
               />
             </div>
-            <Button disabled>
-              Uložit nastavení (TODO)
-            </Button>
+            <Button disabled>Save settings (TODO)</Button>
           </div>
         </CardContent>
       </Card>
@@ -210,38 +202,32 @@ export default async function SettingsPage() {
         <CardHeader>
           <CardTitle className="flex items-center gap-2">
             <Settings className="h-5 w-5" />
-            Nastavení webu
+            Site settings
           </CardTitle>
         </CardHeader>
         <CardContent>
           <div className="space-y-4">
             <div>
-              <Label htmlFor="site-name">Název webu</Label>
+              <Label htmlFor="site-name">Site name</Label>
               <Input
                 id="site-name"
-                defaultValue="Prostormat"
+                defaultValue="Venue Fusion"
                 disabled
               />
             </div>
             <div>
-              <Label htmlFor="site-description">Popis webu</Label>
-              <Textarea
-                id="site-description"
-                defaultValue="Najděte perfektní prostor pro vaši akci v Praze"
-                disabled
-              />
+              <Label htmlFor="site-description">Site description</Label>
+              <Textarea id="site-description" defaultValue="Find the perfect venue for your event" disabled />
             </div>
             <div>
-              <Label htmlFor="contact-email">Kontaktní email</Label>
+              <Label htmlFor="contact-email">Contact email</Label>
               <Input
                 id="contact-email"
-                defaultValue="info@prostormat.cz"
+                defaultValue="info@venuefusion.com"
                 disabled
               />
             </div>
-            <Button disabled>
-              Uložit nastavení (TODO)
-            </Button>
+            <Button disabled>Save settings (TODO)</Button>
           </div>
         </CardContent>
       </Card>

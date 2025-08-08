@@ -36,7 +36,7 @@ export function VenueFilters({ initialValues }: VenueFiltersProps) {
       if (value && value !== 'all') params.set(key, value)
     })
     
-    router.push(`/prostory?${params.toString()}`)
+    router.push(`/venues?${params.toString()}`)
   }
 
   const handleFilterChange = (key: string, value: string) => {
@@ -53,7 +53,7 @@ export function VenueFilters({ initialValues }: VenueFiltersProps) {
             value={filters.q}
             onChange={(e) => handleFilterChange('q', e.target.value)}
             className="pl-12 h-12 text-base rounded-xl border-2 border-black focus:border-gray-600 transition-all duration-200 hover:border-gray-600 hover:shadow-lg font-medium shadow-sm"
-            placeholder="Hledat prostory..."
+            placeholder="Search venues..."
           />
         </div>
 
@@ -70,10 +70,10 @@ export function VenueFilters({ initialValues }: VenueFiltersProps) {
                 onValueChange={(value) => handleFilterChange('type', value)}
               >
                 <SelectTrigger className="h-12 pl-14 text-sm rounded-xl border-2 border-black bg-white focus:border-gray-600 transition-all duration-200">
-                  <SelectValue placeholder="Všechny typy" />
+                  <SelectValue placeholder="All types" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="all">Všechny typy</SelectItem>
+                  <SelectItem value="all">All types</SelectItem>
                   {Object.entries(VENUE_TYPES).map(([key, label]) => (
                     <SelectItem key={key} value={key}>
                       {label}
@@ -119,10 +119,10 @@ export function VenueFilters({ initialValues }: VenueFiltersProps) {
                 onValueChange={(value) => handleFilterChange('capacity', value)}
               >
                 <SelectTrigger className="h-12 pl-14 text-sm rounded-xl border-2 border-black bg-white focus:border-gray-600 transition-all duration-200">
-                  <SelectValue placeholder="Libovolná kapacita" />
+                  <SelectValue placeholder="Any capacity" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="all">Libovolná kapacita</SelectItem>
+                  <SelectItem value="all">Any capacity</SelectItem>
                   {CAPACITY_RANGES.map((range) => (
                     <SelectItem key={range} value={range}>
                       {range}

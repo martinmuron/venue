@@ -48,7 +48,7 @@ export function generateVenueBroadcastEmail(data: VenueBroadcastEmailData) {
 <body>
     <div class="container">
         <div class="header">
-            <h1 style="margin: 0; font-size: 24px;">VenuePlatform</h1>
+            <h1 style="margin: 0; font-size: 24px;">Venue Fusion</h1>
             <p style="margin: 10px 0 0 0; opacity: 0.9;">New Event Request</p>
         </div>
         
@@ -114,20 +114,20 @@ export function generateVenueBroadcastEmail(data: VenueBroadcastEmailData) {
             ` : ''}
             
             <p style="margin: 30px 0 20px 0;">
-                <strong>Interested in this event?</strong> Contact the organizer directly using the provided contact information or log into VenuePlatform to manage your requests.
+                <strong>Interested in this event?</strong> Contact the organizer directly using the provided contact information or log into Venue Fusion to manage your requests.
             </p>
             
             <a href="https://venue-platform.vercel.app/dashboard" class="cta-button">
-                Log into VenuePlatform
+                Log into Venue Fusion
             </a>
         </div>
         
         <div class="footer">
-            <p><strong>VenuePlatform</strong> - Platform for finding event venues</p>
+            <p><strong>Venue Fusion</strong> - Platform for finding event venues</p>
             <p>You received this email because your venue was automatically selected based on the request criteria.</p>
             <p>
-                <a href="mailto:info@venueplatform.com" style="color: #007bff;">info@venueplatform.com</a> | 
-                <a href="https://venue-platform.vercel.app" style="color: #007bff;">venueplatform.com</a>
+                <a href="mailto:info@venuefusion.com" style="color: #007bff;">info@venuefusion.com</a> | 
+                <a href="https://venuefusion.com" style="color: #007bff;">venuefusion.com</a>
             </p>
         </div>
     </div>
@@ -135,7 +135,7 @@ export function generateVenueBroadcastEmail(data: VenueBroadcastEmailData) {
 </html>`
 
   const plainText = `
-New Event Request via VenuePlatform
+New Event Request via Venue Fusion
 
 Hello,
 
@@ -160,8 +160,8 @@ ${broadcast.contactPhone ? `- Phone: ${broadcast.contactPhone}` : ''}
 Interested in this event? Contact the organizer directly using the provided contact information.
 
 --
-VenuePlatform - Platform for finding event venues
-venueplatform.com | info@venueplatform.com
+Venue Fusion - Platform for finding event venues
+venuefusion.com | info@venuefusion.com
 `
 
   return {

@@ -33,7 +33,7 @@ export async function uploadImage(
   try {
     const uploadOptions: any = {
       resource_type: 'image',
-      folder: folder || 'prostormat',
+      folder: folder || 'venue-fusion',
       quality: 'auto:good',
       fetch_format: 'auto',
     };

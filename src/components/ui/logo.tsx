@@ -32,7 +32,7 @@ export function Logo({
   const logoElement = (
     <Image
       src={logoSrc}
-      alt="VenuePlatform"
+      alt="Venue Fusion"
       width={width}
       height={height}
       className={`${sizeClasses[size]} ${className}`}

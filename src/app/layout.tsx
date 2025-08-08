@@ -8,7 +8,7 @@ import { Footer } from "@/components/layout/footer"
 import GlobalClickSpark from "@/components/ui/click-spark"
 
 export const metadata: Metadata = {
-  title: "VenuePlatform - Event Venues in Prague",
+  title: "Venue Fusion - Event Venues in Prague",
   description: "The largest catalog of event venues in Prague. Find the perfect venue for your event.",
 }
 

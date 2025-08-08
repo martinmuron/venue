@@ -53,10 +53,10 @@ export function UserDashboard({ data }: UserDashboardProps) {
   }, [activeTab])
 
   const tabs = [
-    { id: 'overview', label: 'Přehled', icon: Building },
-    { id: 'requests', label: 'Moje poptávky', icon: Calendar },
-    { id: 'broadcasts', label: 'Odeslané poptávky', icon: Send },
-    { id: 'favorites', label: 'Uložené prostory', icon: Heart },
+    { id: 'overview', label: 'Overview', icon: Building },
+    { id: 'requests', label: 'My requests', icon: Calendar },
+    { id: 'broadcasts', label: 'Sent requests', icon: Send },
+    { id: 'favorites', label: 'Saved venues', icon: Heart },
   ]
 
   const renderOverview = () => (
@@ -143,7 +143,7 @@ export function UserDashboard({ data }: UserDashboardProps) {
                 <p className="text-body text-gray-600 mb-4">
                   Zatím jste nevytvořili žádné poptávky
                 </p>
-                <Link href="/pozadavky/novy">
+                <Link href="/requests/new">
                   <Button size="sm" className="bg-blue-600 hover:bg-blue-700 text-white">Vytvořit první poptávku</Button>
                 </Link>
               </div>
@@ -232,7 +232,7 @@ export function UserDashboard({ data }: UserDashboardProps) {
       <CardHeader>
         <div className="flex items-center justify-between">
           <CardTitle className="text-gray-900">Všechny moje poptávky</CardTitle>
-          <Link href="/pozadavky/novy">
+          <Link href="/requests/new">
             <Button size="sm" className="bg-blue-600 hover:bg-blue-700 text-white">
               <Plus className="h-4 w-4 mr-2" />
               Nová poptávka
@@ -248,7 +248,7 @@ export function UserDashboard({ data }: UserDashboardProps) {
             <p className="text-body text-gray-600 mb-6">
               Zatím jste nevytvořili žádné poptávky na akci
             </p>
-            <Link href="/pozadavky/novy">
+            <Link href="/requests/new">
               <Button className="bg-blue-600 hover:bg-blue-700 text-white">
                 <Plus className="h-4 w-4 mr-2" />
                 Vytvořit první poptávku
@@ -520,7 +520,7 @@ export function UserDashboard({ data }: UserDashboardProps) {
           Vítejte zpět, {user.name}!
         </h1>
         <p className="text-body text-gray-600">
-          Přehled vašich aktivit na Prostormatu
+          Your activity overview on Venue Fusion
         </p>
       </div>
 

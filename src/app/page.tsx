@@ -318,7 +318,7 @@ export default function HomePage() {
                 Own a venue?
               </h2>
               <p className="text-lg sm:text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
-                VenuePlatform is the perfect place for potential customers to find you for corporate events, team building, weddings and more!
+                Venue Fusion is the perfect place for potential customers to find you for corporate events, team building, weddings and more!
               </p>
             </div>
           </ScrollReveal>

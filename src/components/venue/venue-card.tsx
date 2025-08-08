@@ -28,7 +28,7 @@ export function VenueCard({ venue }: VenueCardProps) {
 
   return (
     <Card className="overflow-hidden hover-lift transition-all duration-500 group border-2 border-black bg-white rounded-2xl h-full flex flex-col">
-      <Link href={`/prostory/${venue.slug}`}>
+      <Link href={`/venues/${venue.slug}`}>
         <div className="aspect-[4/3] relative overflow-hidden">
           <Image
             src={mainImage}
@@ -63,7 +63,7 @@ export function VenueCard({ venue }: VenueCardProps) {
       </Link>
       
       <CardContent className="p-4 sm:p-6 bg-white flex flex-col justify-between h-full">
-        <Link href={`/prostory/${venue.slug}`}>
+        <Link href={`/venues/${venue.slug}`}>
           <div className="flex-1">
             <div className="mb-4">
               <div className="flex items-start justify-between gap-2 mb-2">
@@ -92,13 +92,13 @@ export function VenueCard({ venue }: VenueCardProps) {
           </div>
         </Link>
         
-        <Link href={`/prostory/${venue.slug}`} className="mt-auto">
+        <Link href={`/venues/${venue.slug}`} className="mt-auto">
           <Button 
             variant="outline" 
             size="sm"
             className="w-full bg-black text-white border-2 border-black hover:bg-gray-800 hover:text-white transition-all duration-200 font-medium rounded-xl"
           >
-            <span>Zobrazit detaily</span>
+            <span>View details</span>
             <span className="ml-2 transform group-hover:translate-x-1 transition-transform duration-300">→</span>
           </Button>
         </Link>

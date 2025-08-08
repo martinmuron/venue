@@ -90,7 +90,7 @@ export function EventRequestHeartButton({ eventRequestId, className = "", size =
             ? 'bg-red-50 hover:bg-red-100 border-red-200 text-red-600'
             : 'bg-white hover:bg-gray-50 border-gray-200 text-gray-600'
         }`}
-        title={isFavorited ? 'Odebrat z oblíbených' : 'Přidat do oblíbených'}
+        title={isFavorited ? 'Remove from favorites' : 'Add to favorites'}
       >
         <Heart 
           className={`h-5 w-5 transition-all duration-200 ${
@@ -103,7 +103,7 @@ export function EventRequestHeartButton({ eventRequestId, className = "", size =
       {showLoginOverlay && (
         <div className="absolute -top-16 left-1/2 transform -translate-x-1/2 bg-gray-900 text-white px-4 py-2 rounded-lg shadow-lg z-50 text-sm whitespace-nowrap animate-fade-in">
           <div className="relative">
-            Musíte se přihlásit pro použití této funkce
+            You must sign in to use this feature
             <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-l-transparent border-r-transparent border-t-gray-900"></div>
           </div>
         </div>

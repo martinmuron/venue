@@ -11,44 +11,44 @@ interface FAQItem {
 
 const faqData: FAQItem[] = [
   {
-    question: "Jak funguje ProstorMat?",
-    answer: "ProstorMat je platforma, která spojuje organizátory akcí s majiteli prostor. Můžete si prohlédnout dostupné prostory, odeslat poptávku a přímo komunikovat s majiteli prostor."
+    question: "How does Venue Fusion work?",
+    answer: "Venue Fusion connects event organizers with venue owners. Browse available venues, submit a request, and communicate directly with venue owners."
   },
   {
-    question: "Je registrace zdarma?",
-    answer: "Ano, registrace na ProstorMat je zcela zdarma pro organizátory akcí. Poplatky platí pouze majitelé prostor za prémiové funkce."
+    question: "Is registration free?",
+    answer: "Yes, registration is completely free for event organizers. Venue owners pay only for premium features."
   },
   {
-    question: "Jak mohu přidat svůj prostor?",
-    answer: "Po registraci klikněte na 'Přidat prostor' v hlavním menu. Vyplňte všechny potřebné informace o vašem prostoru včetně fotografií a kontaktních údajů."
+    question: "How can I add my venue?",
+    answer: "After registering, click 'Add venue' in the main menu. Fill in all required information including photos and contact details."
   },
   {
-    question: "Jaké typy akcí podporujete?",
-    answer: "Podporujeme širokou škálu akcí včetně firemních akcí, teambuilding aktivit, svateb, soukromých oslav, konferencí a dalších společenských událostí."
+    question: "What types of events do you support?",
+    answer: "We support a wide range of events including corporate events, team building activities, weddings, private parties, conferences, and more."
   },
   {
-    question: "Jak probíhá rezervace prostoru?",
-    answer: "Po nalezení vhodného prostoru odešlete poptávku majiteli. Majitel prostoru vás kontaktuje a dohodnete se na detailech rezervace přímo s ním."
+    question: "How does booking work?",
+    answer: "After you find a suitable venue, send a request to the owner. The venue owner will contact you and you'll arrange the booking details directly."
   },
   {
-    question: "Jsou nějaké skryté poplatky?",
-    answer: "Ne, ProstorMat neúčtuje žádné skryté poplatky. Všechny náklady jsou transparentní a dohodnete si je přímo s majitelem prostoru."
+    question: "Are there any hidden fees?",
+    answer: "No, Venue Fusion does not charge hidden fees. All costs are transparent and agreed directly with the venue owner."
   },
   {
-    question: "Mohu zrušit svou poptávku?",
-    answer: "Ano, můžete zrušit svou poptávku kdykoli před potvrzením rezervace. Po potvrzení se řiďte podmínkami zrušení dohodnutými s majitelem prostoru."
+    question: "Can I cancel my request?",
+    answer: "Yes, you can cancel your request any time before the booking is confirmed. After confirmation, follow the cancellation terms agreed with the owner."
   },
   {
-    question: "Jak mohu kontaktovat podporu?",
-    answer: "Můžete nás kontaktovat na email info@prostormat.cz nebo zavolat na +420 775 654 639. Jsme tu pro vás každý pracovní den od 9:00 do 18:00."
+    question: "How can I contact support?",
+    answer: "You can contact us at info@venuefusion.com. We're here for you on business days from 9:00 to 18:00."
   },
   {
-    question: "Můžu upravit svůj profil prostoru?",
-    answer: "Ano, jako majitel prostoru můžete kdykoli upravit informace o vašem prostoru, včetně fotografií, popisu, ceny a dostupnosti."
+    question: "Can I edit my venue profile?",
+    answer: "Yes, as a venue owner you can edit your venue information at any time, including photos, description, price and availability."
   },
   {
-    question: "Jak dlouho trvá schválení prostoru?",
-    answer: "Schválení nového prostoru obvykle trvá 24-48 hodin. Náš tým zkontroluje všechny informace a fotografie před zveřejněním."
+    question: "How long does venue approval take?",
+    answer: "Approval of a new venue usually takes 24–48 hours. Our team reviews all information and photos before publishing."
   }
 ]
 
@@ -86,15 +86,11 @@ export default function FAQPage() {
         
         <div className="max-w-4xl mx-auto text-center relative z-20">
           <div className="animate-slide-up">
-            <h1 className="text-display text-white mb-6 font-black tracking-tight drop-shadow-2xl">
-              Často kladené otázky
-            </h1>
+            <h1 className="text-display text-white mb-6 font-black tracking-tight drop-shadow-2xl">Frequently Asked Questions</h1>
           </div>
           
           <div className="animate-slide-up" style={{ animationDelay: '0.2s' }}>
-            <p className="text-title-3 text-gray-300 mb-12 max-w-2xl mx-auto font-medium">
-              Najděte odpovědi na nejčastější otázky o ProstorMat
-            </p>
+            <p className="text-title-3 text-gray-300 mb-12 max-w-2xl mx-auto font-medium">Find answers to common questions about Venue Fusion</p>
           </div>
         </div>
       </section>
@@ -104,9 +100,7 @@ export default function FAQPage() {
         <div className="max-w-7xl mx-auto">
           <ScrollReveal>
             <div className="text-center mb-16">
-              <h2 className="text-title-1 text-black mb-6 font-bold">
-                Nejčastější dotazy
-              </h2>
+              <h2 className="text-title-1 text-black mb-6 font-bold">Common questions</h2>
               <p className="text-body text-gray-600 max-w-2xl mx-auto text-lg font-medium">
                 Vše co potřebujete vědět o využívání ProstorMat
               </p>
@@ -157,24 +151,20 @@ export default function FAQPage() {
         <div className="max-w-7xl mx-auto relative z-10">
           <ScrollReveal>
             <div className="text-center">
-              <h2 className="text-3xl sm:text-title-1 text-white mb-6 leading-tight font-bold">
-                Nenašli jste odpověď na svou otázku?
-              </h2>
-              <p className="text-lg sm:text-title-3 text-gray-200 max-w-3xl mx-auto leading-relaxed font-medium mb-12">
-                Neváhejte nás kontaktovat, rádi vám pomůžeme
-              </p>
+              <h2 className="text-3xl sm:text-title-1 text-white mb-6 leading-tight font-bold">Didn't find your answer?</h2>
+              <p className="text-lg sm:text-title-3 text-gray-200 max-w-3xl mx-auto leading-relaxed font-medium mb-12">Feel free to contact us — we're happy to help</p>
               <div className="flex flex-col sm:flex-row gap-6 justify-center max-w-lg mx-auto">
                 <a
-                  href="mailto:info@prostormat.cz"
+                  href="mailto:info@venuefusion.com"
                   className="magnetic-button hover-lift px-10 py-4 text-lg font-semibold rounded-2xl bg-white text-black hover:bg-gray-100 transition-all duration-300 shadow-xl"
                 >
-                  Napsat email
+                  Send email
                 </a>
                 <a
                   href="tel:+420775654639"
                   className="magnetic-button hover-lift px-10 py-4 text-lg font-semibold rounded-2xl border-2 border-white text-white bg-transparent hover:bg-white hover:text-black transition-all duration-300"
                 >
-                  Zavolat
+                  Call us
                 </a>
               </div>
             </div>

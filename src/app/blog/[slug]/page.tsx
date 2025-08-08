@@ -37,7 +37,7 @@ const placeholderPosts = [
       </ul>
     `,
     coverImage: "https://images.unsplash.com/photo-1517457373958-b7bdd4587205?w=800&h=400&fit=crop",
-    author: { name: "Prostormat Team", email: "team@prostormat.cz" },
+    author: { name: "Venue Fusion Team", email: "team@venuefusion.com" },
     publishedAt: new Date("2024-01-15"),
     tags: '["Firemní akce", "Tipy", "Prostory"]'
   },
@@ -66,7 +66,7 @@ const placeholderPosts = [
       <p>Každý prvek svatby odráží osobnost páru - od handmade prvků po jedinečné menu.</p>
     `,
     coverImage: "https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=800&h=400&fit=crop",
-    author: { name: "Prostormat Team", email: "team@prostormat.cz" },
+    author: { name: "Venue Fusion Team", email: "team@venuefusion.com" },
     publishedAt: new Date("2024-01-10"),
     tags: '["Svatby", "Trendy", "2025"]'
   },
@@ -98,7 +98,7 @@ const placeholderPosts = [
       </ul>
     `,
     coverImage: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=400&fit=crop",
-    author: { name: "Prostormat Team", email: "team@prostormat.cz" },
+    author: { name: "Venue Fusion Team", email: "team@venuefusion.com" },
     publishedAt: new Date("2024-01-05"),
     tags: '["Teambuilding", "Netradičně", "Týmová práce"]'
   },
@@ -144,7 +144,7 @@ const placeholderPosts = [
       </ul>
     `,
     coverImage: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&h=400&fit=crop",
-    author: { name: "Prostormat Team", email: "team@prostormat.cz" },
+    author: { name: "Venue Fusion Team", email: "team@venuefusion.com" },
     publishedAt: new Date("2023-12-28"),
     tags: '["Konference", "Checklist", "Plánování"]'
   },
@@ -184,7 +184,7 @@ const placeholderPosts = [
       </ul>
     `,
     coverImage: "https://images.unsplash.com/photo-1556761175-b413da4baf72?w=800&h=400&fit=crop",
-    author: { name: "Prostormat Team", email: "team@prostormat.cz" },
+    author: { name: "Venue Fusion Team", email: "team@venuefusion.com" },
     publishedAt: new Date("2023-12-20"),
     tags: '["Rozpočet", "Úspory", "Tipy"]'
   },
@@ -223,7 +223,7 @@ const placeholderPosts = [
       <p>Sledujte a vyhodnocujte eco-metriky vaší akce - množství odpadu, spotřebu energie, způsoby dopravy účastníků.</p>
     `,
     coverImage: "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=800&h=400&fit=crop",
-    author: { name: "Prostormat Team", email: "team@prostormat.cz" },
+    author: { name: "Venue Fusion Team", email: "team@venuefusion.com" },
     publishedAt: new Date("2023-12-15"),
     tags: '["Udržitelnost", "Eco-friendly", "Trendy"]'
   }

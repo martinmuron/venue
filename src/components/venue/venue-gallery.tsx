@@ -17,7 +17,7 @@ export function VenueGallery({ images, venueName }: VenueGalleryProps) {
   if (images.length === 0) {
     return (
       <div className="aspect-[4/3] bg-gray-100 rounded-2xl flex items-center justify-center">
-        <p className="text-gray-500">Žádné obrázky</p>
+        <p className="text-gray-500">No images</p>
       </div>
     )
   }
@@ -37,10 +37,10 @@ export function VenueGallery({ images, venueName }: VenueGalleryProps) {
         {images.length > 1 && (
           <div className="mb-4 flex items-center justify-between">
             <h2 className="text-lg font-semibold text-gray-900">
-              Galerie ({images.length} fotografií)
+              Gallery ({images.length} photos)
             </h2>
             <div className="text-sm text-gray-600">
-              Klikněte na obrázek pro zvětšení
+              Click the image to enlarge
             </div>
           </div>
         )}
@@ -49,7 +49,7 @@ export function VenueGallery({ images, venueName }: VenueGalleryProps) {
         <div className="aspect-[4/3] relative overflow-hidden rounded-2xl bg-gray-100 group">
           <Image
             src={images[currentIndex]}
-            alt={`${venueName} - obrázek ${currentIndex + 1}`}
+            alt={`${venueName} - image ${currentIndex + 1}`}
             fill
             className="object-cover cursor-pointer transition-transform duration-300 group-hover:scale-105"
             onClick={() => setIsFullscreen(true)}
@@ -86,7 +86,7 @@ export function VenueGallery({ images, venueName }: VenueGalleryProps) {
 
           {/* Click to expand hint */}
           <div className="absolute top-4 left-4 bg-black/70 text-white px-3 py-1 rounded-full text-xs opacity-0 group-hover:opacity-100 transition-opacity">
-            Kliknutím zvětšíte
+            Click to enlarge
           </div>
         </div>
 
@@ -95,10 +95,10 @@ export function VenueGallery({ images, venueName }: VenueGalleryProps) {
           <div className="mt-6">
             <div className="flex items-center justify-between mb-3">
               <h3 className="text-sm font-medium text-gray-700">
-                Všechny fotografie
+                All photos
               </h3>
               <div className="text-xs text-gray-500">
-                Procházejte fotografie
+                Browse photos
               </div>
             </div>
             <div className="flex gap-3 overflow-x-auto pb-2 scrollbar-thin scrollbar-track-gray-100 scrollbar-thumb-gray-300">
@@ -114,7 +114,7 @@ export function VenueGallery({ images, venueName }: VenueGalleryProps) {
                 >
                   <Image
                     src={image}
-                    alt={`${venueName} - náhled ${index + 1}`}
+                    alt={`${venueName} - thumbnail ${index + 1}`}
                     fill
                     className="object-cover"
                   />
@@ -150,7 +150,7 @@ export function VenueGallery({ images, venueName }: VenueGalleryProps) {
           <div className="relative max-w-7xl max-h-full mx-4">
             <Image
               src={images[currentIndex]}
-              alt={`${venueName} - obrázek ${currentIndex + 1}`}
+              alt={`${venueName} - image ${currentIndex + 1}`}
               width={1200}
               height={800}
               className="object-contain max-h-[90vh]"

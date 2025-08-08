@@ -34,12 +34,8 @@ export function VenueManagerDashboard({ data }: VenueManagerDashboardProps) {
   return (
     <div>
       <div className="mb-8">
-        <h1 className="text-title-1 text-gray-900 mb-2">
-          Vítejte zpět, {user.name}!
-        </h1>
-        <p className="text-body text-gray-600">
-          Správa vašich event prostorů a předplatného
-        </p>
+        <h1 className="text-title-1 text-gray-900 mb-2">Welcome back, {user.name}!</h1>
+        <p className="text-body text-gray-600">Manage your venues and subscription</p>
       </div>
 
       {/* Stats Cards */}
@@ -48,7 +44,7 @@ export function VenueManagerDashboard({ data }: VenueManagerDashboardProps) {
           <CardContent className="p-6">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-caption text-gray-500 mb-1">Celkem prostorů</p>
+                <p className="text-caption text-gray-500 mb-1">Total venues</p>
                 <p className="text-title-2 text-gray-900">{stats.totalVenues}</p>
               </div>
               <Building className="h-8 w-8 text-blue-500" />
@@ -60,7 +56,7 @@ export function VenueManagerDashboard({ data }: VenueManagerDashboardProps) {
           <CardContent className="p-6">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-caption text-gray-500 mb-1">Aktivní prostory</p>
+                <p className="text-caption text-gray-500 mb-1">Active venues</p>
                 <p className="text-title-2 text-gray-900">{stats.activeVenues}</p>
               </div>
               <Eye className="h-8 w-8 text-green-500" />
@@ -72,7 +68,7 @@ export function VenueManagerDashboard({ data }: VenueManagerDashboardProps) {
           <CardContent className="p-6">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-caption text-gray-500 mb-1">Celkem dotazů</p>
+                <p className="text-caption text-gray-500 mb-1">Total inquiries</p>
                 <p className="text-title-2 text-gray-900">{stats.totalInquiries}</p>
               </div>
               <MessageSquare className="h-8 w-8 text-purple-500" />
@@ -84,8 +80,8 @@ export function VenueManagerDashboard({ data }: VenueManagerDashboardProps) {
           <CardContent className="p-6">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-caption text-gray-500 mb-1">Předplatné</p>
-                <p className="text-title-2 text-gray-900">{subscriptionData.daysLeft} dní</p>
+                <p className="text-caption text-gray-500 mb-1">Subscription</p>
+                <p className="text-title-2 text-gray-900">{subscriptionData.daysLeft} days</p>
               </div>
               <Clock className="h-8 w-8 text-orange-500" />
             </div>
@@ -99,21 +95,21 @@ export function VenueManagerDashboard({ data }: VenueManagerDashboardProps) {
           <div className="flex items-center justify-between">
             <CardTitle className="text-gray-900 flex items-center">
               <CreditCard className="h-5 w-5 mr-2 text-blue-600" />
-              Stav předplatného
+              Subscription status
             </CardTitle>
             <Badge variant="default" className="bg-green-100 text-green-800">
-              {subscriptionData.status === "active" ? "Aktivní" : "Neaktivní"}
+              {subscriptionData.status === "active" ? "Active" : "Inactive"}
             </Badge>
           </div>
         </CardHeader>
         <CardContent>
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
             <div>
-              <p className="text-sm text-gray-600 mb-2">Aktuální plán</p>
+              <p className="text-sm text-gray-600 mb-2">Current plan</p>
               <p className="text-lg font-semibold text-gray-900">{subscriptionData.plan}</p>
             </div>
             <div>
-              <p className="text-sm text-gray-600 mb-2">Zbývající doba</p>
+              <p className="text-sm text-gray-600 mb-2">Time remaining</p>
               <div className="flex items-center space-x-3">
                 <div className="flex-1 bg-gray-200 rounded-full h-2">
                   <div 
@@ -121,14 +117,14 @@ export function VenueManagerDashboard({ data }: VenueManagerDashboardProps) {
                     style={{ width: `${progressPercentage}%` }}
                   ></div>
                 </div>
-                <span className="text-sm font-medium text-gray-900">{subscriptionData.daysLeft} dní</span>
+                <span className="text-sm font-medium text-gray-900">{subscriptionData.daysLeft} days</span>
               </div>
             </div>
             <div className="flex items-end justify-end">
               <Link href="/dashboard/subscription">
                 <Button className="bg-blue-600 hover:bg-blue-700 text-white">
                   <Settings className="h-4 w-4 mr-2" />
-                  Spravovat předplatné
+                  Manage subscription
                 </Button>
               </Link>
             </div>
@@ -141,11 +137,11 @@ export function VenueManagerDashboard({ data }: VenueManagerDashboardProps) {
         <Card className="bg-white">
           <CardHeader>
             <div className="flex items-center justify-between">
-              <CardTitle className="text-gray-900">Moje prostory</CardTitle>
-              <Link href="/pridat-prostor">
+              <CardTitle className="text-gray-900">My venues</CardTitle>
+              <Link href="/add-venue">
                 <Button size="sm" className="bg-blue-600 hover:bg-blue-700 text-white">
                   <Plus className="h-4 w-4 mr-2" />
-                  Přidat prostor
+                  Add venue
                 </Button>
               </Link>
             </div>
@@ -154,11 +150,9 @@ export function VenueManagerDashboard({ data }: VenueManagerDashboardProps) {
             {venues.length === 0 ? (
               <div className="text-center py-8">
                 <Building className="h-12 w-12 text-gray-400 mx-auto mb-4" />
-                <p className="text-body text-gray-600 mb-4">
-                  Zatím nemáte žádné prostory
-                </p>
-                <Link href="/pridat-prostor">
-                  <Button size="sm" className="bg-blue-600 hover:bg-blue-700 text-white">Přidat první prostor</Button>
+                <p className="text-body text-gray-600 mb-4">You don't have any venues yet</p>
+                <Link href="/add-venue">
+                  <Button size="sm" className="bg-blue-600 hover:bg-blue-700 text-white">Add first venue</Button>
                 </Link>
               </div>
             ) : (
@@ -169,27 +163,27 @@ export function VenueManagerDashboard({ data }: VenueManagerDashboardProps) {
                       <div className="flex-1">
                         <h4 className="text-callout font-medium text-gray-900 mb-1">{venue.name}</h4>
                         <p className="text-caption text-gray-600">
-                          {venue.inquiries?.length || 0} dotazů • {venue.capacitySeated || 0} míst k sezení
+                          {venue.inquiries?.length || 0} inquiries • {venue.capacitySeated || 0} seated capacity
                         </p>
                       </div>
                       <Badge 
                         variant={venue.status === "active" ? "default" : "secondary"}
                         className={venue.status === "active" ? "bg-green-100 text-green-800" : "bg-gray-100 text-gray-800"}
                       >
-                        {venue.status === "active" ? "Aktivní" : venue.status}
+                        {venue.status === "active" ? "Active" : venue.status}
                       </Badge>
                     </div>
                     <div className="flex gap-2">
-                      <Link href={`/prostory/${venue.slug}`}>
+                      <Link href={`/venues/${venue.slug}`}>
                         <Button variant="secondary" size="sm" className="text-gray-700 border-gray-300 hover:bg-gray-50">
                           <Eye className="h-3 w-3 mr-1" />
-                          Zobrazit
+                          View
                         </Button>
                       </Link>
                       <Link href={`/dashboard/venue/${venue.id}/edit`}>
                         <Button size="sm" className="bg-orange-600 hover:bg-orange-700 text-white">
                           <Settings className="h-3 w-3 mr-1" />
-                          Upravit
+                          Edit
                         </Button>
                       </Link>
                     </div>
@@ -198,7 +192,7 @@ export function VenueManagerDashboard({ data }: VenueManagerDashboardProps) {
                 {venues.length > 3 && (
                   <Link href="/dashboard/venues">
                     <Button variant="secondary" size="sm" className="w-full text-gray-700 border-gray-300 hover:bg-gray-50">
-                      Zobrazit všechny prostory ({venues.length})
+                      View all venues ({venues.length})
                     </Button>
                   </Link>
                 )}
@@ -210,15 +204,13 @@ export function VenueManagerDashboard({ data }: VenueManagerDashboardProps) {
         {/* Recent Inquiries */}
         <Card className="bg-white">
           <CardHeader>
-            <CardTitle className="text-gray-900">Nedávné dotazy</CardTitle>
+            <CardTitle className="text-gray-900">Recent inquiries</CardTitle>
           </CardHeader>
           <CardContent>
             {venues.every(v => !v.inquiries?.length) ? (
               <div className="text-center py-8">
                 <MessageSquare className="h-12 w-12 text-gray-400 mx-auto mb-4" />
-                <p className="text-body text-gray-600">
-                  Zatím jste neobdrželi žádné dotazy
-                </p>
+                <p className="text-body text-gray-600">You haven't received any inquiries yet</p>
               </div>
             ) : (
               <div className="space-y-4">
@@ -239,7 +231,7 @@ export function VenueManagerDashboard({ data }: VenueManagerDashboardProps) {
                           <p className="text-caption text-gray-600">{inquiry.venueName}</p>
                         </div>
                         <Badge variant="secondary" className="bg-blue-100 text-blue-800 text-xs">
-                          Nový
+                          New
                         </Badge>
                       </div>
                       <p className="text-caption text-gray-700 mb-3 line-clamp-2">
@@ -253,14 +245,14 @@ export function VenueManagerDashboard({ data }: VenueManagerDashboardProps) {
                           href={`mailto:${inquiry.email}`}
                           className="text-caption bg-blue-600 text-white px-3 py-1 rounded hover:bg-blue-700 transition-colors"
                         >
-                          Odpovědět
+                          Reply
                         </a>
                       </div>
                     </div>
                   ))}
                 <Link href="/dashboard/inquiries">
                   <Button variant="secondary" size="sm" className="w-full text-gray-700 border-gray-300 hover:bg-gray-50">
-                    Zobrazit všechny dotazy
+                    View all inquiries
                   </Button>
                 </Link>
               </div>
@@ -272,28 +264,28 @@ export function VenueManagerDashboard({ data }: VenueManagerDashboardProps) {
       {/* Profile Management */}
       <Card className="mt-8 bg-white">
         <CardHeader>
-          <CardTitle className="text-gray-900">Správa profilu</CardTitle>
+          <CardTitle className="text-gray-900">Profile management</CardTitle>
         </CardHeader>
         <CardContent>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             <div>
-              <h3 className="text-lg font-medium text-gray-900 mb-4">Informace o účtu</h3>
+              <h3 className="text-lg font-medium text-gray-900 mb-4">Account information</h3>
               <div className="space-y-3">
                 <div>
-                  <label className="text-sm text-gray-600">Jméno</label>
+                  <label className="text-sm text-gray-600">Name</label>
                   <p className="text-gray-900">{user.name}</p>
                 </div>
                 <div>
-                  <label className="text-sm text-gray-600">E-mail</label>
+                  <label className="text-sm text-gray-600">Email</label>
                   <p className="text-gray-900">{user.email}</p>
                 </div>
                 <div>
-                  <label className="text-sm text-gray-600">Společnost</label>
-                  <p className="text-gray-900">{user.company || "Není zadáno"}</p>
+                  <label className="text-sm text-gray-600">Company</label>
+                  <p className="text-gray-900">{user.company || "Not specified"}</p>
                 </div>
                 <div>
-                  <label className="text-sm text-gray-600">Telefon</label>
-                  <p className="text-gray-900">{user.phone || "Není zadáno"}</p>
+                  <label className="text-sm text-gray-600">Phone</label>
+                  <p className="text-gray-900">{user.phone || "Not specified"}</p>
                 </div>
               </div>
             </div>
@@ -301,13 +293,13 @@ export function VenueManagerDashboard({ data }: VenueManagerDashboardProps) {
               <Link href="/dashboard/profile">
                 <Button className="w-full bg-gray-800 hover:bg-gray-900 text-white mb-3">
                   <Settings className="h-4 w-4 mr-2" />
-                  Upravit profil
+                  Edit profile
                 </Button>
               </Link>
               <Link href="/dashboard/settings">
                 <Button variant="secondary" className="w-full text-gray-700 border-gray-300 hover:bg-gray-50">
                   <Users className="h-4 w-4 mr-2" />
-                  Nastavení účtu
+                  Account settings
                 </Button>
               </Link>
             </div>
@@ -318,32 +310,32 @@ export function VenueManagerDashboard({ data }: VenueManagerDashboardProps) {
       {/* Quick Actions */}
       <Card className="mt-8 bg-white">
         <CardHeader>
-          <CardTitle className="text-gray-900">Rychlé akce</CardTitle>
+          <CardTitle className="text-gray-900">Quick actions</CardTitle>
         </CardHeader>
         <CardContent>
           <div className="grid grid-cols-1 sm:grid-cols-4 gap-4">
-            <Link href="/pridat-prostor">
+            <Link href="/add-venue">
               <Button variant="secondary" className="w-full justify-start text-gray-700 border-gray-300 hover:bg-gray-50 h-12">
                 <Plus className="h-4 w-4 mr-2" />
-                Přidat nový prostor
+                Add new venue
               </Button>
             </Link>
-            <Link href="/pozadavky">
+            <Link href="/requests">
               <Button variant="secondary" className="w-full justify-start text-gray-700 border-gray-300 hover:bg-gray-50 h-12">
                 <Calendar className="h-4 w-4 mr-2" />
-                Veřejné zakázky
+                Public orders
               </Button>
             </Link>
             <Link href="/dashboard/analytics">
               <Button variant="secondary" className="w-full justify-start text-gray-700 border-gray-300 hover:bg-gray-50 h-12">
                 <TrendingUp className="h-4 w-4 mr-2" />
-                Statistiky
+                Analytics
               </Button>
             </Link>
             <Link href="/dashboard/subscription">
               <Button variant="secondary" className="w-full justify-start text-gray-700 border-gray-300 hover:bg-gray-50 h-12">
                 <CreditCard className="h-4 w-4 mr-2" />
-                Fakturace
+                Billing
               </Button>
             </Link>
           </div>
