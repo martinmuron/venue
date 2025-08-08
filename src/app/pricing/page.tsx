@@ -41,14 +41,14 @@ export default function PricingPage() {
               <div className="relative z-10">
                 <div className="text-center mb-8">
                   <h2 className="text-title-2 text-black font-bold mb-4">
-                    Annual subscription
+                    Monthly subscription
                   </h2>
                   <div className="mb-4">
-                    <span className="text-5xl sm:text-6xl font-black text-black">$500</span>
-                    <span className="text-title-3 text-gray-600 ml-2">/ year</span>
+                    <span className="text-5xl sm:text-6xl font-black text-black">$70</span>
+                    <span className="text-title-3 text-gray-600 ml-2">/ month</span>
                   </div>
                   <p className="text-body text-gray-600 font-medium">
-                    Full access to the platform for a whole year
+                    Full access to the platform with monthly billing
                   </p>
                 </div>
 
@@ -60,7 +60,7 @@ export default function PricingPage() {
                     'Access to event requests',
                     'Basic traffic statistics',
                     'Email support',
-                    'Annual payment (no monthly fees)'
+                    'Monthly payment (cancel anytime)'
                   ].map((feature, index) => (
                     <div key={index} className="flex items-center gap-3">
                       <div className="w-6 h-6 bg-black rounded-full flex items-center justify-center flex-shrink-0">

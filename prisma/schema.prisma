@@ -58,6 +58,7 @@ model User {
   venues          Venue[]          @relation("ManagedVenues")
   eventRequests   EventRequest[]   @relation("EventRequests")
   venueBroadcasts VenueBroadcast[] @relation("VenueBroadcasts")
+  blogPosts       BlogPost[]       @relation("BlogPosts")
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -205,4 +206,20 @@ model VenueBroadcastLog {
   emailStatus  String         @default("pending")
   emailError   String?
   createdAt    DateTime       @default(now())
+}
+
+model BlogPost {
+  id          String   @id @default(cuid())
+  title       String
+  slug        String   @unique
+  content     String
+  excerpt     String?
+  published   Boolean  @default(false)
+  status      String   @default("draft")
+  authorId    String?
+  author      User?    @relation("BlogPosts", fields: [authorId], references: [id])
+  tags        String[] @default([])
+  imageUrl    String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
 }
