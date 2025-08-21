@@ -62,7 +62,7 @@ export function LoginModal({ isOpen, onClose, onSuccess }: LoginModalProps) {
         router.refresh()
       }
     } catch (error) {
-      setLoginError("Došlo k chybě při přihlašování")
+      setLoginError("An error occurred during login")
     } finally {
       setIsLoading(false)
     }
@@ -74,7 +74,7 @@ export function LoginModal({ isOpen, onClose, onSuccess }: LoginModalProps) {
     setRegisterError("")
 
     if (registerData.password !== registerData.confirmPassword) {
-      setRegisterError("Hesla se neshodují")
+      setRegisterError("Passwords do not match")
       setIsLoading(false)
       return
     }
@@ -109,10 +109,10 @@ export function LoginModal({ isOpen, onClose, onSuccess }: LoginModalProps) {
         }
       } else {
         const errorData = await response.json()
-        setRegisterError(errorData.error || "Došlo k chybě při registraci")
+        setRegisterError(errorData.error || "An error occurred during registration")
       }
     } catch (error) {
-      setRegisterError("Došlo k chybě při registraci")
+      setRegisterError("An error occurred during registration")
     } finally {
       setIsLoading(false)
     }
@@ -204,7 +204,7 @@ export function LoginModal({ isOpen, onClose, onSuccess }: LoginModalProps) {
                 className="w-full bg-black text-white hover:bg-gray-800"
                 disabled={isLoading}
               >
-                {isLoading ? "Přihlašování..." : "Přihlásit se"}
+                {isLoading ? "Signing in..." : "Sign In"}
               </Button>
             </form>
           </TabsContent>
@@ -272,7 +272,7 @@ export function LoginModal({ isOpen, onClose, onSuccess }: LoginModalProps) {
               </div>
 
               <div>
-                <Label htmlFor="register-confirm-password">Potvrzení hesla</Label>
+                <Label htmlFor="register-confirm-password">Confirm Password</Label>
                 <div className="relative">
                   <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
                   <Input

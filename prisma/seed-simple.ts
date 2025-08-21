@@ -41,7 +41,7 @@ async function main() {
       capacitySeated: 80,
       capacityStanding: 120,
       venueType: 'restaurant',
-      amenities: ['Klimatizace', 'Projektor', 'Zvukový systém', 'WiFi', 'Terasa', 'Parking'],
+      amenities: ['Air Conditioning', 'Projector', 'Sound System', 'WiFi', 'Terrace', 'Parking'],
       contactEmail: 'info@restaurant-terasa.cz',
       contactPhone: '+420 222 333 444',
       images: [
@@ -55,12 +55,12 @@ async function main() {
     {
       name: 'Galerie Moderna',
       slug: 'galerie-moderna',
-      description: 'Moderní galerie v centru Prahy s flexibilními prostory pro konference, výstavy a networking events.',
+      description: 'Modern gallery in the center of Prague with flexible spaces for conferences, exhibitions and networking events.',
       address: 'Národní 20, Praha 1',
       capacitySeated: 150,
       capacityStanding: 250,
       venueType: 'gallery',
-      amenities: ['Multimediální vybavení', 'Catering možnosti', 'Výstavní systém', 'Klimatizace'],
+      amenities: ['Multimedia Equipment', 'Catering Options', 'Exhibition System', 'Air Conditioning'],
       contactEmail: 'rezervace@galerie-moderna.cz',
       contactPhone: '+420 111 222 333',
       images: [
@@ -74,12 +74,12 @@ async function main() {
     {
       name: 'SkyBar Prague',
       slug: 'skybar-prague',
-      description: 'Exkluzivní střešní terasa s panoramatickým výhledem na Prahu. Perfektní pro cocktail party a letní akce.',
+      description: 'Exclusive rooftop terrace with panoramic views of Prague. Perfect for cocktail parties and summer events.',
       address: 'Wenceslas Square 14, Praha 1',
       capacitySeated: 60,
       capacityStanding: 100,
       venueType: 'rooftop',
-      amenities: ['Bar', 'DJ booth', 'Vytápění', 'Zastřešená část', 'VIP sekce', 'Výhled na město'],
+      amenities: ['Bar', 'DJ booth', 'Heating', 'Covered Area', 'VIP Section', 'City View'],
       contactEmail: 'events@skybar-prague.com',
       contactPhone: '+420 777 888 999',
       images: [
@@ -98,7 +98,7 @@ async function main() {
       capacitySeated: 200,
       capacityStanding: 300,
       venueType: 'conference',
-      amenities: ['Projektor', 'Zvukový systém', 'WiFi', 'Klimatizace', 'Catering', 'Parking'],
+      amenities: ['Projector', 'Sound System', 'WiFi', 'Air Conditioning', 'Catering', 'Parking'],
       contactEmail: 'info@conference-prague.cz',
       contactPhone: '+420 555 666 777',
       images: [
@@ -112,12 +112,12 @@ async function main() {
     {
       name: 'Garden Villa Petřín',
       slug: 'garden-villa-petrin',
-      description: 'Romantic garden villa under Petřín Hill with beautiful garden for weddings and private events.',
+      description: 'Romantic garden villa under Petrin Hill with beautiful garden for weddings and private events.',
       address: 'Petřínské sady 15, Praha 1',
       capacitySeated: 50,
       capacityStanding: 80,
       venueType: 'garden',
-      amenities: ['Zahrada', 'Terasa', 'Gril', 'Parkování', 'Dětské hřiště'],
+      amenities: ['Garden', 'Terrace', 'BBQ Grill', 'Parking', 'Playground'],
       contactEmail: 'rezervace@villa-petrin.cz',
       contactPhone: '+420 333 444 555',
       images: [
@@ -131,12 +131,12 @@ async function main() {
     {
       name: 'Industrial Loft Karlín',
       slug: 'industrial-loft-karlin',
-      description: 'Industriální loft v Karlíně s vysokými stropy a moderním designem pro kreativní akce.',
+      description: 'Industrial loft in Karlin with high ceilings and modern design for creative events.',
       address: 'Sokolovská 100, Praha 8',
       capacitySeated: 120,
       capacityStanding: 180,
       venueType: 'loft',
-      amenities: ['Vysoké stropy', 'Industriální design', 'Projektor', 'Zvukový systém', 'WiFi'],
+      amenities: ['High Ceilings', 'Industrial Design', 'Projector', 'Sound System', 'WiFi'],
       contactEmail: 'booking@loft-karlin.cz',
       contactPhone: '+420 666 777 888',
       images: [

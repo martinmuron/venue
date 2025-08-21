@@ -111,7 +111,7 @@ export function DataTable<TData, TValue>({
                   colSpan={columns.length}
                   className="h-24 text-center"
                 >
-                  Žádné prostory nebyly nalezeny.
+                  No venues found.
                 </TableCell>
               </TableRow>
             )}

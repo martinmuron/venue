@@ -157,8 +157,8 @@ export default async function DashboardPage() {
     return (
       <div className="min-h-screen bg-gray-50 flex items-center justify-center">
         <div className="text-center">
-          <h1 className="text-title-2 text-black mb-4">Chyba při načítání</h1>
-          <p className="text-body text-gray-600">Došlo k chybě při načítání vašeho dashboardu.</p>
+          <h1 className="text-title-2 text-black mb-4">Loading Error</h1>
+          <p className="text-body text-gray-600">An error occurred while loading your dashboard.</p>
         </div>
       </div>
     )

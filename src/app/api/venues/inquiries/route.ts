@@ -63,7 +63,7 @@ export async function POST(request: Request) {
     }
 
     return NextResponse.json(
-      { error: "Došlo k chybě při odesílání dotazu" },
+      { error: "An error occurred while sending inquiry" },
       { status: 500 }
     )
   }

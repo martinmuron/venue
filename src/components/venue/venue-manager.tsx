@@ -24,12 +24,12 @@ export function VenueManager({ venue }: VenueManagerProps) {
     return (
       <div className="text-center py-8">
         <User className="mx-auto h-12 w-12 text-gray-400 mb-4" />
-        <h3 className="text-lg font-medium text-gray-900 mb-2">Žádný správce přiřazen</h3>
+        <h3 className="text-lg font-medium text-gray-900 mb-2">No Manager Assigned</h3>
         <p className="text-gray-500 mb-4">
-          Tento prostor nemá přiřazeného správce.
+          This venue has no assigned manager.
         </p>
         <Button variant="outline">
-          Přiřadit správce
+          Assign Manager
         </Button>
       </div>
     )
@@ -51,8 +51,8 @@ export function VenueManager({ venue }: VenueManagerProps) {
             </Avatar>
             <div className="space-y-2">
               <div>
-                <h3 className="text-xl font-semibold">{venue.manager.name || "Bez jména"}</h3>
-                <Badge variant="outline">Správce prostoru</Badge>
+                <h3 className="text-xl font-semibold">{venue.manager.name || "No Name"}</h3>
+                <Badge variant="outline">Venue Manager</Badge>
               </div>
               <div className="space-y-1">
                 <div className="flex items-center text-sm text-gray-600">
@@ -77,10 +77,10 @@ export function VenueManager({ venue }: VenueManagerProps) {
 
       <div className="flex space-x-4">
         <Button variant="outline">
-          Změnit správce
+          Change Manager
         </Button>
         <Button variant="outline">
-          Zobrazit profil
+          View Profile
         </Button>
       </div>
     </div>

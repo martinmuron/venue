@@ -48,7 +48,7 @@ export type Venue = {
 export const columns: ColumnDef<Venue>[] = [
   {
     accessorKey: "name",
-    header: "Název",
+    header: "Name",
     cell: ({ row }) => {
       const isFeatured = row.original.featured
       return (
@@ -61,15 +61,15 @@ export const columns: ColumnDef<Venue>[] = [
   },
   {
     accessorKey: "venueType",
-    header: "Typ",
+    header: "Type",
     cell: ({ row }) => {
       const type = row.getValue("venueType")
-      return type ? <span className="capitalize">{String(type)}</span> : <span className="text-muted-foreground">Neuvedeno</span>
+      return type ? <span className="capitalize">{String(type)}</span> : <span className="text-muted-foreground">Not specified</span>
     },
   },
   {
     accessorKey: "address",
-    header: "Adresa",
+    header: "Address",
     cell: ({ row }) => {
       const address = row.getValue("address")
       const district = row.original.district
@@ -83,7 +83,7 @@ export const columns: ColumnDef<Venue>[] = [
   },
   {
     accessorKey: "contactEmail",
-    header: "Kontaktní e-mail",
+    header: "Contact Email",
     cell: ({ row }) => {
       const email = row.original.contactEmail
       return email ? (
@@ -93,13 +93,13 @@ export const columns: ColumnDef<Venue>[] = [
           </a>
         </div>
       ) : (
-        <span className="text-muted-foreground text-sm">Neuvedeno</span>
+        <span className="text-muted-foreground text-sm">Not specified</span>
       )
     },
   },
   {
     accessorKey: "manager",
-    header: "Správce",
+    header: "Manager",
     cell: ({ row }) => {
       const manager = row.original.manager
       return manager ? (
@@ -109,20 +109,20 @@ export const columns: ColumnDef<Venue>[] = [
           {manager.phone && <div className="text-sm text-muted-foreground">{manager.phone}</div>}
         </div>
       ) : (
-        <span className="text-muted-foreground">Nepřiřazeno</span>
+        <span className="text-muted-foreground">Not assigned</span>
       )
     },
   },
   {
     accessorKey: "status",
-    header: "Stav",
+    header: "Status",
     cell: ({ row }) => {
       const status = row.getValue("status") as string
       const statusMap = {
-        active: { label: "Aktivní", icon: CheckCircle, color: "bg-green-100 text-green-800" },
-        draft: { label: "Koncept", icon: Clock, color: "bg-yellow-100 text-yellow-800" },
-        expired: { label: "Expirovaný", icon: XCircle, color: "bg-red-100 text-red-800" },
-        suspended: { label: "Pozastaveno", icon: XCircle, color: "bg-gray-100 text-gray-800" },
+        active: { label: "Active", icon: CheckCircle, color: "bg-green-100 text-green-800" },
+        draft: { label: "Draft", icon: Clock, color: "bg-yellow-100 text-yellow-800" },
+        expired: { label: "Expired", icon: XCircle, color: "bg-red-100 text-red-800" },
+        suspended: { label: "Suspended", icon: XCircle, color: "bg-gray-100 text-gray-800" },
       }
       const statusInfo = statusMap[status as keyof typeof statusMap] || { label: status, color: "bg-gray-100 text-gray-800" }
       
@@ -135,16 +135,16 @@ export const columns: ColumnDef<Venue>[] = [
   },
   {
     accessorKey: "_count",
-    header: "Statistiky",
+    header: "Statistics",
     cell: ({ row }) => {
       const stats = row.original._count
       return (
         <div className="flex space-x-2">
           <Badge variant="outline" className="text-xs">
-            {stats.inquiries} dotazů
+            {stats.inquiries} inquiries
           </Badge>
           <Badge variant="outline" className="text-xs">
-            {stats.broadcastLogs} rozesílek
+            {stats.broadcastLogs} broadcasts
           </Badge>
         </div>
       )
@@ -159,32 +159,32 @@ export const columns: ColumnDef<Venue>[] = [
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <Button variant="ghost" className="h-8 w-8 p-0">
-              <span className="sr-only">Otevřít menu</span>
+              <span className="sr-only">Open menu</span>
               <MoreHorizontal className="h-4 w-4" />
             </Button>
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end">
-            <DropdownMenuLabel>Akce</DropdownMenuLabel>
+            <DropdownMenuLabel>Actions</DropdownMenuLabel>
             <Link href={`/dashboard/venues/${venue.id}`}>
               <DropdownMenuItem className="cursor-pointer">
                 <Edit className="mr-2 h-4 w-4" />
-                Upravit
+                Edit
               </DropdownMenuItem>
             </Link>
             <DropdownMenuSeparator />
             <Link href={`/venues/${venue.id}`}>
               <DropdownMenuItem className="cursor-pointer">
-                Zobrazit veřejně
+                View Publicly
               </DropdownMenuItem>
             </Link>
             <Link href={`/dashboard/venues/${venue.id}/billing`}>
               <DropdownMenuItem className="cursor-pointer">
-                Fakturace
+                Billing
               </DropdownMenuItem>
             </Link>
             <Link href={`/dashboard/users/${venue.manager?.id}`}>
               <DropdownMenuItem className="cursor-pointer" disabled={!venue.manager}>
-                Profil správce
+                Manager Profile
               </DropdownMenuItem>
             </Link>
           </DropdownMenuContent>

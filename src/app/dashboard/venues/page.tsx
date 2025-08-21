@@ -47,23 +47,23 @@ export default async function VenuesPage() {
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-bold">Správa prostorů</h1>
-          <p className="text-muted-foreground">Spravujte všechny prostory v systému</p>
+          <h1 className="text-2xl font-bold">Venue Management</h1>
+          <p className="text-muted-foreground">Manage all venues in the system</p>
         </div>
         <Button asChild>
           <a href="/dashboard/venues/new">
             <PlusCircle className="mr-2 h-4 w-4" />
-            Přidat prostor
+            Add Venue
           </a>
         </Button>
       </div>
 
       <Tabs defaultValue="all" className="space-y-4">
         <TabsList>
-          <TabsTrigger value="all">Všechny ({venues.length})</TabsTrigger>
-          <TabsTrigger value="active">Aktivní ({activeVenues.length})</TabsTrigger>
-          <TabsTrigger value="draft">Koncepty ({draftVenues.length})</TabsTrigger>
-          <TabsTrigger value="expired">Expirované ({expiredVenues.length})</TabsTrigger>
+          <TabsTrigger value="all">All ({venues.length})</TabsTrigger>
+          <TabsTrigger value="active">Active ({activeVenues.length})</TabsTrigger>
+          <TabsTrigger value="draft">Drafts ({draftVenues.length})</TabsTrigger>
+          <TabsTrigger value="expired">Expired ({expiredVenues.length})</TabsTrigger>
         </TabsList>
 
         <TabsContent value="all">

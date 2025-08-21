@@ -74,16 +74,16 @@ export default async function UserProfilePage({
   }
 
   const roleLabels = {
-    user: "Uživatel",
-    venue_manager: "Správce prostorů",
-    admin: "Administrátor",
+    user: "User",
+    venue_manager: "Venue Manager",
+    admin: "Administrator",
   }
 
   return (
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-bold">Profil uživatele</h1>
+          <h1 className="text-2xl font-bold">User Profile</h1>
           <p className="text-muted-foreground">
             {user.name || user.email}
           </p>
@@ -91,7 +91,7 @@ export default async function UserProfilePage({
         <Button variant="outline" asChild>
           <Link href="/dashboard/venues">
             <ArrowLeft className="mr-2 h-4 w-4" />
-            Zpět na přehled
+            Back to Overview
           </Link>
         </Button>
       </div>
@@ -142,16 +142,16 @@ export default async function UserProfilePage({
 
       <Tabs defaultValue="venues" className="space-y-4">
         <TabsList>
-          <TabsTrigger value="venues">Prostory ({user.venues.length})</TabsTrigger>
-          <TabsTrigger value="requests">Veřejné zakázky ({user.eventRequests.length})</TabsTrigger>
-          <TabsTrigger value="inquiries">Dotazy ({user.inquiries.length})</TabsTrigger>
-          <TabsTrigger value="billing">Fakturace</TabsTrigger>
+          <TabsTrigger value="venues">Venues ({user.venues.length})</TabsTrigger>
+          <TabsTrigger value="requests">Public Requests ({user.eventRequests.length})</TabsTrigger>
+          <TabsTrigger value="inquiries">Inquiries ({user.inquiries.length})</TabsTrigger>
+          <TabsTrigger value="billing">Billing</TabsTrigger>
         </TabsList>
 
         <TabsContent value="venues">
           <Card>
             <CardHeader>
-              <CardTitle>Spravované prostory</CardTitle>
+              <CardTitle>Managed Venues</CardTitle>
             </CardHeader>
             <CardContent>
               {user.venues.length > 0 ? (
@@ -162,9 +162,9 @@ export default async function UserProfilePage({
                         <div className="flex items-center space-x-2">
                           <h3 className="font-medium">{venue.name}</h3>
                           <Badge variant={venue.status === 'active' ? 'default' : 'secondary'}>
-                            {venue.status === 'active' ? 'Aktivní' : 
-                             venue.status === 'draft' ? 'Koncept' : 
-                             venue.status === 'expired' ? 'Expirovaný' : 'Pozastavený'}
+                            {venue.status === 'active' ? 'Active' : 
+                             venue.status === 'draft' ? 'Draft' : 
+                             venue.status === 'expired' ? 'Expired' : 'Suspended'}
                           </Badge>
                         </div>
                         <p className="text-sm text-muted-foreground">{venue.address}</p>

@@ -120,7 +120,7 @@ export async function POST(request: Request) {
     }
 
     return NextResponse.json(
-      { error: "Došlo k chybě při vytváření účtu a prostoru" },
+      { error: "An error occurred while creating account and venue" },
       { status: 500 }
     )
   }

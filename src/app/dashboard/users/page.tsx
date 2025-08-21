@@ -72,9 +72,9 @@ export default async function UsersPage() {
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-3xl font-bold text-black">Správa uživatelů</h1>
+          <h1 className="text-3xl font-bold text-black">User Management</h1>
           <p className="text-gray-600 mt-2">
-            Spravujte všechny uživatele v systému
+            Manage all users in the system
           </p>
         </div>
       </div>
@@ -82,7 +82,7 @@ export default async function UsersPage() {
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Celkem uživatelů</CardTitle>
+            <CardTitle className="text-sm font-medium">Total Users</CardTitle>
             <User className="h-4 w-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
@@ -92,7 +92,7 @@ export default async function UsersPage() {
         
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Adminů</CardTitle>
+            <CardTitle className="text-sm font-medium">Admins</CardTitle>
             <User className="h-4 w-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
@@ -104,7 +104,7 @@ export default async function UsersPage() {
         
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Venue Manageři</CardTitle>
+            <CardTitle className="text-sm font-medium">Venue Managers</CardTitle>
             <Building className="h-4 w-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
@@ -116,7 +116,7 @@ export default async function UsersPage() {
         
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Běžní uživatelé</CardTitle>
+            <CardTitle className="text-sm font-medium">Regular Users</CardTitle>
             <User className="h-4 w-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
@@ -129,18 +129,18 @@ export default async function UsersPage() {
 
       <Card>
         <CardHeader>
-          <CardTitle>Seznam uživatelů</CardTitle>
+          <CardTitle>User List</CardTitle>
         </CardHeader>
         <CardContent>
           <Table>
             <TableHeader>
               <TableRow>
-                <TableHead>Uživatel</TableHead>
+                <TableHead>User</TableHead>
                 <TableHead>Role</TableHead>
-                <TableHead>Společnost</TableHead>
-                <TableHead>Statistiky</TableHead>
-                <TableHead>Registrace</TableHead>
-                <TableHead>Akce</TableHead>
+                <TableHead>Company</TableHead>
+                <TableHead>Statistics</TableHead>
+                <TableHead>Registration</TableHead>
+                <TableHead>Actions</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
@@ -148,7 +148,7 @@ export default async function UsersPage() {
                 <TableRow key={user.id}>
                   <TableCell>
                     <div>
-                      <div className="font-medium">{user.name || "Bez jména"}</div>
+                      <div className="font-medium">{user.name || "No Name"}</div>
                       <div className="text-sm text-gray-500">{user.email}</div>
                       {user.phone && (
                         <div className="text-sm text-gray-500">{user.phone}</div>
@@ -163,9 +163,9 @@ export default async function UsersPage() {
                   </TableCell>
                   <TableCell>
                     <div className="text-sm">
-                      <div>Prostory: {user._count.venues}</div>
-                      <div>Veřejné zakázky: {user._count.eventRequests}</div>
-                      <div>Dotazy: {user._count.inquiries}</div>
+                      <div>Venues: {user._count.venues}</div>
+                      <div>Public Requests: {user._count.eventRequests}</div>
+                      <div>Inquiries: {user._count.inquiries}</div>
                     </div>
                   </TableCell>
                   <TableCell>
@@ -176,7 +176,7 @@ export default async function UsersPage() {
                   <TableCell>
                     <Link href={`/dashboard/users/${user.id}`}>
                       <Button variant="outline" size="sm">
-                        Detail
+                        Details
                       </Button>
                     </Link>
                   </TableCell>

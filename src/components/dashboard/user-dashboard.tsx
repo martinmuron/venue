@@ -67,7 +67,7 @@ export function UserDashboard({ data }: UserDashboardProps) {
           <CardContent className="p-6">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-caption text-gray-500 mb-1">Aktivní poptávky</p>
+                <p className="text-caption text-gray-500 mb-1">Active Requests</p>
                 <p className="text-title-2 text-black">{stats.activeRequests}</p>
               </div>
               <div className="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center">
@@ -81,7 +81,7 @@ export function UserDashboard({ data }: UserDashboardProps) {
           <CardContent className="p-6">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-caption text-gray-500 mb-1">Celkem požadavků</p>
+                <p className="text-caption text-gray-500 mb-1">Total Requests</p>
                 <p className="text-title-2 text-black">{stats.totalRequests}</p>
               </div>
               <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center">
@@ -95,7 +95,7 @@ export function UserDashboard({ data }: UserDashboardProps) {
           <CardContent className="p-6">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-caption text-gray-500 mb-1">Odeslané dotazy</p>
+                <p className="text-caption text-gray-500 mb-1">Sent Inquiries</p>
                 <p className="text-title-2 text-black">{stats.totalInquiries}</p>
               </div>
               <div className="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center">
@@ -109,7 +109,7 @@ export function UserDashboard({ data }: UserDashboardProps) {
           <CardContent className="p-6">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-caption text-gray-500 mb-1">Poptávky prostorům</p>
+                <p className="text-caption text-gray-500 mb-1">Venue Inquiries</p>
                 <p className="text-title-2 text-black">{stats.totalBroadcasts}</p>
               </div>
               <div className="w-12 h-12 bg-amber-100 rounded-xl flex items-center justify-center">
@@ -244,9 +244,9 @@ export function UserDashboard({ data }: UserDashboardProps) {
         {eventRequests.length === 0 ? (
           <div className="text-center py-12">
             <Calendar className="h-16 w-16 text-gray-400 mx-auto mb-4" />
-            <h3 className="text-lg font-medium text-gray-900 mb-2">Žádné poptávky</h3>
+            <h3 className="text-lg font-medium text-gray-900 mb-2">No Requests</h3>
             <p className="text-body text-gray-600 mb-6">
-              Zatím jste nevytvořili žádné poptávky na akci
+              You haven't created any event requests yet
             </p>
             <Link href="/requests/new">
               <Button className="bg-blue-600 hover:bg-blue-700 text-white">

@@ -107,8 +107,8 @@ export default async function StatsPage() {
   if (!stats) {
     return (
       <div className="space-y-6">
-        <h1 className="text-3xl font-bold text-black">Statistiky</h1>
-        <p className="text-red-600">Chyba při načítání statistik</p>
+        <h1 className="text-3xl font-bold text-black">Statistics</h1>
+        <p className="text-red-600">Error loading statistics</p>
       </div>
     )
   }
@@ -116,9 +116,9 @@ export default async function StatsPage() {
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-3xl font-bold text-black">Statistiky</h1>
+        <h1 className="text-3xl font-bold text-black">Statistics</h1>
         <p className="text-gray-600 mt-2">
-          Přehled výkonnosti a aktivity platformy
+          Platform performance and activity overview
         </p>
       </div>
 
@@ -126,52 +126,52 @@ export default async function StatsPage() {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Celkem uživatelů</CardTitle>
+            <CardTitle className="text-sm font-medium">Total Users</CardTitle>
             <Users className="h-4 w-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold">{stats.overview.totalUsers}</div>
             <p className="text-xs text-muted-foreground">
-              +{stats.overview.recentUsers} za posledních 30 dní
+              +{stats.overview.recentUsers} in the last 30 days
             </p>
           </CardContent>
         </Card>
 
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Celkem prostorů</CardTitle>
+            <CardTitle className="text-sm font-medium">Total Venues</CardTitle>
             <Building className="h-4 w-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold">{stats.overview.totalVenues}</div>
             <p className="text-xs text-muted-foreground">
-              {stats.overview.activeVenues} aktivních
+              {stats.overview.activeVenues} active
             </p>
           </CardContent>
         </Card>
 
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Veřejné zakázky</CardTitle>
+            <CardTitle className="text-sm font-medium">Public Requests</CardTitle>
             <Calendar className="h-4 w-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold">{stats.overview.totalEventRequests}</div>
             <p className="text-xs text-muted-foreground">
-              +{stats.overview.recentRequests} za posledních 30 dní
+              +{stats.overview.recentRequests} in the last 30 days
             </p>
           </CardContent>
         </Card>
 
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Dotazy na prostory</CardTitle>
+            <CardTitle className="text-sm font-medium">Venue Inquiries</CardTitle>
             <MessageSquare className="h-4 w-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold">{stats.overview.totalInquiries}</div>
             <p className="text-xs text-muted-foreground">
-              Celkový počet dotazů
+              Total number of inquiries
             </p>
           </CardContent>
         </Card>
@@ -181,7 +181,7 @@ export default async function StatsPage() {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Noví uživatelé (30 dní)</CardTitle>
+            <CardTitle className="text-sm font-medium">New Users (30 days)</CardTitle>
             <TrendingUp className="h-4 w-4 text-green-600" />
           </CardHeader>
           <CardContent>
@@ -193,7 +193,7 @@ export default async function StatsPage() {
 
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Nové prostory (30 dní)</CardTitle>
+            <CardTitle className="text-sm font-medium">New Venues (30 days)</CardTitle>
             <TrendingUp className="h-4 w-4 text-blue-600" />
           </CardHeader>
           <CardContent>
@@ -205,7 +205,7 @@ export default async function StatsPage() {
 
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Nové poptávky (30 dní)</CardTitle>
+            <CardTitle className="text-sm font-medium">New Requests (30 days)</CardTitle>
             <TrendingUp className="h-4 w-4 text-purple-600" />
           </CardHeader>
           <CardContent>
@@ -220,7 +220,7 @@ export default async function StatsPage() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <Card>
           <CardHeader>
-            <CardTitle>Rozložení uživatelů podle rolí</CardTitle>
+            <CardTitle>User Distribution by Roles</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="space-y-3">
@@ -236,7 +236,7 @@ export default async function StatsPage() {
 
         <Card>
           <CardHeader>
-            <CardTitle>Rozložení prostorů podle typu</CardTitle>
+            <CardTitle>Venue Distribution by Type</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="space-y-3">

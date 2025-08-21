@@ -27,7 +27,7 @@ export function DataTableViewOptions<TData>({
           className="ml-auto hidden h-8 lg:flex"
         >
           <ListFilter className="mr-2 h-4 w-4" />
-          Zobrazit sloupce
+          View Columns
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end" className="w-[150px]">
@@ -46,17 +46,17 @@ export function DataTableViewOptions<TData>({
                 onCheckedChange={(value) => column.toggleVisibility(!!value)}
               >
                 {column.id === "actions"
-                  ? "Akce"
+                  ? "Actions"
                   : column.id === "type"
-                  ? "Typ"
+                  ? "Type"
                   : column.id === "status"
-                  ? "Stav"
+                  ? "Status"
                   : column.id === "address"
-                  ? "Adresa"
+                  ? "Address"
                   : column.id === "manager"
-                  ? "Správce"
+                  ? "Manager"
                   : column.id === "stats"
-                  ? "Statistiky"
+                  ? "Statistics"
                   : column.id}
               </DropdownMenuCheckboxItem>
             )

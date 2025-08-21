@@ -24,7 +24,7 @@ export function DashboardSidebar({ userRole }: DashboardSidebarProps) {
   const getUserNavigation = () => {
     const baseNav = [
       {
-        name: "Přehled",
+        name: "Overview",
         href: "/dashboard",
         icon: Home,
       },
@@ -34,12 +34,12 @@ export function DashboardSidebar({ userRole }: DashboardSidebarProps) {
       return [
         ...baseNav,
         {
-          name: "Můj prostor",
+          name: "My Venue",
           href: "/dashboard/venue",
           icon: Building,
         },
         {
-          name: "Přijaté dotazy",
+          name: "Received Inquiries",
           href: "/dashboard/inquiries",
           icon: MessageSquare,
         },
@@ -49,7 +49,7 @@ export function DashboardSidebar({ userRole }: DashboardSidebarProps) {
             icon: Calendar,
           },
         {
-          name: "Předplatné",
+          name: "Subscription",
           href: "/dashboard/subscription",
           icon: CreditCard,
         },
@@ -60,7 +60,7 @@ export function DashboardSidebar({ userRole }: DashboardSidebarProps) {
       return [
         ...baseNav,
         {
-          name: "Uživatelé",
+          name: "Users",
           href: "/dashboard/users",
           icon: Users,
         },
@@ -70,7 +70,7 @@ export function DashboardSidebar({ userRole }: DashboardSidebarProps) {
           icon: Building,
         },
         {
-          name: "Statistiky",
+          name: "Statistics",
           href: "/dashboard/stats",
           icon: BarChart3,
         },
@@ -81,12 +81,12 @@ export function DashboardSidebar({ userRole }: DashboardSidebarProps) {
     return [
       ...baseNav,
       {
-        name: "Moje poptávky",
+        name: "My Requests",
         href: "/dashboard/requests",
         icon: Calendar,
       },
       {
-        name: "Moje dotazy",
+        name: "My Inquiries",
         href: "/dashboard/inquiries",
         icon: MessageSquare,
       },
@@ -101,7 +101,7 @@ export function DashboardSidebar({ userRole }: DashboardSidebarProps) {
   const navigation = [
     ...getUserNavigation(),
     {
-      name: "Nastavení",
+      name: "Settings",
       href: "/dashboard/settings",
       icon: Settings,
     },

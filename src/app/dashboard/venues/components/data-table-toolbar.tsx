@@ -11,31 +11,31 @@ import { DataTableFacetedFilter } from "./data-table-faceted-filter"
 const statuses = [
   {
     value: "active",
-    label: "Aktivní",
+    label: "Active",
   },
   {
     value: "draft",
-    label: "Koncept",
+    label: "Draft",
   },
   {
     value: "expired",
-    label: "Expirované",
+    label: "Expired",
   },
   {
     value: "suspended",
-    label: "Pozastavené",
+    label: "Suspended",
   },
 ]
 
 const venueTypes = [
-  { value: "restaurant", label: "Restaurace" },
-  { value: "gallery", label: "Galerie" },
-  { value: "cafe", label: "Kavárna" },
+  { value: "restaurant", label: "Restaurant" },
+  { value: "gallery", label: "Gallery" },
+  { value: "cafe", label: "Cafe" },
   { value: "bar", label: "Bar" },
-  { value: "club", label: "Klub" },
-  { value: "theater", label: "Divadlo" },
-  { value: "conference", label: "Konferenční místnost" },
-  { value: "other", label: "Jiné" },
+  { value: "club", label: "Club" },
+  { value: "theater", label: "Theater" },
+  { value: "conference", label: "Conference Room" },
+  { value: "other", label: "Other" },
 ]
 
 interface DataTableToolbarProps<TData> {
@@ -51,7 +51,7 @@ export function DataTableToolbar<TData>({
     <div className="flex items-center justify-between">
       <div className="flex flex-1 items-center space-x-2">
         <Input
-          placeholder="Filtrovat prostory..."
+          placeholder="Filter venues..."
           value={(table.getColumn("name")?.getFilterValue() as string) ?? ""}
           onChange={(event) =>
             table.getColumn("name")?.setFilterValue(event.target.value)
@@ -62,7 +62,7 @@ export function DataTableToolbar<TData>({
         {table.getColumn("status") && (
           <DataTableFacetedFilter
             column={table.getColumn("status")}
-            title="Stav"
+            title="Status"
             options={statuses}
           />
         )}
@@ -70,7 +70,7 @@ export function DataTableToolbar<TData>({
         {table.getColumn("type") && (
           <DataTableFacetedFilter
             column={table.getColumn("type")}
-            title="Typ"
+            title="Type"
             options={venueTypes}
           />
         )}

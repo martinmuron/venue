@@ -137,7 +137,7 @@ export function VenueFilters({ initialValues }: VenueFiltersProps) {
             type="submit" 
             className="h-12 px-6 text-sm rounded-xl font-semibold bg-black text-white hover:bg-gray-800 transition-all duration-200 whitespace-nowrap"
           >
-            Filtrovat
+            Filter
           </Button>
         </div>
       </div>
