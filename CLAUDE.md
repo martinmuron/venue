@@ -3,6 +3,40 @@
 ## Project Overview
 VenuePlatform is a platform for finding and managing event venues in Czech Republic. It connects venue owners with event organizers through a marketplace-style platform.
 
+## Database Architecture
+
+**CRITICAL REQUIREMENT**: All database tables in Supabase use the `venue_` prefix.
+
+**Table Naming Convention**:
+- All tables: `venue_tablename` (e.g., `venue_users`, `venue_venues`, `venue_inquiries`)
+- This allows multiple projects to share the same Supabase instance
+- Prisma schema uses `@@map("venue_tablename")` for each model
+- When creating new features, ALWAYS use the venue_ prefix
+
+**Current Tables**:
+- `venue_accounts`, `venue_sessions`, `venue_users`, `venue_verification_tokens`
+- `venue_venues`, `venue_favorites`, `venue_inquiries`, `venue_posts`
+- `venue_event_requests`, `venue_broadcasts`, `venue_broadcast_logs`, `venue_blog_posts`
+
+**For New Projects in Same Supabase**:
+- Use different prefixes (e.g., `newproject_users`, `ecommerce_products`)
+- Shared authentication tables can be used across projects if needed
+
+## Supabase MCP Server
+
+**Local Configuration**: This project has its own Supabase MCP server configured locally.
+
+**Usage**:
+- Start: `./start-mcp.sh` 
+- Config: `mcp-config.json`
+- Package: `@supabase/mcp-server-supabase` (installed locally)
+
+**Benefits**:
+- Direct database access through Claude MCP tools
+- Query venue_ prefixed tables directly
+- Isolated from other Supabase projects
+- No global configuration conflicts
+
 ## Email Flow Admin Section
 
 **CRITICAL REQUIREMENT**: Every email sent programmatically with Resend MUST be tracked in the "Email Flow" admin section.

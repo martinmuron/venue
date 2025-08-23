@@ -1,6 +1,3 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
 generator client {
   provider = "prisma-client-js"
 }
@@ -12,7 +9,7 @@ datasource db {
 }
 
 model Account {
-  id                String  @id @default(cuid())
+  id                String  @id(map: "Account_pkey") @default(cuid())
   userId            String
   type              String
   provider          String
@@ -24,62 +21,65 @@ model Account {
   scope             String?
   id_token          String?
   session_state     String?
+  user              User    @relation(fields: [userId], references: [id], onDelete: Cascade, map: "Account_userId_fkey")
 
-  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
-
-  @@unique([provider, providerAccountId])
+  @@unique([provider, providerAccountId], map: "Account_provider_providerAccountId_key")
+  @@map("venue_accounts")
 }
 
 model Session {
-  id           String   @id @default(cuid())
-  sessionToken String   @unique
+  id           String   @id(map: "Session_pkey") @default(cuid())
+  sessionToken String   @unique(map: "Session_sessionToken_key")
   userId       String
   expires      DateTime
-  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade, map: "Session_userId_fkey")
+
+  @@map("venue_sessions")
 }
 
 model User {
-  id            String   @id @default(cuid())
-  name          String
-  email         String   @unique
-  emailVerified DateTime?
-  image         String?
-  password      String?
-  role          String   @default("user")
-  company       String?
-  phone         String?
-  isVerified    Boolean  @default(false)
-  hasVenue      Boolean  @default(false)
-
+  id              String           @id(map: "User_pkey") @default(cuid())
+  name            String
+  email           String           @unique(map: "User_email_key")
+  emailVerified   DateTime?
+  image           String?
+  role            String           @default("user")
+  company         String?
+  phone           String?
+  isVerified      Boolean          @default(false)
+  hasVenue        Boolean          @default(false)
+  createdAt       DateTime         @default(now())
+  updatedAt       DateTime         @updatedAt
+  password        String?
   accounts        Account[]
-  sessions        Session[]
+  blogPosts       BlogPost[]       @relation("BlogPosts")
+  venueBroadcasts VenueBroadcast[] @relation("VenueBroadcasts")
+  eventRequests   EventRequest[]   @relation("EventRequests")
   favorites       Favorite[]
   inquiries       Inquiry[]
+  sessions        Session[]
   venues          Venue[]          @relation("ManagedVenues")
-  eventRequests   EventRequest[]   @relation("EventRequests")
-  venueBroadcasts VenueBroadcast[] @relation("VenueBroadcasts")
-  blogPosts       BlogPost[]       @relation("BlogPosts")
 
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  @@map("venue_users")
 }
 
 model VerificationToken {
   identifier String
-  token      String   @unique
+  token      String   @unique(map: "VerificationToken_token_key")
   expires    DateTime
 
-  @@unique([identifier, token])
+  @@unique([identifier, token], map: "VerificationToken_identifier_token_key")
+  @@map("venue_verification_tokens")
 }
 
 model Venue {
-  id               String   @id @default(cuid())
+  id               String              @id(map: "Venue_pkey") @default(cuid())
   name             String
-  slug             String   @unique
+  slug             String              @unique(map: "Venue_slug_key")
   description      String?
-  published        Boolean  @default(false)
-  isVerified       Boolean  @default(false)
-  images           String[] @default([])
+  published        Boolean             @default(false)
+  isVerified       Boolean             @default(false)
+  images           String[]            @default([])
   videoUrl         String?
   address          String
   latitude         Float?
@@ -89,76 +89,73 @@ model Venue {
   venueType        String?
   priceMin         Int?
   priceMax         Int?
-  amenities        String[] @default([])
-  status           String   @default("draft")
+  amenities        String[]            @default([])
+  status           String              @default("draft")
+  managerId        String?
+  createdAt        DateTime            @default(now())
+  updatedAt        DateTime            @updatedAt
   contactEmail     String?
   contactPhone     String?
   websiteUrl       String?
+  broadcastLogs    VenueBroadcastLog[] @relation("BroadcastLogs")
+  favorites        Favorite[]
+  inquiries        Inquiry[]
+  posts            VenuePost[]
+  manager          User?               @relation("ManagedVenues", fields: [managerId], references: [id], map: "Venue_managerId_fkey")
 
-  managerId String?
-  manager   User?    @relation("ManagedVenues", fields: [managerId], references: [id])
-
-  favorites     Favorite[]
-  inquiries     Inquiry[]
-  posts         VenuePost[]
-  broadcastLogs VenueBroadcastLog[] @relation("BroadcastLogs")
-
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  @@map("venue_venues")
 }
 
 model Favorite {
-  id      String @id @default(cuid())
-
-  userId String
-  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
-
-  venueId String
-  venue   Venue  @relation(fields: [venueId], references: [id], onDelete: Cascade)
-
+  id        String   @id(map: "Favorite_pkey") @default(cuid())
+  userId    String
+  venueId   String
   createdAt DateTime @default(now())
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade, map: "Favorite_userId_fkey")
+  venue     Venue    @relation(fields: [venueId], references: [id], onDelete: Cascade, map: "Favorite_venueId_fkey")
+
+  @@map("venue_favorites")
 }
 
 model Inquiry {
-  id      String @id @default(cuid())
+  id         String    @id(map: "Inquiry_pkey") @default(cuid())
+  userId     String?
+  venueId    String
+  name       String
+  email      String
+  message    String
+  createdAt  DateTime  @default(now())
+  eventDate  DateTime?
+  guestCount Int?
+  phone      String?
+  user       User?     @relation(fields: [userId], references: [id], map: "Inquiry_userId_fkey")
+  venue      Venue     @relation(fields: [venueId], references: [id], onDelete: Cascade, map: "Inquiry_venueId_fkey")
 
-  userId String?
-  user   User?  @relation(fields: [userId], references: [id])
-
-  venueId String
-  venue   Venue  @relation(fields: [venueId], references: [id], onDelete: Cascade)
-
-  name        String
-  email       String
-  phone       String?
-  eventDate   DateTime?
-  guestCount  Int?
-  message     String
-
-  createdAt DateTime @default(now())
+  @@map("venue_inquiries")
 }
 
 model VenuePost {
-  id        String   @id @default(cuid())
+  id        String   @id(map: "VenuePost_pkey") @default(cuid())
   venueId   String
-  venue     Venue    @relation(fields: [venueId], references: [id], onDelete: Cascade)
-  title     String?
-  content   String
   imageUrl  String?
   videoUrl  String?
-  images    String[] @default([])
   caption   String?
   tags      String[] @default([])
   isPinned  Boolean  @default(false)
-  status    String   @default("published")
   createdAt DateTime @default(now())
+  content   String
+  images    String[] @default([])
+  status    String   @default("published")
+  title     String?
   updatedAt DateTime @updatedAt
+  venue     Venue    @relation(fields: [venueId], references: [id], onDelete: Cascade, map: "VenuePost_venueId_fkey")
+
+  @@map("venue_posts")
 }
 
 model EventRequest {
-  id                 String    @id @default(cuid())
+  id                 String    @id(map: "EventRequest_pkey") @default(cuid())
   userId             String?
-  user               User?     @relation("EventRequests", fields: [userId], references: [id])
   title              String
   description        String?
   eventType          String
@@ -174,12 +171,14 @@ model EventRequest {
   expiresAt          DateTime
   createdAt          DateTime  @default(now())
   updatedAt          DateTime  @updatedAt
+  user               User?     @relation("EventRequests", fields: [userId], references: [id], map: "EventRequest_userId_fkey")
+
+  @@map("venue_event_requests")
 }
 
 model VenueBroadcast {
-  id                 String                @id @default(cuid())
+  id                 String              @id(map: "VenueBroadcast_pkey") @default(cuid())
   userId             String?
-  user               User?                 @relation("VenueBroadcasts", fields: [userId], references: [id])
   title              String
   description        String?
   eventType          String
@@ -191,35 +190,127 @@ model VenueBroadcast {
   contactName        String
   contactEmail       String
   contactPhone       String?
-  sentVenues         String[]              @default([])
-  createdAt          DateTime              @default(now())
-  updatedAt          DateTime              @updatedAt
+  sentVenues         String[]            @default([])
+  createdAt          DateTime            @default(now())
+  updatedAt          DateTime            @updatedAt
   logs               VenueBroadcastLog[]
+  user               User?               @relation("VenueBroadcasts", fields: [userId], references: [id], map: "VenueBroadcast_userId_fkey")
+
+  @@map("venue_broadcasts")
 }
 
 model VenueBroadcastLog {
-  id           String         @id @default(cuid())
-  broadcastId  String
-  broadcast    VenueBroadcast @relation(fields: [broadcastId], references: [id], onDelete: Cascade)
-  venueId      String
-  venue        Venue          @relation("BroadcastLogs", fields: [venueId], references: [id])
-  emailStatus  String         @default("pending")
-  emailError   String?
-  createdAt    DateTime       @default(now())
+  id          String         @id(map: "VenueBroadcastLog_pkey") @default(cuid())
+  broadcastId String
+  venueId     String
+  emailStatus String         @default("pending")
+  emailError  String?
+  createdAt   DateTime       @default(now())
+  broadcast   VenueBroadcast @relation(fields: [broadcastId], references: [id], onDelete: Cascade, map: "VenueBroadcastLog_broadcastId_fkey")
+  venue       Venue          @relation("BroadcastLogs", fields: [venueId], references: [id], map: "VenueBroadcastLog_venueId_fkey")
+
+  @@map("venue_broadcast_logs")
 }
 
 model BlogPost {
-  id          String   @id @default(cuid())
-  title       String
-  slug        String   @unique
-  content     String
-  excerpt     String?
-  published   Boolean  @default(false)
-  status      String   @default("draft")
-  authorId    String?
-  author      User?    @relation("BlogPosts", fields: [authorId], references: [id])
-  tags        String[] @default([])
-  imageUrl    String?
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+  id        String   @id(map: "BlogPost_pkey") @default(cuid())
+  title     String
+  slug      String   @unique(map: "BlogPost_slug_key")
+  content   String
+  excerpt   String?
+  published Boolean  @default(false)
+  status    String   @default("draft")
+  authorId  String?
+  tags      String[] @default([])
+  imageUrl  String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  author    User?    @relation("BlogPosts", fields: [authorId], references: [id], map: "BlogPost_authorId_fkey")
+
+  @@map("venue_blog_posts")
+}
+
+/// This model contains row level security and requires additional setup for migrations. Visit https://pris.ly/d/row-level-security for more info.
+model venue_contacts {
+  id         String    @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
+  venue_id   String    @db.Uuid
+  phone      String?
+  email      String?
+  website    String?
+  created_at DateTime? @default(now()) @db.Timestamptz(6)
+  venues     venues    @relation(fields: [venue_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
+}
+
+/// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+/// This model contains row level security and requires additional setup for migrations. Visit https://pris.ly/d/row-level-security for more info.
+model venue_features {
+  id           String    @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
+  venue_id     String    @db.Uuid
+  feature_type String    @db.VarChar(20)
+  name         String
+  created_at   DateTime? @default(now()) @db.Timestamptz(6)
+  venues       venues    @relation(fields: [venue_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
+
+  @@unique([venue_id, feature_type, name])
+}
+
+/// This model contains row level security and requires additional setup for migrations. Visit https://pris.ly/d/row-level-security for more info.
+model venue_images {
+  id           String    @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
+  venue_id     String    @db.Uuid
+  original_url String
+  alt_text     String?
+  storage_path String?
+  file_size    Int?
+  width        Int?
+  height       Int?
+  created_at   DateTime? @default(now()) @db.Timestamptz(6)
+  venues       venues    @relation(fields: [venue_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
+}
+
+/// This model contains row level security and requires additional setup for migrations. Visit https://pris.ly/d/row-level-security for more info.
+model venue_spaces {
+  id          String    @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
+  venue_id    String    @db.Uuid
+  name        String?
+  capacity    Int?
+  description String?
+  features    String[]
+  created_at  DateTime? @default(now()) @db.Timestamptz(6)
+  venues      venues    @relation(fields: [venue_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
+}
+
+/// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+/// This model contains row level security and requires additional setup for migrations. Visit https://pris.ly/d/row-level-security for more info.
+model venue_text_content {
+  id           String    @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
+  venue_id     String    @db.Uuid
+  content_type String    @db.VarChar(20)
+  content      String
+  order_index  Int       @default(0)
+  created_at   DateTime? @default(now()) @db.Timestamptz(6)
+  venues       venues    @relation(fields: [venue_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
+}
+
+/// This model contains row level security and requires additional setup for migrations. Visit https://pris.ly/d/row-level-security for more info.
+model venues {
+  id                 String               @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
+  site               String               @db.VarChar(100)
+  url                String               @unique
+  title              String?
+  venue_name         String?
+  description        String?
+  full_description   String?
+  capacity           String?              @db.VarChar(50)
+  location           String?
+  address            String?
+  price              String?
+  scraped_at         DateTime             @db.Timestamptz(6)
+  created_at         DateTime?            @default(now()) @db.Timestamptz(6)
+  updated_at         DateTime?            @default(now()) @db.Timestamptz(6)
+  venue_contacts     venue_contacts[]
+  venue_features     venue_features[]
+  venue_images       venue_images[]
+  venue_spaces       venue_spaces[]
+  venue_text_content venue_text_content[]
 }
