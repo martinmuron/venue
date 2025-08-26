@@ -25,6 +25,8 @@ const venueSchema = z.object({
   websiteUrl: z.string().url("Neplatná URL").optional().or(z.literal("")),
   images: z.array(z.string()).max(10, "Maximálně 10 obrázků").default([]),
   videoUrl: z.string().optional(),
+  priceMin: z.number().optional(),
+  priceMax: z.number().optional(),
 })
 
 function generateSlug(name: string): string {
@@ -95,8 +97,10 @@ export async function POST(request: Request) {
           websiteUrl: validatedData.websiteUrl || null,
           images: validatedData.images,
           videoUrl: validatedData.videoUrl || null,
+          priceMin: validatedData.priceMin || null,
+          priceMax: validatedData.priceMax || null,
           managerId: user.id,
-          status: "draft" // Start as draft
+          status: "draft" // Start as draft, requires admin approval
         },
       })
 

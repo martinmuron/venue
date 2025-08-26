@@ -162,17 +162,48 @@ const imagePool = [
 function generateVenues() {
   const venues = [...venuesData]
   
-  const types = ["Restaurant", "Bar", "Club", "Hotel", "Theater", "Museum", "Garden", "Warehouse", "Bistro", "Cafe"]
+  const types = ["Restaurant", "Bar", "Club", "Hotel", "Theater", "Museum", "Garden", "Warehouse", "Bistro", "Cafe", "Ballroom", "Loft", "Rooftop", "Gallery", "Conference Center", "Mansion", "Studio", "Winery", "Resort", "Country Club"]
   const cities = [
     { name: "New York", state: "NY", streets: ["Broadway", "Park Avenue", "Madison Avenue", "Lexington Avenue", "Fifth Avenue"] },
     { name: "Los Angeles", state: "CA", streets: ["Sunset Boulevard", "Hollywood Boulevard", "Melrose Avenue", "Beverly Drive", "Rodeo Drive"] },
     { name: "Chicago", state: "IL", streets: ["Michigan Avenue", "State Street", "Lake Shore Drive", "Rush Street", "Division Street"] },
     { name: "Miami", state: "FL", streets: ["Ocean Drive", "Collins Avenue", "Lincoln Road", "Washington Avenue", "Biscayne Boulevard"] },
-    { name: "San Francisco", state: "CA", streets: ["Market Street", "Union Street", "Fillmore Street", "Valencia Street", "Mission Street"] }
+    { name: "San Francisco", state: "CA", streets: ["Market Street", "Union Street", "Fillmore Street", "Valencia Street", "Mission Street"] },
+    { name: "Houston", state: "TX", streets: ["Main Street", "Westheimer Road", "Richmond Avenue", "Memorial Drive", "Allen Parkway"] },
+    { name: "Phoenix", state: "AZ", streets: ["Central Avenue", "Camelback Road", "Indian School Road", "Thomas Road", "Van Buren Street"] },
+    { name: "Philadelphia", state: "PA", streets: ["Broad Street", "Market Street", "Chestnut Street", "Walnut Street", "South Street"] },
+    { name: "San Antonio", state: "TX", streets: ["River Walk", "Broadway", "San Pedro Avenue", "Fredericksburg Road", "Blanco Road"] },
+    { name: "San Diego", state: "CA", streets: ["Harbor Drive", "Fifth Avenue", "University Avenue", "El Cajon Boulevard", "Adams Avenue"] },
+    { name: "Dallas", state: "TX", streets: ["Main Street", "Commerce Street", "Elm Street", "McKinney Avenue", "Greenville Avenue"] },
+    { name: "San Jose", state: "CA", streets: ["First Street", "Santa Clara Street", "Market Street", "The Alameda", "Stevens Creek Boulevard"] },
+    { name: "Austin", state: "TX", streets: ["Congress Avenue", "South Lamar", "East Sixth Street", "Rainey Street", "Red River Street"] },
+    { name: "Jacksonville", state: "FL", streets: ["Bay Street", "Forsyth Street", "Main Street", "Ocean Street", "Atlantic Boulevard"] },
+    { name: "Fort Worth", state: "TX", streets: ["Main Street", "Commerce Street", "Houston Street", "Camp Bowie Boulevard", "University Drive"] },
+    { name: "Columbus", state: "OH", streets: ["High Street", "Broad Street", "Main Street", "Long Street", "Spring Street"] },
+    { name: "Indianapolis", state: "IN", streets: ["Meridian Street", "Washington Street", "Massachusetts Avenue", "Monument Circle", "Virginia Avenue"] },
+    { name: "Charlotte", state: "NC", streets: ["Trade Street", "Tryon Street", "Fifth Street", "College Street", "Church Street"] },
+    { name: "Seattle", state: "WA", streets: ["Pine Street", "Pike Street", "First Avenue", "Capitol Hill", "Queen Anne Avenue"] },
+    { name: "Denver", state: "CO", streets: ["16th Street", "Colfax Avenue", "Broadway", "Speer Boulevard", "Federal Boulevard"] },
+    { name: "Washington", state: "DC", streets: ["Pennsylvania Avenue", "Connecticut Avenue", "Massachusetts Avenue", "K Street", "M Street"] },
+    { name: "Boston", state: "MA", streets: ["Boylston Street", "Newbury Street", "Commonwealth Avenue", "Beacon Street", "Washington Street"] },
+    { name: "El Paso", state: "TX", streets: ["Mesa Street", "Montana Avenue", "Alameda Avenue", "Paisano Drive", "Dyer Street"] },
+    { name: "Detroit", state: "MI", streets: ["Woodward Avenue", "Jefferson Avenue", "Grand Boulevard", "Michigan Avenue", "Fort Street"] },
+    { name: "Nashville", state: "TN", streets: ["Broadway", "Music Row", "Demonbreun Street", "Division Street", "Church Street"] },
+    { name: "Portland", state: "OR", streets: ["Burnside Street", "Hawthorne Boulevard", "Division Street", "Alberta Street", "Mississippi Avenue"] },
+    { name: "Oklahoma City", state: "OK", streets: ["Broadway", "Main Street", "Robinson Avenue", "Walker Avenue", "Hudson Avenue"] },
+    { name: "Las Vegas", state: "NV", streets: ["Las Vegas Boulevard", "Fremont Street", "Charleston Boulevard", "Flamingo Road", "Tropicana Avenue"] },
+    { name: "Louisville", state: "KY", streets: ["Fourth Street", "Broadway", "Main Street", "Market Street", "Bardstown Road"] },
+    { name: "Baltimore", state: "MD", streets: ["Charles Street", "Baltimore Street", "Pratt Street", "Light Street", "Calvert Street"] },
+    { name: "Milwaukee", state: "WI", streets: ["Water Street", "Wisconsin Avenue", "North Avenue", "Brady Street", "Kinnickinnic Avenue"] },
+    { name: "Albuquerque", state: "NM", streets: ["Central Avenue", "Fourth Street", "San Mateo Boulevard", "Montgomery Boulevard", "Coors Boulevard"] },
+    { name: "Tucson", state: "AZ", streets: ["Stone Avenue", "Campbell Avenue", "Oracle Road", "Speedway Boulevard", "Broadway Boulevard"] },
+    { name: "Fresno", state: "CA", streets: ["Blackstone Avenue", "Shaw Avenue", "Kings Canyon Road", "Fresno Street", "Van Ness Avenue"] },
+    { name: "Sacramento", state: "CA", streets: ["Capitol Avenue", "J Street", "K Street", "L Street", "Broadway"] },
+    { name: "Mesa", state: "AZ", streets: ["Main Street", "Broadway Road", "Southern Avenue", "McKellips Road", "University Drive"] }
   ]
   const amenitiesPool = ["Wi-Fi", "Valet Parking", "Air Conditioning", "Full Bar", "Catering", "AV Equipment", "Outdoor Seating", "Private Dining", "VIP Area", "Coat Check"]
   
-  for (let i = venues.length; i < 50; i++) {
+  for (let i = venues.length; i < 70; i++) {
     const type = types[Math.floor(Math.random() * types.length)]
     const city = cities[Math.floor(Math.random() * cities.length)]
     const street = city.streets[Math.floor(Math.random() * city.streets.length)]
@@ -184,7 +215,7 @@ function generateVenues() {
     const venueImages = shuffledImages.slice(0, 2 + Math.floor(Math.random() * 3)) // 2-4 images per venue
     
     venues.push({
-      name: `${type} ${city.name} ${i - venues.length + 1}`,
+      name: `${city.name} ${type}`,
       description: `Professional ${type.toLowerCase()} in the heart of ${city.name}. Modern amenities and excellent service for your events.`,
       address: `${streetNumber} ${street}, ${city.name}, ${city.state}`,
       capacitySeated: Math.floor(capacity * 0.7),
@@ -363,10 +394,12 @@ async function main() {
   console.log("🌱 Starting comprehensive seed...")
 
   try {
-    // Create admin user
+    // Create or update admin user
     const hashedPassword = await bcrypt.hash("admin123", 12)
-    const adminUser = await prisma.user.create({
-      data: {
+    const adminUser = await prisma.user.upsert({
+      where: { email: "admin@venuefusion.cz" },
+      update: {},
+      create: {
         name: "Admin User",
         email: "admin@venuefusion.cz",
         password: hashedPassword,
