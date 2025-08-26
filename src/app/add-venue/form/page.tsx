@@ -50,8 +50,8 @@ const venueFormSchema = z.object({
   websiteUrl: z.string().optional(),
   videoUrl: z.string().optional(),
   googleMapsUrl: z.string().optional(),
-  services: z.array(z.string()).default([]),
-  categories: z.array(z.string()).default([]),
+  services: z.array(z.string()).optional().default([]),
+  categories: z.array(z.string()).optional().default([]),
 })
 
 type VenueFormData = z.infer<typeof venueFormSchema>
