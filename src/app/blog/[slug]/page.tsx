@@ -70,7 +70,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
               
               <div className="flex items-center justify-between text-gray-500 mb-6">
                 <span>Autor: {post.author?.name || 'Anonymous'}</span>
-                <span>{new Date(post.createdAt).toLocaleDateString('cs-CZ')}</span>
+                <span>{new Date(post.createdAt).toLocaleDateString('en-US')}</span>
               </div>
 
               {post.tags.length > 0 && (

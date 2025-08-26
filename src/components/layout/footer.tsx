@@ -12,7 +12,7 @@ export function Footer() {
               <Logo variant="black" size="md" href="/" />
             </div>
             <p className="text-body text-gray-600 max-w-md">
-              The largest catalog of event venues in Prague. We connect event organizers with unique venues.
+              The largest catalog of event venues in your city. We connect event organizers with unique venues.
             </p>
           </div>
 

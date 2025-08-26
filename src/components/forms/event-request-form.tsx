@@ -10,7 +10,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { EVENT_TYPES, PRAGUE_DISTRICTS, BUDGET_RANGES } from "@/types"
+import { EVENT_TYPES, CITY_DISTRICTS, BUDGET_RANGES } from "@/types"
 
 const eventRequestSchema = z.object({
   title: z.string().min(5, "Event title must be at least 5 characters"),
@@ -180,7 +180,7 @@ export function EventRequestForm() {
             <SelectValue placeholder="All locations" />
           </SelectTrigger>
           <SelectContent>
-            {PRAGUE_DISTRICTS.map((district) => (
+            {CITY_DISTRICTS.map((district) => (
               <SelectItem key={district} value={district}>
                 {district}
               </SelectItem>

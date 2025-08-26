@@ -8,8 +8,8 @@ import { Footer } from "@/components/layout/footer"
 import GlobalClickSpark from "@/components/ui/click-spark"
 
 export const metadata: Metadata = {
-  title: "Venue Fusion - Event Venues in Prague",
-  description: "The largest catalog of event venues in Prague. Find the perfect venue for your event.",
+  title: "Venue Fusion - Event Venues in Your City",
+  description: "The largest catalog of event venues in your city. Find the perfect venue for your event.",
 }
 
 export default function RootLayout({

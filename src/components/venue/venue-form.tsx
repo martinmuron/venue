@@ -92,7 +92,7 @@ export function VenueForm({ venue }: VenueFormProps) {
         <div>
           <label className="block text-sm font-medium mb-2">District</label>
           <Input 
-            placeholder="e.g. Prague 1" 
+            placeholder="e.g. Downtown" 
             value={formData.district}
             onChange={(e) => handleChange('district', e.target.value)}
           />

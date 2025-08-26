@@ -132,7 +132,7 @@ export default async function UserProfilePage({
                 )}
                 <div className="flex items-center">
                   <Calendar className="mr-1 h-4 w-4" />
-                  Registrován {new Date(user.createdAt).toLocaleDateString('cs-CZ')}
+                  Registered {new Date(user.createdAt).toLocaleDateString('en-US')}
                 </div>
               </div>
             </div>
@@ -212,13 +212,13 @@ export default async function UserProfilePage({
                       <div className="flex items-center justify-between mb-2">
                         <h3 className="font-medium">{request.eventType}</h3>
                         <Badge variant="outline">
-                          {request.eventDate ? new Date(request.eventDate).toLocaleDateString('cs-CZ') : 'Neuvedeno'}
+                          {request.eventDate ? new Date(request.eventDate).toLocaleDateString('en-US') : 'Not specified'}
                         </Badge>
                       </div>
                       <p className="text-sm text-muted-foreground mb-2">{request.description}</p>
                       <div className="flex items-center justify-between text-xs text-muted-foreground">
                         <span>Kapacita: {(request as any).expectedGuests || (request as any).guestCount || 'Neuvedeno'} hostů</span>
-                        <span>Vytvořeno: {new Date(request.createdAt).toLocaleDateString('cs-CZ')}</span>
+                        <span>Created: {new Date(request.createdAt).toLocaleDateString('en-US')}</span>
                       </div>
                     </div>
                   ))}
@@ -245,13 +245,13 @@ export default async function UserProfilePage({
                       <div className="flex items-center justify-between mb-2">
                         <h3 className="font-medium">{inquiry.venue.name}</h3>
                         <Badge variant="outline">
-                          {inquiry.eventDate ? new Date(inquiry.eventDate).toLocaleDateString('cs-CZ') : 'Neuvedeno'}
+                          {inquiry.eventDate ? new Date(inquiry.eventDate).toLocaleDateString('en-US') : 'Not specified'}
                         </Badge>
                       </div>
                       <p className="text-sm text-muted-foreground mb-2">{inquiry.message}</p>
                       <div className="flex items-center justify-between text-xs text-muted-foreground">
                         <span>Kapacita: {(inquiry as any).expectedGuests || (inquiry as any).guestCount || 'Neuvedeno'} hostů</span>
-                        <span>Odesláno: {new Date(inquiry.createdAt).toLocaleDateString('cs-CZ')}</span>
+                        <span>Sent: {new Date(inquiry.createdAt).toLocaleDateString('en-US')}</span>
                       </div>
                     </div>
                   ))}

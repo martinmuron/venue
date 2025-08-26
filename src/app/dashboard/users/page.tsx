@@ -170,7 +170,7 @@ export default async function UsersPage() {
                   </TableCell>
                   <TableCell>
                     <div className="text-sm text-gray-500">
-                      {new Date(user.createdAt).toLocaleDateString("cs-CZ")}
+                      {new Date(user.createdAt).toLocaleDateString("en-US")}
                     </div>
                   </TableCell>
                   <TableCell>

@@ -1,7 +1,7 @@
 # VenuePlatform Development Guide
 
 ## Project Overview
-VenuePlatform is a platform for finding and managing event venues in Czech Republic. It connects venue owners with event organizers through a marketplace-style platform.
+VenuePlatform is a platform for finding and managing event venues in your city. It connects venue owners with event organizers through a marketplace-style platform.
 
 ## Database Architecture
 

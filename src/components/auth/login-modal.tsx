@@ -159,7 +159,7 @@ export function LoginModal({ isOpen, onClose, onSuccess }: LoginModalProps) {
                   <Input
                     id="login-email"
                     type="email"
-                    placeholder="jan.novak@email.cz"
+                    placeholder="john.doe@email.com"
                     value={loginData.email}
                     onChange={(e) => setLoginData(prev => ({ ...prev, email: e.target.value }))}
                     className="pl-10"
@@ -234,7 +234,7 @@ export function LoginModal({ isOpen, onClose, onSuccess }: LoginModalProps) {
                   <Input
                     id="register-email"
                     type="email"
-                    placeholder="jan.novak@email.cz"
+                    placeholder="john.doe@email.com"
                     value={registerData.email}
                     onChange={(e) => setRegisterData(prev => ({ ...prev, email: e.target.value }))}
                     className="pl-10"

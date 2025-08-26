@@ -45,7 +45,7 @@ export function VenuePosts({ venueId, venueName }: VenuePostsProps) {
   }, [venueId])
 
   const formatDate = (dateString: string) => {
-    return new Date(dateString).toLocaleDateString("cs-CZ", {
+    return new Date(dateString).toLocaleDateString("en-US", {
       year: "numeric",
       month: "long",
       day: "numeric",

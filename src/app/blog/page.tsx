@@ -70,7 +70,7 @@ export default async function BlogPage() {
                     <CardTitle className="line-clamp-2">{post.title}</CardTitle>
                     <div className="flex items-center justify-between text-sm text-gray-500">
                       <span>{post.author?.name || 'Anonymous'}</span>
-                      <span>{new Date(post.createdAt).toLocaleDateString('cs-CZ')}</span>
+                      <span>{new Date(post.createdAt).toLocaleDateString('en-US')}</span>
                     </div>
                   </CardHeader>
                   <CardContent>

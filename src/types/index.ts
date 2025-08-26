@@ -61,10 +61,10 @@ export const US_CITIES = [
   "Charlotte, NC", "San Francisco, CA", "Indianapolis, IN", "Seattle, WA", "Denver, CO"
 ] as const
 
-export const PRAGUE_DISTRICTS = [
-  "Praha 1", "Praha 2", "Praha 3", "Praha 4", "Praha 5", "Praha 6", "Praha 7", "Praha 8", "Praha 9", "Praha 10",
-  "Praha 11", "Praha 12", "Praha 13", "Praha 14", "Praha 15", "Praha 16", "Praha 17", "Praha 18", "Praha 19", "Praha 20",
-  "Praha 21", "Praha 22", "Benešov", "Beroun", "Kladno", "Kolín", "Kutná Hora", "Mělník", "Mladá Boleslav", "Nymburk", "Praha-východ", "Praha-západ", "Příbram", "Rakovník"
+export const CITY_DISTRICTS = [
+  "Downtown", "Midtown", "Uptown", "East Side", "West Side", "North End", "South End", "Old Town", "New Town", "Financial District",
+  "Arts District", "Business District", "Historic District", "Waterfront", "Suburbs North", "Suburbs South", "Suburbs East", "Suburbs West", "City Center", "Metro Area",
+  "Greater Metro", "Urban Core", "Inner City", "Outer City", "Central", "Riverside", "Hillside", "Parkside", "Lakeside", "Heights"
 ] as const
 
 export const BUDGET_RANGES = [

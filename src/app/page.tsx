@@ -11,7 +11,7 @@ import { AnimatedBackground, FloatingShapes } from "@/components/ui/animated-bac
 import { HeroSearch } from "@/components/ui/hero-search"
 import { Skeleton } from "@/components/ui/skeleton"
 import { db } from "@/lib/db"
-import { VENUE_TYPES, PRAGUE_DISTRICTS, CAPACITY_RANGES } from "@/types"
+import { VENUE_TYPES, CITY_DISTRICTS, CAPACITY_RANGES } from "@/types"
 import { Search, Upload, MessageSquare, Euro, Users, MapPin, Calendar, ArrowRight, Zap, Clock } from "lucide-react"
 
 async function getFeaturedVenues() {
@@ -105,7 +105,7 @@ export default function HomePage() {
           
           <div className="animate-slide-up" style={{ animationDelay: '0.2s' }}>
             <p className="text-xl sm:text-2xl text-gray-700 mb-12 max-w-3xl mx-auto leading-relaxed font-light">
-              Discover thousands of unique venues in Prague for your events, celebrations and gatherings. 
+              Discover thousands of unique venues in your city for your events, celebrations and gatherings. 
               From intimate meetings to large conferences.
             </p>
           </div>

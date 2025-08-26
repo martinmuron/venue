@@ -3,7 +3,7 @@ import { VenueCard } from "@/components/venue/venue-card"
 import { VenueFilters } from "@/components/venue/venue-filters"
 import { Button } from "@/components/ui/button"
 import { db } from "@/lib/db"
-import { VENUE_TYPES, PRAGUE_DISTRICTS, CAPACITY_RANGES } from "@/types"
+import { VENUE_TYPES, CITY_DISTRICTS, CAPACITY_RANGES } from "@/types"
 
 interface SearchParams {
   q?: string
