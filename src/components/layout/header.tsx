@@ -66,8 +66,7 @@ export function Header() {
               </NavigationMenuItem>
               <NavigationMenuItem>
                 <NavigationMenuLink asChild>
-                  <Link href="/add-venue" className="text-sm font-medium text-black hover:text-gray-600 transition-colors px-3 py-2 rounded-md bg-gray-50 hover:bg-gray-100">
-                    <Plus className="h-4 w-4 inline mr-1" />
+                  <Link href="/add-venue" className="text-sm font-medium text-white hover:text-blue-50 transition-colors px-4 py-2 rounded-lg bg-blue-600 hover:bg-blue-700">
                     Add Venue
                   </Link>
                 </NavigationMenuLink>
@@ -169,10 +168,9 @@ export function Header() {
                   </Link>
                   <Link 
                     href="/add-venue" 
-                    className="text-base font-medium text-black hover:text-gray-700 bg-gray-100 hover:bg-gray-50 transition-colors px-4 py-3 rounded-xl flex items-center"
+                    className="text-base font-medium text-white hover:text-blue-50 bg-blue-600 hover:bg-blue-700 transition-colors px-4 py-3 rounded-xl"
                     onClick={closeMobileMenu}
                   >
-                    <Plus className="h-5 w-5 mr-2" />
                     Add Venue
                   </Link>
                   
