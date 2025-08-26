@@ -305,89 +305,207 @@ function generateEventRequests() {
 
 const blogPostsData = [
   {
-    title: "How to Choose the Perfect Venue for Your Corporate Event",
-    slug: "how-to-choose-perfect-venue-corporate-event",
-    content: `<h2>Essential Selection Criteria</h2>
-    <p>When choosing a venue for your corporate event, it's important to consider several key factors:</p>
+    title: "Ultimate Guide to Planning the Perfect Corporate Holiday Party",
+    slug: "ultimate-guide-corporate-holiday-party",
+    content: `<h2>Setting the Right Atmosphere</h2>
+    <p>Corporate holiday parties are more than just celebrations—they're opportunities to strengthen team bonds and show appreciation for your employees' hard work throughout the year.</p>
+    <h2>Venue Selection Tips</h2>
     <ul>
-    <li>Capacity and layout of the space</li>
-    <li>Technical equipment and facilities</li>
-    <li>Accessibility and parking</li>
-    <li>Catering options and restrictions</li>
+    <li>Choose a venue that reflects your company culture</li>
+    <li>Ensure adequate space for mingling and activities</li>
+    <li>Consider venues with built-in entertainment options</li>
+    <li>Look for flexible spaces that can accommodate different group sizes</li>
     </ul>
-    <h2>Tips for a Successful Event</h2>
-    <p>Don't forget important details like lighting, acoustics, and the overall atmosphere of the venue.</p>`,
-    excerpt: "A complete guide to selecting the ideal venue for your corporate event. Practical tips and recommendations.",
+    <h2>Essential Elements for Success</h2>
+    <p>Don't forget about catering preferences, accessibility, and creating memorable experiences that your team will talk about all year long.</p>`,
+    excerpt: "Everything you need to know about planning a corporate holiday party that your employees will love and remember.",
     published: true,
     status: "published",
-    tags: ["corporate events", "tips", "venue selection"]
+    tags: ["corporate events", "holiday parties", "team building"],
+    imageUrl: "https://images.unsplash.com/photo-1511578314322-379afb476865?w=800&h=400&fit=crop"
   },
   {
-    title: "Wedding Planning Trends for 2024",
-    slug: "wedding-planning-trends-2024",
-    content: `<h2>Latest Trends</h2>
-    <p>2024 brings exciting trends in wedding planning:</p>
-    <ul>
-    <li>Sustainable weddings</li>
-    <li>Intimate ceremonies</li>
-    <li>Outdoor venues</li>
-    <li>Local vendors and suppliers</li>
-    </ul>
-    <p>Couples are choosing venues that reflect their personality more than ever before.</p>`,
-    excerpt: "Discover the latest trends in wedding planning and find inspiration for your big day.",
+    title: "5 Stunning Wedding Venue Ideas That Will Take Your Breath Away",
+    slug: "stunning-wedding-venue-ideas",
+    content: `<h2>Beyond Traditional Wedding Venues</h2>
+    <p>Your wedding day deserves a venue as unique as your love story. Here are five breathtaking venue types that will create unforgettable memories.</p>
+    <h2>Historic Mansions & Estates</h2>
+    <p>Step into elegance with grand ballrooms, ornate architecture, and sprawling gardens that provide the perfect backdrop for both intimate ceremonies and grand receptions.</p>
+    <h2>Waterfront & Beach Locations</h2>
+    <p>Exchange vows with the sound of waves as your soundtrack. Waterfront venues offer natural beauty and romantic sunsets that no decoration can match.</p>
+    <h2>Urban Rooftop Gardens</h2>
+    <p>City skylines create dramatic backdrops while rooftop gardens provide intimacy and charm in the heart of the urban landscape.</p>`,
+    excerpt: "Discover five unique wedding venue types that will make your special day absolutely unforgettable.",
     published: true,
     status: "published",
-    tags: ["weddings", "trends", "planning"]
+    tags: ["wedding", "venues", "inspiration"],
+    imageUrl: "https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=800&h=400&fit=crop"
   },
   {
-    title: "Conference Organization: A Practical Guide",
-    slug: "conference-organization-practical-guide",
-    content: `<h2>Conference Preparation</h2>
-    <p>A successful conference requires careful planning and proper venue selection.</p>
-    <h3>Key Steps:</h3>
-    <ol>
-    <li>Define goals and target audience</li>
-    <li>Select appropriate date and time</li>
-    <li>Book venue with suitable facilities</li>
-    <li>Organize catering and break services</li>
-    </ol>`,
-    excerpt: "Complete guide for organizing successful conferences from start to finish.",
+    title: "How to Host an Epic Birthday Celebration Your Guests Will Never Forget",
+    slug: "epic-birthday-celebration-guide",
+    content: `<h2>Making Birthdays Special at Any Age</h2>
+    <p>Whether you're planning a milestone birthday or just want to make someone feel extra special, the right venue and planning can turn any birthday into an epic celebration.</p>
+    <h2>Venue Ideas by Age Group</h2>
+    <ul>
+    <li><strong>Kids (5-12):</strong> Interactive venues with activities, outdoor spaces for games</li>
+    <li><strong>Teens (13-17):</strong> Trendy spaces with photo opportunities, music-friendly venues</li>
+    <li><strong>Adults (18+):</strong> Restaurants with private dining, rooftop bars, unique experiences</li>
+    <li><strong>Milestone Birthdays:</strong> Elegant ballrooms, historic venues, destination locations</li>
+    </ul>
+    <h2>Personal Touches That Matter</h2>
+    <p>Custom decorations, favorite foods, and meaningful activities transform any space into a personal celebration that reflects the birthday person's personality.</p>`,
+    excerpt: "Create unforgettable birthday memories with the perfect venue and thoughtful planning tips for any age.",
     published: true,
     status: "published",
-    tags: ["conferences", "organization", "business"]
+    tags: ["birthday parties", "celebration", "party planning"],
+    imageUrl: "https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=800&h=400&fit=crop"
+  },
+  {
+    title: "Small Wedding, Big Impact: Intimate Venue Ideas for 50 Guests or Less",
+    slug: "small-wedding-intimate-venues",
+    content: `<h2>The Beauty of Intimate Weddings</h2>
+    <p>Intimate weddings are more than a trend—they're a return to what matters most: celebrating your love with the people who matter most to you.</p>
+    <h2>Perfect Intimate Venue Types</h2>
+    <ul>
+    <li>Private dining rooms in restaurants</li>
+    <li>Boutique hotels with cozy spaces</li>
+    <li>Art galleries and small museums</li>
+    <li>Garden spaces and conservatories</li>
+    <li>Historic homes and bed & breakfasts</li>
+    </ul>
+    <h2>Maximizing Your Budget</h2>
+    <p>With fewer guests, you can invest in higher-quality elements like premium catering, luxury flowers, and personalized details that make every guest feel special.</p>
+    <h2>Creating Meaningful Moments</h2>
+    <p>Intimate venues allow for personal interactions, heartfelt toasts, and the kind of meaningful connections that larger weddings sometimes miss.</p>`,
+    excerpt: "Discover why intimate weddings are perfect and find the ideal small venue for your special day.",
+    published: true,
+    status: "published",
+    tags: ["small weddings", "intimate venues", "wedding planning"],
+    imageUrl: "https://images.unsplash.com/photo-1606216794074-735e91aa2c92?w=800&h=400&fit=crop"
+  },
+  {
+    title: "Company Anniversary Celebrations: Making Your Business Milestones Memorable",
+    slug: "company-anniversary-celebrations",
+    content: `<h2>Celebrating Business Success</h2>
+    <p>Company anniversaries are perfect opportunities to celebrate achievements, honor employees, and strengthen relationships with clients and partners.</p>
+    <h2>Venue Selection for Different Anniversary Types</h2>
+    <ul>
+    <li><strong>5-10 Years:</strong> Casual venues that reflect growth and potential</li>
+    <li><strong>10-25 Years:</strong> Professional spaces that showcase stability and success</li>
+    <li><strong>25+ Years:</strong> Prestigious venues that honor legacy and achievement</li>
+    </ul>
+    <h2>Essential Elements for Success</h2>
+    <p>Include company history displays, employee recognition segments, and networking opportunities. Consider venues with flexible spaces for presentations and socializing.</p>
+    <h2>Memorable Touches</h2>
+    <p>Timeline displays, founder stories, and future vision presentations create emotional connections and inspire continued loyalty from employees and partners.</p>`,
+    excerpt: "Learn how to plan meaningful company anniversary celebrations that honor your business journey and inspire future success.",
+    published: true,
+    status: "published",
+    tags: ["corporate events", "anniversaries", "business celebrations"],
+    imageUrl: "https://images.unsplash.com/photo-1515187029135-18ee286d815b?w=800&h=400&fit=crop"
+  },
+  {
+    title: "Sweet 16 to Sweet 60: Age-Appropriate Birthday Venue Ideas",
+    slug: "age-appropriate-birthday-venues",
+    content: `<h2>Tailoring Celebrations to Life Stages</h2>
+    <p>Every age deserves a celebration that feels just right. Here's how to choose venues that match the birthday person's stage of life and interests.</p>
+    <h2>Teen Celebrations (13-19)</h2>
+    <p>Look for venues with Instagram-worthy backdrops, music-friendly policies, and space for activities like dancing, games, or themed experiences.</p>
+    <h2>Young Adult Parties (20-35)</h2>
+    <p>Consider trendy restaurants, rooftop bars, escape rooms, or venues that offer unique experiences like cooking classes or wine tastings.</p>
+    <h2>Milestone Birthdays (40, 50, 60+)</h2>
+    <p>Elegant spaces like private dining rooms, country clubs, or historic venues provide the sophistication that milestone birthdays deserve.</p>
+    <h2>Multi-Generational Considerations</h2>
+    <p>When multiple generations will attend, choose venues with varied seating options, accessible facilities, and flexible entertainment possibilities.</p>`,
+    excerpt: "Find the perfect birthday venue for any age with ideas that match different life stages and preferences.",
+    published: true,
+    status: "published",
+    tags: ["birthday parties", "age-appropriate", "milestone celebrations"],
+    imageUrl: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=400&fit=crop"
+  },
+  {
+    title: "Wedding Reception Venues: Indoor vs Outdoor - Making the Right Choice",
+    slug: "indoor-vs-outdoor-wedding-venues",
+    content: `<h2>The Great Venue Debate</h2>
+    <p>Choosing between indoor and outdoor wedding reception venues is one of the biggest decisions couples face. Each option offers unique advantages and considerations.</p>
+    <h2>Indoor Reception Advantages</h2>
+    <ul>
+    <li>Weather protection and climate control</li>
+    <li>Built-in lighting and electrical systems</li>
+    <li>Established vendor relationships</li>
+    <li>Year-round availability</li>
+    <li>Predictable logistics and setup</li>
+    </ul>
+    <h2>Outdoor Reception Magic</h2>
+    <ul>
+    <li>Natural beauty and stunning backdrops</li>
+    <li>Unique photo opportunities</li>
+    <li>More space and flexibility</li>
+    <li>Often more budget-friendly</li>
+    <li>Connection with nature</li>
+    </ul>
+    <h2>Hybrid Solutions</h2>
+    <p>Consider venues that offer both options or covered outdoor spaces that provide the best of both worlds.</p>`,
+    excerpt: "Explore the pros and cons of indoor versus outdoor wedding reception venues to make the perfect choice for your big day.",
+    published: true,
+    status: "published",
+    tags: ["wedding venues", "indoor vs outdoor", "reception planning"],
+    imageUrl: "https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=800&h=400&fit=crop"
+  },
+  {
+    title: "Corporate Team Building Events: Venues That Bring Teams Together",
+    slug: "corporate-team-building-venues",
+    content: `<h2>Beyond the Conference Room</h2>
+    <p>Effective team building requires venues that inspire collaboration, creativity, and connection. The right space can transform your team dynamics.</p>
+    <h2>Activity-Based Venues</h2>
+    <ul>
+    <li>Escape rooms for problem-solving challenges</li>
+    <li>Cooking schools for collaborative experiences</li>
+    <li>Adventure parks for outdoor team challenges</li>
+    <li>Art studios for creative team projects</li>
+    </ul>
+    <h2>Retreat-Style Locations</h2>
+    <p>Consider venues away from the office environment—mountain lodges, lakeside resorts, or countryside venues that remove daily distractions.</p>
+    <h2>Urban Alternatives</h2>
+    <p>Museums, galleries, and unique city venues offer inspiring environments without requiring travel, making them perfect for shorter team-building sessions.</p>
+    <h2>Measuring Success</h2>
+    <p>The best team-building venues provide flexibility for both structured activities and informal networking opportunities.</p>`,
+    excerpt: "Discover venue types that facilitate effective team building and create stronger workplace relationships.",
+    published: true,
+    status: "published",
+    tags: ["corporate events", "team building", "workplace culture"],
+    imageUrl: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&h=400&fit=crop"
+  },
+  {
+    title: "Graduation Party Planning: Celebrating Academic Achievements in Style",
+    slug: "graduation-party-planning-guide",
+    content: `<h2>Honoring Academic Milestones</h2>
+    <p>Graduation parties celebrate years of hard work and mark the beginning of new adventures. The right venue sets the tone for this important transition.</p>
+    <h2>High School Graduation Venues</h2>
+    <ul>
+    <li>Community centers for large friend groups</li>
+    <li>Restaurants with private rooms for family celebrations</li>
+    <li>Parks and outdoor pavilions for casual gatherings</li>
+    <li>Country clubs for more formal celebrations</li>
+    </ul>
+    <h2>College Graduation Considerations</h2>
+    <p>College graduations often involve out-of-town family members, so consider venues near hotels or those that offer accommodation packages.</p>
+    <h2>Advanced Degree Celebrations</h2>
+    <p>Graduate degrees deserve sophisticated venues—private dining rooms, wine bars, or elegant event spaces that reflect professional achievement.</p>
+    <h2>Multi-Graduate Celebrations</h2>
+    <p>When celebrating multiple graduates, choose venues with flexible spaces that can accommodate different group sizes and celebration styles.</p>`,
+    excerpt: "Plan the perfect graduation celebration with venue ideas for every educational milestone and budget.",
+    published: true,
+    status: "published",
+    tags: ["graduation parties", "academic celebrations", "milestone events"],
+    imageUrl: "https://images.unsplash.com/photo-1523050854058-8df90110c9d1?w=800&h=400&fit=crop"
   }
 ]
 
 // Generate more blog posts
 function generateBlogPosts() {
-  const posts = [...blogPostsData]
-  
-  const topics = [
-    "Tips for Hosting the Perfect Party",
-    "How to Organize a Networking Event",
-    "Choosing the Right Catering for Your Event",
-    "Venue Decoration Ideas for Different Occasions",
-    "Essential AV Equipment for Events",
-    "How to Negotiate the Best Venue Price",
-    "Seasonal Events and Their Unique Requirements"
-  ]
-  
-  for (let i = posts.length; i < 10; i++) {
-    const topic = topics[i - posts.length] || `Event Planning Guide - Part ${i}`
-    const slug = topic.toLowerCase().replace(/[^a-z0-9\s-]/g, '').replace(/\s+/g, '-')
-    
-    posts.push({
-      title: topic,
-      slug: `${slug}-${i}`,
-      content: `<h2>Introduction</h2><p>In this article, we'll explore ${topic.toLowerCase()}.</p><h2>Key Points</h2><p>Practical tips and recommendations for your next event.</p>`,
-      excerpt: `Practical advice and tips regarding ${topic.toLowerCase()}.`,
-      published: true,
-      status: "published",
-      tags: ["events", "tips", "planning"]
-    })
-  }
-  
-  return posts
+  return blogPostsData
 }
 
 async function main() {

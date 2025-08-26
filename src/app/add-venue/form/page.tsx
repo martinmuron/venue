@@ -25,7 +25,8 @@ import {
   Plus,
   Minus,
   CheckCircle,
-  AlertCircle
+  AlertCircle,
+  Building
 } from "lucide-react"
 
 const venueFormSchema = z.object({
@@ -48,6 +49,9 @@ const venueFormSchema = z.object({
   contactPhone: z.string().optional(),
   websiteUrl: z.string().optional(),
   videoUrl: z.string().optional(),
+  googleMapsUrl: z.string().optional(),
+  services: z.array(z.string()).default([]),
+  categories: z.array(z.string()).default([]),
 })
 
 type VenueFormData = z.infer<typeof venueFormSchema>
@@ -70,6 +74,40 @@ const AMENITIES_OPTIONS = [
   "Kitchen"
 ]
 
+const SERVICES_OPTIONS = [
+  "Event Planning",
+  "Catering Service",
+  "Photography",
+  "Audio/Visual Support",
+  "Security Service",
+  "Cleaning Service",
+  "Decoration Setup",
+  "Equipment Rental",
+  "Staff Support",
+  "Valet Parking",
+  "Transportation",
+  "Floral Arrangements"
+]
+
+const CATEGORY_OPTIONS = [
+  "Wedding Venue",
+  "Corporate Events",
+  "Private Parties",
+  "Conference Center",
+  "Restaurant",
+  "Hotel Banquet Hall",
+  "Outdoor Venue",
+  "Art Gallery",
+  "Museum",
+  "Historic Building",
+  "Rooftop Venue",
+  "Beach Venue",
+  "Garden Venue",
+  "Warehouse",
+  "Loft Space",
+  "Community Center"
+]
+
 function isValidYouTubeUrl(url: string): boolean {
   if (!url) return true // Optional field
   const patterns = [
@@ -86,6 +124,8 @@ export default function AddVenuePage() {
   const [images, setImages] = useState<File[]>([])
   const [imageUrls, setImageUrls] = useState<string[]>([])
   const [amenities, setAmenities] = useState<string[]>([])
+  const [services, setServices] = useState<string[]>([])
+  const [categories, setCategories] = useState<string[]>([])
 
   const {
     register,
@@ -146,6 +186,22 @@ export default function AddVenuePage() {
       prev.includes(amenity) 
         ? prev.filter(a => a !== amenity)
         : [...prev, amenity]
+    )
+  }
+
+  const toggleService = (service: string) => {
+    setServices(prev => 
+      prev.includes(service) 
+        ? prev.filter(s => s !== service)
+        : [...prev, service]
+    )
+  }
+
+  const toggleCategory = (category: string) => {
+    setCategories(prev => 
+      prev.includes(category) 
+        ? prev.filter(c => c !== category)
+        : [...prev, category]
     )
   }
 
@@ -216,7 +272,10 @@ export default function AddVenuePage() {
         contactPhone: data.contactPhone,
         websiteUrl: data.websiteUrl,
         videoUrl: data.videoUrl,
+        googleMapsUrl: data.googleMapsUrl,
         amenities,
+        services,
+        categories,
         images: uploadedImageUrls,
       }
 
@@ -405,6 +464,55 @@ export default function AddVenuePage() {
                   </SelectContent>
                 </Select>
               </div>
+
+              <div>
+                <label className="block text-sm sm:text-callout font-medium text-black mb-2">
+                  Google Maps Link
+                </label>
+                <Input
+                  {...register("googleMapsUrl")}
+                  placeholder="https://maps.google.com/..."
+                  className="h-11 sm:h-12"
+                />
+                <p className="text-xs sm:text-caption text-gray-500 mt-1">
+                  Add a Google Maps link to help visitors find your venue easily
+                </p>
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Categories */}
+          <Card>
+            <CardHeader className="pb-4 sm:pb-6">
+              <CardTitle className="flex items-center gap-2 text-lg sm:text-xl">
+                <Palette className="h-5 w-5 flex-shrink-0" />
+                Categories
+              </CardTitle>
+            </CardHeader>
+            <CardContent className="pt-0">
+              <p className="text-sm sm:text-body text-gray-600 mb-4">
+                Select the categories that best describe your venue:
+              </p>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2 sm:gap-3">
+                {CATEGORY_OPTIONS.map((category) => (
+                  <label
+                    key={category}
+                    className={`flex items-center gap-2 p-3 sm:p-3 rounded-lg border cursor-pointer transition-colors min-h-[44px] sm:min-h-[48px] ${
+                      categories.includes(category)
+                        ? "border-black bg-gray-50"
+                        : "border-gray-200 hover:border-gray-300 active:border-gray-400"
+                    }`}
+                  >
+                    <input
+                      type="checkbox"
+                      checked={categories.includes(category)}
+                      onChange={() => toggleCategory(category)}
+                      className="sr-only"
+                    />
+                    <span className="text-sm sm:text-callout leading-tight">{category}</span>
+                  </label>
+                ))}
+              </div>
             </CardContent>
           </Card>
 
@@ -500,12 +608,12 @@ export default function AddVenuePage() {
             <CardHeader className="pb-4 sm:pb-6">
               <CardTitle className="flex items-center gap-2 text-lg sm:text-xl">
                 <Palette className="h-5 w-5 flex-shrink-0" />
-                Amenities and services
+                Amenities
               </CardTitle>
             </CardHeader>
             <CardContent className="pt-0">
               <p className="text-sm sm:text-body text-gray-600 mb-4">
-                Select the amenities and services your space offers:
+                Select the amenities your venue offers:
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2 sm:gap-3">
                 {AMENITIES_OPTIONS.map((amenity) => (
@@ -524,6 +632,41 @@ export default function AddVenuePage() {
                       className="sr-only"
                     />
                     <span className="text-sm sm:text-callout leading-tight">{amenity}</span>
+                  </label>
+                ))}
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Services */}
+          <Card>
+            <CardHeader className="pb-4 sm:pb-6">
+              <CardTitle className="flex items-center gap-2 text-lg sm:text-xl">
+                <Building className="h-5 w-5 flex-shrink-0" />
+                Services
+              </CardTitle>
+            </CardHeader>
+            <CardContent className="pt-0">
+              <p className="text-sm sm:text-body text-gray-600 mb-4">
+                Select the services you provide:
+              </p>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2 sm:gap-3">
+                {SERVICES_OPTIONS.map((service) => (
+                  <label
+                    key={service}
+                    className={`flex items-center gap-2 p-3 sm:p-3 rounded-lg border cursor-pointer transition-colors min-h-[44px] sm:min-h-[48px] ${
+                      services.includes(service)
+                        ? "border-black bg-gray-50"
+                        : "border-gray-200 hover:border-gray-300 active:border-gray-400"
+                    }`}
+                  >
+                    <input
+                      type="checkbox"
+                      checked={services.includes(service)}
+                      onChange={() => toggleService(service)}
+                      className="sr-only"
+                    />
+                    <span className="text-sm sm:text-callout leading-tight">{service}</span>
                   </label>
                 ))}
               </div>

@@ -33,15 +33,18 @@ export async function POST(request: Request) {
           price_data: {
             currency: "usd",
             product_data: {
-              name: "Venue Listing Fee",
-              description: `List your venue "${venueName}" on VenueFusion`,
+              name: "Monthly Venue Listing",
+              description: `Monthly subscription for venue "${venueName}" on VenueFusion`,
             },
-            unit_amount: 9900, // $99.00 in cents
+            unit_amount: 4999, // $49.99 in cents
+            recurring: {
+              interval: "month",
+            },
           },
           quantity: 1,
         },
       ],
-      mode: "payment",
+      mode: "subscription",
       customer_email: userEmail,
       metadata: {
         venue_name: venueName,

@@ -171,7 +171,7 @@ function AddVenueContent() {
           <CardHeader>
             <CardTitle className="flex items-center gap-2 text-lg sm:text-xl">
               <CreditCard className="h-5 w-5 flex-shrink-0" />
-              Get Started - $99 One-Time Fee
+              Get Started - $49.99/month
             </CardTitle>
           </CardHeader>
           <CardContent>
@@ -181,10 +181,10 @@ function AddVenueContent() {
                   <CheckCircle className="h-5 w-5 text-blue-600 flex-shrink-0 mt-0.5" />
                   <div>
                     <p className="text-sm text-blue-800">
-                      <strong>One-time payment of $99</strong> - No monthly fees, no commissions
+                      <strong>Monthly subscription of $49.99</strong> - Professional venue listing with full features
                     </p>
                     <p className="text-sm text-blue-700 mt-1">
-                      After payment, you'll complete your venue details and photos. 
+                      After subscribing, you'll complete your venue details and photos. 
                       Our team will review and approve your listing within 24-48 hours.
                     </p>
                   </div>
@@ -240,7 +240,7 @@ function AddVenueContent() {
                   ) : (
                     <div className="flex items-center gap-2">
                       <CreditCard className="h-5 w-5" />
-                      Pay $99 & Continue
+                      Subscribe $49.99/month & Continue
                     </div>
                   )}
                 </Button>
@@ -270,7 +270,7 @@ function AddVenueContent() {
                 <div>
                   <h3 className="font-medium text-black">Pay & Get Started</h3>
                   <p className="text-sm text-gray-600">
-                    Secure one-time payment of $99 to activate your listing
+                    Monthly subscription of $49.99 to activate your listing
                   </p>
                 </div>
               </div>
