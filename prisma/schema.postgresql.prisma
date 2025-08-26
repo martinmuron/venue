@@ -90,6 +90,9 @@ model Venue {
   priceMin         Int?
   priceMax         Int?
   amenities        String[]            @default([])
+  services         String[]            @default([])
+  categories       String[]            @default([])
+  googleMapsUrl    String?
   status           String              @default("draft")
   managerId        String?
   createdAt        DateTime            @default(now())
