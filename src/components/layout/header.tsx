@@ -64,6 +64,14 @@ export function Header() {
                   </Link>
                 </NavigationMenuLink>
               </NavigationMenuItem>
+              <NavigationMenuItem>
+                <NavigationMenuLink asChild>
+                  <Link href="/add-venue" className="text-sm font-medium text-black hover:text-gray-600 transition-colors px-3 py-2 rounded-md bg-gray-50 hover:bg-gray-100">
+                    <Plus className="h-4 w-4 inline mr-1" />
+                    Add Venue
+                  </Link>
+                </NavigationMenuLink>
+              </NavigationMenuItem>
             </NavigationMenuList>
           </NavigationMenu>
 
@@ -73,12 +81,6 @@ export function Header() {
               <Skeleton className="w-8 h-8 rounded-full" />
             ) : session ? (
               <div className="flex items-center space-x-2">
-                <Link href="/add-venue">
-                  <Button size="sm" className="bg-black text-white hover:bg-gray-800 rounded-full px-4">
-                    <Plus className="h-4 w-4 mr-1" />
-                    Add Venue
-                  </Button>
-                </Link>
                 <DropdownMenu>
                   <DropdownMenuTrigger asChild>
                     <Button variant="ghost" size="sm" className="rounded-full p-2">
@@ -114,13 +116,6 @@ export function Header() {
 
           {/* Mobile Menu */}
           <div className="flex items-center space-x-2 md:hidden">
-            {session && (
-              <Link href="/add-venue">
-                <Button size="sm" className="bg-black text-white hover:bg-gray-800 rounded-full p-2">
-                  <Plus className="h-4 w-4" />
-                </Button>
-              </Link>
-            )}
             <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
               <SheetTrigger asChild>
                 <Button variant="ghost" size="sm" className="rounded-full p-2">
@@ -172,6 +167,14 @@ export function Header() {
                   >
                     Contact
                   </Link>
+                  <Link 
+                    href="/add-venue" 
+                    className="text-base font-medium text-black hover:text-gray-700 bg-gray-100 hover:bg-gray-50 transition-colors px-4 py-3 rounded-xl flex items-center"
+                    onClick={closeMobileMenu}
+                  >
+                    <Plus className="h-5 w-5 mr-2" />
+                    Add Venue
+                  </Link>
                   
                   {/* Mobile Auth */}
                   <div className="pt-6 mt-6 border-t border-gray-100 space-y-3">
@@ -183,12 +186,6 @@ export function Header() {
                           <Button variant="ghost" size="lg" className="w-full justify-start rounded-xl hover:bg-gray-50">
                             <User className="h-5 w-5 mr-3" />
                             {session.user?.name || session.user?.email}
-                          </Button>
-                        </Link>
-                        <Link href="/add-venue" onClick={closeMobileMenu}>
-                          <Button size="lg" className="w-full bg-black text-white hover:bg-gray-800 rounded-xl">
-                            <Plus className="h-5 w-5 mr-2" />
-                            Add Venue
                           </Button>
                         </Link>
                         <Button 
@@ -214,12 +211,6 @@ export function Header() {
                         <Link href="/register" onClick={closeMobileMenu}>
                           <Button size="lg" className="w-full bg-black text-white hover:bg-gray-800 rounded-xl">
                             Register
-                          </Button>
-                        </Link>
-                        <Link href="/add-venue" onClick={closeMobileMenu}>
-                          <Button variant="outline" size="lg" className="w-full rounded-xl border-gray-200 mt-2">
-                            <Plus className="h-5 w-5 mr-2" />
-                            Add Venue
                           </Button>
                         </Link>
                       </>
