@@ -35,13 +35,13 @@ async function main() {
     },
   })
 
-  // Create main admin user
+  // Create test admin user
   const mainAdmin = await prisma.user.upsert({
-    where: { email: 'mark.muron@gmail.com' },
+    where: { email: 'admin@test.com' },
     update: {},
     create: {
-      email: 'mark.muron@gmail.com',
-      name: 'Mark Muron',
+      email: 'admin@test.com',
+      name: 'Test Admin',
       password: hashedPassword,
       role: 'admin',
       company: 'VenuePlatform',
@@ -251,7 +251,7 @@ Galleries, lofts and other unique spaces for original wedding.`,
   console.log('✅ Test users created:')
   console.log('- Test User (user@user.com) - Role: user')
   console.log('- Location Manager (manager@user.com) - Role: venue_manager')
-  console.log('- Main Admin (mark.muron@gmail.com) - Role: admin')
+  console.log('- Test Admin (admin@test.com) - Role: admin')
   console.log('✅ Sample venues created for location manager')
   console.log('✅ Sample blog posts created')
 }
