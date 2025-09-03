@@ -99,17 +99,17 @@ async function getVenues(searchParams: SearchParams) {
 
 function VenueGridSkeleton() {
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
-      {Array.from({ length: 9 }).map((_, i) => (
-        <div key={i} className="bg-white border border-gray-200 rounded-2xl overflow-hidden">
-          <div className="aspect-[4/3] bg-gray-200 animate-pulse" />
-          <div className="p-4 sm:p-6">
-            <div className="h-5 sm:h-6 bg-gray-200 rounded animate-pulse mb-2" />
-            <div className="h-3 sm:h-4 bg-gray-200 rounded animate-pulse mb-3 w-3/4" />
-            <div className="h-3 sm:h-4 bg-gray-200 rounded animate-pulse mb-4 w-full" />
-            <div className="flex justify-between">
-              <div className="h-3 sm:h-4 bg-gray-200 rounded animate-pulse w-1/3" />
-              <div className="h-3 sm:h-4 bg-gray-200 rounded animate-pulse w-1/4" />
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 lg:gap-8">
+      {Array.from({ length: 12 }).map((_, i) => (
+        <div key={i} className="bg-white border border-gray-100 rounded-3xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300">
+          <div className="aspect-[4/3] bg-gradient-to-br from-gray-100 to-gray-200 animate-pulse" />
+          <div className="p-6">
+            <div className="h-6 bg-gray-200 rounded-lg animate-pulse mb-3" />
+            <div className="h-4 bg-gray-200 rounded animate-pulse mb-2 w-3/4" />
+            <div className="h-4 bg-gray-200 rounded animate-pulse mb-4 w-full" />
+            <div className="flex justify-between items-center pt-2">
+              <div className="h-4 bg-gray-200 rounded animate-pulse w-1/3" />
+              <div className="h-3 bg-gray-200 rounded animate-pulse w-1/4" />
             </div>
           </div>
         </div>
@@ -138,10 +138,23 @@ async function VenueGrid({ searchParams }: { searchParams: SearchParams }) {
   }
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
-      {venues.map((venue: any) => (
-        <VenueCard key={venue.id} venue={venue} />
-      ))}
+    <div>
+      <div className="flex justify-between items-center mb-8">
+        <p className="text-gray-600">
+          <span className="font-semibold">{venues.length}</span> venues found
+        </p>
+        <select className="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+          <option>Sort by: Newest</option>
+          <option>Sort by: Popular</option>
+          <option>Sort by: Price</option>
+        </select>
+      </div>
+      
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 lg:gap-8">
+        {venues.map((venue: any) => (
+          <VenueCard key={venue.id} venue={venue} />
+        ))}
+      </div>
     </div>
   )
 }
@@ -153,19 +166,26 @@ export default async function VenuesPage({
 }) {
   const resolvedSearchParams = await searchParams
   return (
-    <div className="min-h-screen bg-white">
-      {/* Header - No longer sticky */}
-      <div className="bg-white border-b border-black">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-8 sm:py-12">
+    <div className="min-h-screen bg-gray-50">
+      {/* Header */}
+      <div className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-12 sm:py-16">
           <div className="text-center mb-8">
-            <h1 className="text-xl sm:text-2xl lg:text-title-1 text-black mb-6 sm:mb-8 font-bold tracking-tight">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl text-white mb-4 font-bold tracking-tight">
               Event spaces in the city
             </h1>
+            <p className="text-lg sm:text-xl text-white max-w-2xl mx-auto opacity-90">
+              Find the perfect venue for your next event from our curated collection
+            </p>
           </div>
-          
-          {/* Search and Filters */}
+        </div>
+      </div>
+      
+      {/* Search and Filters - Moved outside blue section */}
+      <div className="bg-white border-b border-gray-200 shadow-sm">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-8">
           <div className="flex justify-center">
-            <div className="w-full max-w-5xl">
+            <div className="w-full max-w-6xl">
               <VenueFilters initialValues={resolvedSearchParams} />
             </div>
           </div>
@@ -173,7 +193,7 @@ export default async function VenuesPage({
       </div>
       
       {/* Venue Grid */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-8 sm:py-12">
+      <div className="max-w-8xl mx-auto px-4 sm:px-6 py-12 sm:py-16">
         <Suspense fallback={<VenueGridSkeleton />}>
           <VenueGrid searchParams={resolvedSearchParams} />
         </Suspense>

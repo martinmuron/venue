@@ -93,34 +93,37 @@ export default function HomePage() {
       <AnimatedBackground />
       
       {/* Hero Section */}
-      <section className="relative py-20 sm:py-28 lg:py-36 px-4 sm:px-6 bg-white">
+      <section className="relative py-24 sm:py-32 lg:py-40 px-4 sm:px-6 bg-gradient-to-br from-white via-blue-50/20 to-indigo-50/30">
         <FloatingShapes />
-        <div className="max-w-5xl mx-auto text-center relative z-20">
+        <div className="max-w-6xl mx-auto text-center relative z-20">
           <div className="animate-slide-up">
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-semibold text-gray-900 mb-8 tracking-tight leading-tight">
-              Find the perfect venue<br className="hidden sm:block" />
-              <span className="sm:hidden"> </span>for your event
+            <h1 className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-bold text-gray-900 mb-6 tracking-tight leading-[0.9]">
+              Find the perfect venue
+              <br className="hidden sm:block" />
+              <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
+                for your event
+              </span>
             </h1>
           </div>
           
           <div className="animate-slide-up" style={{ animationDelay: '0.2s' }}>
-            <p className="text-xl sm:text-2xl text-gray-700 mb-12 max-w-3xl mx-auto leading-relaxed font-light">
+            <p className="text-xl sm:text-2xl text-gray-600 mb-16 max-w-4xl mx-auto leading-relaxed font-light">
               Discover thousands of unique venues in your city for your events, celebrations and gatherings. 
               From intimate meetings to large conferences.
             </p>
           </div>
           
-          <div className="mb-12 animate-slide-up" style={{ animationDelay: '0.4s' }}>
+          <div className="mb-16 animate-slide-up" style={{ animationDelay: '0.4s' }}>
             <HeroSearch />
           </div>
           
-          <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-3xl mx-auto animate-slide-up" style={{ animationDelay: '0.6s' }}>
+          <div className="flex flex-col sm:flex-row gap-6 justify-center max-w-4xl mx-auto animate-slide-up" style={{ animationDelay: '0.6s' }}>
             <Link href="/venues" className="flex-1">
               <Button 
                 size="lg" 
-                className="magnetic-button hover-lift w-full px-6 py-3 text-base font-medium rounded-xl bg-blue-600 text-white hover:bg-blue-700 transition-all duration-200 shadow-lg"
+                className="magnetic-button hover-lift w-full px-8 py-4 text-lg font-semibold rounded-2xl bg-gradient-to-r from-blue-600 to-indigo-600 text-white hover:from-blue-700 hover:to-indigo-700 transition-all duration-300 shadow-xl hover:shadow-2xl transform hover:scale-105"
               >
-                <Search className="w-5 h-5 mr-2" />
+                <Search className="w-6 h-6 mr-3" />
                 Find venues
               </Button>
             </Link>
@@ -128,9 +131,9 @@ export default function HomePage() {
               <Button 
                 variant="outline" 
                 size="lg" 
-                className="magnetic-button hover-lift w-full px-6 py-3 text-base font-medium rounded-xl border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white transition-all duration-200"
+                className="magnetic-button hover-lift w-full px-8 py-4 text-lg font-semibold rounded-2xl border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
               >
-                <Upload className="w-5 h-5 mr-2" />
+                <Upload className="w-6 h-6 mr-3" />
                 Add venue
               </Button>
             </Link>

@@ -23,7 +23,13 @@ export async function GET() {
       }
     })
 
-    return NextResponse.json({ posts })
+    // Add placeholder images for posts without images using a reliable service
+    const postsWithImages = posts.map((post, index) => ({
+      ...post,
+      imageUrl: post.imageUrl || `https://picsum.photos/600/400?random=${index + 1}`
+    }))
+
+    return NextResponse.json({ posts: postsWithImages })
   } catch (error) {
     console.error("Error fetching blog posts:", error)
     return NextResponse.json({ error: "Failed to fetch blog posts" }, { status: 500 })
